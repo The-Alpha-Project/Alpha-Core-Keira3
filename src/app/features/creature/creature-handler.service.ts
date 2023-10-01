@@ -7,7 +7,7 @@ import { CREATURE_ONKLL_REPUTATION_TABLE } from '@keira-types/creature-onkill-re
 import { CREATURE_QUESTITEM_TABLE } from '@keira-types/creature-questitem.type';
 import { CREATURE_SPAWN_ADDON_TABLE } from '@keira-types/creature-spawn-addon.type';
 import { CREATURE_SPAWN_TABLE } from '@keira-types/creature-spawn.type';
-import { CREATURE_TEMPLATE_ADDON_TABLE } from '@keira-types/creature-template-addon.type';
+import { CREATURE_ADDON_TABLE } from '@keira-types/creature-template-addon.type';
 import { CREATURE_TEMPLATE_MOVEMENT_TABLE } from '@keira-types/creature-template-movement.type';
 import { CREATURE_TEMPLATE_RESISTANCE_TABLE } from '@keira-types/creature-template-resistance.type';
 import { CREATURE_TEMPLATE_SPELL_TABLE } from '@keira-types/creature-template-spell.type';
@@ -25,7 +25,7 @@ export class CreatureHandlerService extends HandlerService<CreatureTemplate> {
     return this.statusMap[CREATURE_TEMPLATE_TABLE];
   }
   get isCreatureTemplateAddonUnsaved(): boolean {
-    return this.statusMap[CREATURE_TEMPLATE_ADDON_TABLE];
+    return this.statusMap[CREATURE_ADDON_TABLE];
   }
   get isCreatureTemplateResistanceUnsaved(): boolean {
     return this.statusMap[CREATURE_TEMPLATE_RESISTANCE_TABLE];
@@ -72,7 +72,7 @@ export class CreatureHandlerService extends HandlerService<CreatureTemplate> {
 
   protected _statusMap = {
     [CREATURE_TEMPLATE_TABLE]: false,
-    [CREATURE_TEMPLATE_ADDON_TABLE]: false,
+    [CREATURE_ADDON_TABLE]: false,
     [CREATURE_TEMPLATE_RESISTANCE_TABLE]: false,
     [CREATURE_TEMPLATE_SPELL_TABLE]: false,
     [CREATURE_TEMPLATE_MOVEMENT_TABLE]: false,
@@ -89,7 +89,10 @@ export class CreatureHandlerService extends HandlerService<CreatureTemplate> {
   };
 
   /* istanbul ignore next */ // because of: https://github.com/gotwarlost/istanbul/issues/690
-  constructor(protected router: Router, protected saiCreatureHandler: SaiCreatureHandlerService) {
+  constructor(
+    protected router: Router,
+    protected saiCreatureHandler: SaiCreatureHandlerService,
+  ) {
     super('creature/creature-template', router);
   }
 
