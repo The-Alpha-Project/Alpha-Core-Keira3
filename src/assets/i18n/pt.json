@@ -190,6 +190,8 @@
       "DIFFICULTY_ENTRIES": "Difficulty Entries",
       "DAMAGE": "Damage",
       "BEHAVIOUR": "Behaviour",
+      "RESISTANCES": "Resistances",
+      "FLAGS": "Flags",
       "MODIFIERS": "Modifiers",
       "SPELLS": "Spells",
       "VEHICLE_ID_TOOLTIP": "Entry do veículo se a creature é/tem uma vehicle entry. Esse campo determina como o jogador aparece no veículo, como o veículo movimenta, e se a barra de ação de veículos é exibida ou não. Por exemplo, um vehicleID de 292 deixará o jogador invisível, vai impedir o veículo de se mover para direita/esquerda (mas poderá avançar/recuar), e mostrará os spells da barra de ação do veículo (que são definidos em spell1-8). Uma entry npc_spellclick_spells tem que ser criada para que isso funcione.",

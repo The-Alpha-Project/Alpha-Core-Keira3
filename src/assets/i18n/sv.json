@@ -191,6 +191,8 @@
       "DAMAGE": "Damage",
       "BEHAVIOUR": "Behaviour",
       "MODIFIERS": "Modifiers",
+      "RESISTANCES": "Resistances",
+      "FLAGS": "Flags",
       "SPELLS": "Spells",
       "VEHICLE_ID_TOOLTIP": "ID utav fordon om NPC är/har ett fordons ID. Detta fält avgör hur spelaren visas på fordonet, hur fordonet rör sig, och om fordonets Action Bar visas. Till exempel, ett vehicleID utav 292 vill göra spelaren osynlig, hindrar fordonet från att styra vänster/höger (men tillåter fram/bakåt), och kommer att visa fordonets Action Bar Spells (som definieras i spell1-8). En npc_spellclick_spells entry måste göras för denna NPC Entry för att det ska fungera.",
       "MODEL_ID_TOOLTIP": "En slumpmässing NPC model. Om du bara anger ett Modelid och resten blir lika med 0, Model du har ställt in kommer inte att väljas slumpmässigt. Från creature_model_info.modelid",

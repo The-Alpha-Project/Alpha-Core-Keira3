@@ -190,6 +190,8 @@
       "DIFFICULTY_ENTRIES": "副本难度",
       "DAMAGE": "伤害",
       "BEHAVIOUR": "行为",
+      "RESISTANCES": "Resistances",
+      "FLAGS": "Flags",
       "MODIFIERS": "修改器",
       "SPELLS": "技能",
       "VEHICLE_ID_TOOLTIP": "该字段决定玩家如何出现在载具上、载具如何移动以及是否显示载具控制栏。例如vehicleID为292将让玩家隐藏在载具中，防止载具载具在左右两边轰炸，还会显示载具的动作条（在spell 1-8中定义）。npc_spellclick_spells必须创建一个生物entry，否则将不能正常使用。",

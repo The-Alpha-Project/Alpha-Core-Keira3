@@ -190,6 +190,8 @@
       "DIFFICULTY_ENTRIES": "Entradas de Dificultad",
       "DAMAGE": "Daño",
       "BEHAVIOUR": "Comportamiento",
+      "RESISTANCES": "Resistances",
+      "FLAGS": "Flags",
       "MODIFIERS": "Modificadores",
       "SPELLS": "Hechizos",
       "VEHICLE_ID_TOOLTIP": "Entrada (ID) del vehículo en caso de que la criatura sea o posea una Entrada de vehículo. Este campo determinará el cómo aparece un jugador dentro del vehículo, cómo se mueve éste mismo vehículo y si es mostrada o no la barra de acción del vehículo en la pantalla. Por ejemplo, un vehicleID de valor 292 hará invisible al jugador, evitará que el vehículo gire a la izquierda o la derecha (pero permitirá avanzar o retroceder) y mostrará la barra de acción de hechizos del vehículo (los cuales están definidos en spell1-8). Se debe crear una Entrada (ID) en npc_spellclick_spells para que ésta en particular funcione.",

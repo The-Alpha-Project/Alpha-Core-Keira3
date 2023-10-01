@@ -190,6 +190,8 @@
       "DIFFICULTY_ENTRIES": "Difficulty Entries",
       "DAMAGE": "Damage",
       "BEHAVIOUR": "Behaviour",
+      "RESISTANCES": "Resistances",
+      "FLAGS": "Flags",
       "MODIFIERS": "Modifiers",
       "SPELLS": "Spells",
       "VEHICLE_ID_TOOLTIP": "Entry of vehicle if creature is/has a vehicle entry. This field determines how the player appears on the vehicle, how the vehicle moves, and whether or not the vehicle action bar is shown. For example, a vehicleID of 292 will make the player invisible, prevent the vehicle from strafing left/right (but will allow forwards/backwards), and will show the vehicle action bar spells (which are defined in spell1-8). An npc_spellclick_spells entry must be made for this creature entry in order for this to work.",
