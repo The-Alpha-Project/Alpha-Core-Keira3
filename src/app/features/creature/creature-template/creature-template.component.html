@@ -30,15 +30,6 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SUBNAME' | translate"></i>
             <input [formControlName]="'subname'" id="subname" class="form-control form-control-sm" />
           </div>
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="IconName">IconName</label>
-            <keira-single-value-selector-btn
-              [control]="editorService.form.controls.IconName"
-              [config]="{ options: CREATURE_ICON, name: 'IconName' }"
-              [modalClass]="'modal-xl'"
-            ></keira-single-value-selector-btn>
-            <input [formControlName]="'IconName'" id="IconName" class="form-control form-control-sm" />
-          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="level_min">level_min</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.MIN_MAX_LEVEL' | translate"></i>
@@ -68,16 +59,6 @@
             <label class="control-label" for="xp_multiplier">xp_multiplier</label>
             <input formControlName="xp_multiplier" id="xp_multiplier" type="number" class="form-control form-control-sm" />
           </div>
-
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="exp">exp</label>
-            <keira-single-value-selector-btn
-              [control]="editorService.form.controls.exp"
-              [config]="{ options: EXPANSION, name: 'exp' }"
-              [modalClass]="'modal-md'"
-            ></keira-single-value-selector-btn>
-            <input [formControlName]="'exp'" id="exp" type="number" class="form-control form-control-sm" />
-          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="faction">faction</label>
             <keira-faction-selector-btn
@@ -86,7 +67,6 @@
             ></keira-faction-selector-btn>
             <input [formControlName]="'faction'" id="faction" type="number" class="form-control form-control-sm" />
           </div>
-
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="rank">rank</label>
             <keira-single-value-selector-btn
@@ -115,7 +95,6 @@
             ></keira-single-value-selector-btn>
             <input [formControlName]="'type'" id="type" type="number" class="form-control form-control-sm" />
           </div>
-
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="regeneration">regeneration</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.REGEN_HEALTH' | translate"></i>
@@ -147,12 +126,6 @@
             ></keira-flags-selector-btn>
             <input [formControlName]="'school_immune_mask'" id="school_immune_mask" type="number" class="form-control form-control-sm" />
           </div>
-
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="VehicleId">VehicleId</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.VEHICLE_ID_TOOLTIP' | translate"></i>
-            <input [formControlName]="'VehicleId'" id="VehicleId" type="number" class="form-control form-control-sm" />
-          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="racial_leader">racial_leader</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.RACIAL_LEADER' | translate"></i>
@@ -207,14 +180,6 @@
             ></keira-flags-selector-btn>
             <input [formControlName]="'unit_flags'" id="unit_flags" type="number" class="form-control form-control-sm" />
           </div>
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="unit_flags2">unit_flags2</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.unit_flags2"
-              [config]="{ flags: UNIT_FLAGS_2, name: 'unit_flags2' }"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'unit_flags2'" id="unit_flags2" type="number" class="form-control form-control-sm" />
-          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="dynamic_flags">dynamic_flags</label>
             <keira-flags-selector-btn
@@ -236,17 +201,6 @@
 
       <div class="content-block">
         <div class="row">
-          <!-- <div class="col-12 col-xl-4">
-            <span class="category-title" [translate]="'CREATURE.TEMPLATE.KILL_CREDITS'"></span>
-            <div class="row">
-              <div *ngFor="let i of [1, 2]" class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
-                <label class="control-label" for="KillCredit{{ i }}">KillCredit{{ i }}</label>
-                <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.KILL_CREDITS_DESC' | translate"></i>
-                <input [formControlName]="'KillCredit' + i" id="KillCredit{{ i }}" type="number" class="form-control form-control-sm" />
-              </div>
-            </div>
-          </div> -->
-
           <div class="col-12 col-xl-8">
             <span class="category-title">
               {{ 'CREATURE.TEMPLATE.MODELS' | translate }}
@@ -350,7 +304,7 @@
                 />
               </div>
               <div class="form-group col-12 col-sm-6 col-md-4">
-                <label class="control-label" for="skinning_loot_id">skinning</label>
+                <label class="control-label" for="skinning_loot_id">skinning_loot_id</label>
                 <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SKINLOOT' | translate"></i>
                 <input [formControlName]="'skinning_loot_id'" id="skinning_loot_id" type="number" class="form-control form-control-sm" />
               </div>
@@ -371,54 +325,6 @@
               </div>
             </div>
           </div>
-          <!-- 
-          <div class="col-12 col-xl-6">
-            <span class="category-title" [translate]="'CREATURE.TEMPLATE.DIFFICULTY_ENTRIES'"></span>
-            <div class="row">
-              <div class="form-group col-12 col-sm-6 col-md-4">
-                <label class="control-label" for="difficulty_entry_1">difficulty_entry_1</label>
-                <keira-creature-selector-btn
-                  [control]="editorService.form.controls.difficulty_entry_1"
-                  [config]="{ name: 'difficulty_entry_1' }"
-                ></keira-creature-selector-btn>
-                <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.DIFFICULTY_ENTRY_1' | translate"></i>
-                <input
-                  [formControlName]="'difficulty_entry_1'"
-                  id="difficulty_entry_1"
-                  type="number"
-                  class="form-control form-control-sm"
-                />
-              </div>
-              <div class="form-group col-12 col-sm-6 col-md-4">
-                <label class="control-label" for="difficulty_entry_2">difficulty_entry_2</label>
-                <keira-creature-selector-btn
-                  [control]="editorService.form.controls.difficulty_entry_2"
-                  [config]="{ name: 'difficulty_entry_2' }"
-                ></keira-creature-selector-btn>
-                <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.DIFFICULTY_ENTRY_2' | translate"></i>
-                <input
-                  [formControlName]="'difficulty_entry_2'"
-                  id="difficulty_entry_2"
-                  type="number"
-                  class="form-control form-control-sm"
-                />
-              </div>
-              <div class="form-group col-12 col-sm-6 col-md-4">
-                <label class="control-label" for="difficulty_entry_3">difficulty_entry_3</label>
-                <keira-creature-selector-btn
-                  [control]="editorService.form.controls.difficulty_entry_3"
-                  [config]="{ name: 'difficulty_entry_3' }"
-                ></keira-creature-selector-btn>
-                <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.difficulty_entry_3' | translate"></i>
-                <input
-                  [formControlName]="'difficulty_entry_3'"
-                  id="difficulty_entry_3"
-                  type="number"
-                  class="form-control form-control-sm"
-                />
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
 
@@ -435,11 +341,6 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'TODO' | translate"></i>
             <input [formControlName]="'damage_variance'" id="damage_variance" type="number" class="form-control form-control-sm" />
           </div>
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
-            <label class="control-label" for="RangeVariance">RangeVariance</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'TODO' | translate"></i>
-            <input [formControlName]="'RangeVariance'" id="RangeVariance" type="number" class="form-control form-control-sm" />
-          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
             <label class="control-label" for="damage_school">damage_school</label>
             <keira-single-value-selector-btn
@@ -465,27 +366,27 @@
       <div class="content-block">
         <span class="category-title" [translate]="'CREATURE.TEMPLATE.RESISTANCES'"></span>
         <div class="row">
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="holy_res">holy_res</label>
             <input [formControlName]="'holy_res'" id="holy_res" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="fire_res">fire_res</label>
             <input [formControlName]="'fire_res'" id="fire_res" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="nature_res">holy_res</label>
             <input [formControlName]="'nature_res'" id="nature_res" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="frost_res">frost_res</label>
             <input [formControlName]="'frost_res'" id="frost_res" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="shadow_res">shadow_res</label>
             <input [formControlName]="'shadow_res'" id="shadow_res" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="arcane_res">arcane_res</label>
             <input [formControlName]="'arcane_res'" id="arcane_res" type="number" class="form-control form-control-sm" />
           </div>
@@ -495,28 +396,28 @@
       <div class="content-block">
         <span class="category-title" [translate]="'CREATURE.TEMPLATE.SPELLS'"></span>
         <div class="row">
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="spell_id1">spell_id1</label>
             <input [formControlName]="'spell_id1'" id="spell_id1" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="spell_id2">spell_id2</label>
             <input [formControlName]="'spell_id2'" id="spell_id2" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="spell_id3">spell_id3</label>
             <input [formControlName]="'spell_id3'" id="spell_id3" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="spell_id4">spell_id4</label>
             <input [formControlName]="'spell_id4'" id="spell_id4" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="spell_list_id">spell_list_id</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SPELL_DATA_ID' | translate"></i>
             <input [formControlName]="'spell_list_id'" id="spell_list_id" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6">
             <label class="control-label" for="pet_spell_list_id">pet_spell_list_id</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SPELL_DATA_ID' | translate"></i>
             <input [formControlName]="'pet_spell_list_id'" id="pet_spell_list_id" type="number" class="form-control form-control-sm" />
@@ -565,16 +466,6 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.CIVILIAN' | translate"></i>
             <input [formControlName]="'civilian'" id="civilian" type="number" class="form-control form-control-sm" />
           </div>
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="movementId">movementId</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.MOVEMENT_ID' | translate"></i>
-            <input [formControlName]="'movementId'" id="movementId" type="number" class="form-control form-control-sm" />
-          </div> -->
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="HoverHeight">HoverHeight</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.HOVER_HEIGHT' | translate"></i>
-            <input [formControlName]="'HoverHeight'" id="HoverHeight" type="number" class="form-control form-control-sm" />
-          </div> -->
         </div>
       </div>
 
@@ -596,16 +487,6 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SPEED_WALK' | translate"></i>
             <input [formControlName]="'speed_run'" id="speed_run" type="number" class="form-control form-control-sm" />
           </div>
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="speed_run">speed_swim</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SPEED_SWIM' | translate"></i>
-            <input [formControlName]="'speed_swim'" id="speed_swim" type="number" class="form-control form-control-sm" />
-          </div> -->
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="speed_run">speed_flight</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SPEED_FLIGHT' | translate"></i>
-            <input [formControlName]="'speed_flight'" id="speed_flight" type="number" class="form-control form-control-sm" />
-          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="detection_range">detection_range</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.DETECTION_RANGE' | translate"></i>
@@ -623,28 +504,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="content-block">
-      <span class="category-title">
-        {{'CREATURE.TEMPLATE.SPELLS' | translate }} <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.SPELLS_TOOLTIP' | translate"></i>
-      </span>
-        <div class="row">
-
-          <div
-            *ngFor="let i of [1,2,3,4,5,6,7,8]"
-            class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"
-          >
-            <label class="control-label" for="spell{{ i }}">spell{{ i }}</label>
-            <keira-spell-selector-btn
-              [control]="editorService.form.controls['spell' + i]"
-              [config]="{ name: 'spell' + i }"
-              [modalClass]="'modal-lg'"
-            ></keira-spell-selector-btn>
-            <input [formControlName]="'spell' + i" id="spell{{ i }}" type="number" class="form-control form-control-sm">
-          </div>
-
-        </div>
-      </div> -->
     </form>
 
     <div class="preview-container" [ngClass]="showItemPreview ? 'show-preview' : 'hide-preview'">

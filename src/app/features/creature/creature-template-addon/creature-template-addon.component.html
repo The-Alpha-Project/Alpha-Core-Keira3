@@ -16,41 +16,61 @@
       <div class="content-block">
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="entry">guid</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.GUID' | translate"></i>
+            <label class="control-label" for="entry">entry</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.ENTRY' | translate"></i>
             <input [formControlName]="'entry'" id="entry" type="number" class="form-control form-control-sm" />
           </div>
-          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="display_id">display_id</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.DISPLAY_ID' | translate"></i>
-            <input [formControlName]="'display_id'" id="display_id" type="number" class="form-control form-control-sm" />
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <label class="control-label" for="path_id">path_id</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.PATH_ID' | translate"></i>
+            <input [formControlName]="'path_id'" id="path_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="mount_display_id">mount_display_id</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.MOUNT_DISPLAY_ID' | translate"></i>
-            <input [formControlName]="'mount_display_id'" id="mount_display_id" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="mount">mount</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.MOUNT' | translate"></i>
+            <input [formControlName]="'mount'" id="mount" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="equipment_id">equipment_id</label>
-            <input [formControlName]="'equipment_id'" id="equipment_id" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="stand_state">stand_state</label>
-            <input [formControlName]="'stand_state'" id="stand_state" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="sheath_state">sheath_state</label>
-            <input [formControlName]="'sheath_state'" id="sheath_state" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="emote_state">emote_state</label>
+            <label class="control-label" for="bytes1">bytes1</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.emote_state"
+              [control]="editorService.form.controls.bytes1"
+              [config]="{ options: CREATURE_ADDON_BYTES_1, name: 'bytes1' }"
+              [modalClass]="'modal-xl'"
+            ></keira-single-value-selector-btn>
+            <input [formControlName]="'bytes1'" id="bytes1" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <label class="control-label" for="bytes2">bytes2</label>
+            <keira-single-value-selector-btn
+              [control]="editorService.form.controls.bytes2"
+              [config]="{ options: CREATURE_ADDON_BYTES_2, name: 'bytes2' }"
+              [modalClass]="'modal-lg'"
+            ></keira-single-value-selector-btn>
+            <input [formControlName]="'bytes2'" id="bytes2" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <label class="control-label" for="emote">emote</label>
+            <keira-single-value-selector-btn
+              [control]="editorService.form.controls.emote"
               [config]="{ options: EMOTE, name: 'emote' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'emote_state'" id="emote_state" type="number" class="form-control form-control-sm" />
-          </div> -->
+            <input [formControlName]="'emote'" id="emote" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <label class="control-label" for="visibilityDistanceType">visibilityDistanceType</label>
+            <i
+              class="fas fa-info-circle ms-1"
+              placement="auto"
+              [tooltip]="'CREATURE.TEMPLATE_ADDON.VISIBILITY_DISTANCE_TYPE' | translate"
+            ></i>
+            <input
+              [formControlName]="'visibilityDistanceType'"
+              id="visibilityDistanceType"
+              type="number"
+              class="form-control form-control-sm"
+            />
+          </div>
           <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
             <label class="control-label" for="auras">auras</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE_ADDON.AURAS' | translate"></i>
