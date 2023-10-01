@@ -1,15 +1,15 @@
 import { TableRow } from './general';
 
-export const CREATURE_TEMPLATE_ADDON_TABLE = 'creature_template_addon';
-export const CREATURE_TEMPLATE_ADDON_ID = 'entry';
+export const CREATURE_ADDON_TABLE = 'creature_addon';
+export const CREATURE_ADDON_ID = 'entry';
 
-export class CreatureTemplateAddon extends TableRow {
-  entry: number = 0;
-  path_id: number = 0;
-  mount: number = 0;
-  bytes1: number = 0;
-  bytes2: number = 0;
-  emote: number = 0;
-  visibilityDistanceType: number = 0;
-  auras: string = '';
+export class CreatureAddon extends TableRow {
+  guid: number = 0;
+  display_id: number = 0;
+  mount_display_id: number = 0;
+  equipment_id: number = 0;
+  stand_state: number = 0;
+  sheath_state: number = 0;
+  emote_state: number = 0;
+  auras: string = '[NULL]';
 }
