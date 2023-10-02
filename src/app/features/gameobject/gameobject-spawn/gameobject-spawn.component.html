@@ -16,92 +16,86 @@
       <form [formGroup]="editorService.form" class="form-group edit-form">
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="guid">guid</label>
-            <input [formControlName]="'guid'" id="guid" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_id">spawn_id</label>
+            <input [formControlName]="'spawn_id'" id="spawn_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="map">map</label>
-            <keira-map-selector-btn [config]="{ name: 'map' }" [control]="editorService.form.controls.map"></keira-map-selector-btn>
-            <input [formControlName]="'map'" id="map" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_map">spawn_map</label>
+            <keira-map-selector-btn
+              [config]="{ name: 'spawn_map' }"
+              [control]="editorService.form.controls.spawn_map"
+            ></keira-map-selector-btn>
+            <input [formControlName]="'spawn_map'" id="spawn_map" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="zoneId">zoneId</label>
-            <input [formControlName]="'zoneId'" id="zoneId" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_positionX">spawn_positionX</label>
+            <input [formControlName]="'spawn_positionX'" id="spawn_positionX" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="areaId">areaId</label>
-            <keira-area-selector-btn [config]="{ name: 'areaId' }" [control]="editorService.form.controls.areaId"></keira-area-selector-btn>
-            <input [formControlName]="'areaId'" id="areaId" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_positionY">spawn_positionY</label>
+            <input [formControlName]="'spawn_positionY'" id="spawn_positionY" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="spawnMask">spawnMask</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.spawnMask"
-              [config]="{ flags: SPAWN_MASK, name: 'spawnMask' }"
-              [modalClass]="'modal-lg'"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'spawnMask'" id="spawnMask" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_positionZ">spawn_positionZ</label>
+            <input [formControlName]="'spawn_positionZ'" id="spawn_positionZ" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="phaseMask">phaseMask</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.phaseMask"
-              [config]="{ flags: PHASE_MASK, name: 'phaseMask' }"
-              [modalClass]="'modal-lg'"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'phaseMask'" id="phaseMask" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_orientation">spawn_orientation</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.spawn_orientation' | translate"></i>
+            <input [formControlName]="'spawn_orientation'" id="spawn_orientation" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="position_x">position_x</label>
-            <input [formControlName]="'position_x'" id="position_x" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_rotation0">spawn_rotation0</label>
+            <input [formControlName]="'spawn_rotation0'" id="spawn_rotation0" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="position_y">position_y</label>
-            <input [formControlName]="'position_y'" id="position_y" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_rotation1">spawn_rotation1</label>
+            <input [formControlName]="'spawn_rotation1'" id="spawn_rotation1" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="position_z">position_z</label>
-            <input [formControlName]="'position_z'" id="position_z" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_rotation2">spawn_rotation2</label>
+            <input [formControlName]="'spawn_rotation2'" id="spawn_rotation2" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="orientation">orientation</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.ORIENTATION' | translate"></i>
-            <input [formControlName]="'orientation'" id="orientation" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_rotation3">spawn_rotation3</label>
+            <input [formControlName]="'spawn_rotation3'" id="spawn_rotation3" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="rotation0">rotation0</label>
-            <input [formControlName]="'rotation0'" id="rotation0" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_spawntimemin">spawn_spawntimemin</label>
+            <input [formControlName]="'spawn_spawntimemin'" id="spawn_spawntimemin" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="rotation1">rotation1</label>
-            <input [formControlName]="'rotation1'" id="rotation1" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_spawntimemax">spawn_spawntimemax</label>
+            <input [formControlName]="'spawn_spawntimemax'" id="spawn_spawntimemax" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="rotation2">rotation2</label>
-            <input [formControlName]="'rotation2'" id="rotation2" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="rotation3">rotation3</label>
-            <input [formControlName]="'rotation3'" id="rotation3" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="spawntimesecs">spawntimesecs</label>
-            <input [formControlName]="'spawntimesecs'" id="spawntimesecs" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="animprogress">animprogress</label>
+            <label class="control-label" for="spawn_animprogress">spawn_animpr</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.ANIMPROGRESS' | translate"></i>
-            <input [formControlName]="'animprogress'" id="animprogress" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'spawn_animprogress'" id="spawn_animprogress" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="state">state</label>
+            <label class="control-label" for="spawn_state">spawn_state</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.STATE' | translate"></i>
-            <input [formControlName]="'state'" id="state" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'spawn_state'" id="spawn_state" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="ScriptName">ScriptName</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.SCRIPT_NAME' | translate"></i>
-            <input [formControlName]="'ScriptName'" id="ScriptName" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_flags">spawn_flags</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.FLAGS' | translate"></i>
+            <input [formControlName]="'spawn_flags'" id="spawn_flags" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="spawn_visibility_mod">spawn_vi_mod</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'GAMEOBJECT.SPAWN.VISILIBITY_MOD' | translate"></i>
+            <input
+              [formControlName]="'spawn_visibility_mod'"
+              id="spawn_visibility_mod"
+              type="number"
+              class="form-control form-control-sm"
+            />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="ignored">ignored</label>
+            <input [formControlName]="'ignored'" id="ignored" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="col-12 form-error" [hidden]="editorService.isFormIdUnique()">
@@ -132,24 +126,23 @@
                 <i [hidden]="!editorService.isRowSelected(row)" class="fas fa-chevron-right"></i>
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="guid" prop="guid" [minWidth]="80"></ngx-datatable-column>
-            <ngx-datatable-column name="M" prop="map" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="Z" prop="zoneId" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="A" prop="areaId" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="SM" prop="spawnMask" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="PM" prop="phaseMask" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="position_x" prop="position_x" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="position_y" prop="position_y" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="position_z" prop="position_z" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="orient." prop="orientation" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="rot.0" prop="rotation0" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="rot.1" prop="rotation1" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="rot.2" prop="rotation2" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="rot.3" prop="rotation3" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="Time" prop="spawntimesecs" [minWidth]="50"></ngx-datatable-column>
-            <ngx-datatable-column name="anim" prop="animprogress" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="state" prop="state" [minWidth]="90"></ngx-datatable-column>
-            <ngx-datatable-column name="ScriptName" prop="ScriptName" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_id" prop="spawn_id" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="M" prop="spawn_map" [minWidth]="42"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_positionX" prop="spawn_positionX" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_positionY" prop="spawn_positionY" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_positionZ" prop="spawn_positionZ" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="orient." prop="spawn_orientation" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="rot.0" prop="spawn_rotation0" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="rot.1" prop="spawn_rotation1" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="rot.2" prop="spawn_rotation2" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="rot.3" prop="spawn_rotation3" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="Time" prop="spawn_spawntimemin" [minWidth]="50"></ngx-datatable-column>
+            <ngx-datatable-column name="anim" prop="spawn_animprogress" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_state" prop="spawn_state" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_flags" prop="spawn_flags" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_flags" prop="spawn_visibility_mod" [minWidth]="90"></ngx-datatable-column>
+            <ngx-datatable-column name="script_name" prop="script_name" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="ignored" prop="ignored" [minWidth]="50"></ngx-datatable-column>
           </ngx-datatable>
         </div>
       </div>

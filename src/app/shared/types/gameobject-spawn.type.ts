@@ -1,28 +1,26 @@
 import { TableRow } from './general';
 
-export const GAMEOBJECT_SPAWN_TABLE = 'gameobject';
-export const GAMEOBJECT_SPAWN_ID = 'id';
-export const GAMEOBJECT_SPAWN_ID_2 = 'guid';
+export const GAMEOBJECT_SPAWN_TABLE = 'spawns_gameobjects';
+export const GAMEOBJECT_SPAWN_ID = 'spawn_entry';
+export const GAMEOBJECT_SPAWN_ID_2 = 'spawn_id';
 
 export class GameobjectSpawn extends TableRow {
-  guid: number = 0;
-  id: number = 0;
-  map: number = 0;
-  zoneId: number = 0;
-  areaId: number = 0;
-  spawnMask: number = 1;
-  phaseMask: number = 1;
-  position_x: number = 0;
-  position_y: number = 0;
-  position_z: number = 0;
-  orientation: number = 0;
-  rotation0: number = 0;
-  rotation1: number = 0;
-  rotation2: number = 0;
-  rotation3: number = 0;
-  spawntimesecs: number = 0;
-  animprogress: number = 0;
-  state: number = 0;
-  ScriptName: string = '';
-  VerifiedBuild: number = 0;
+  spawn_id: number = 0;
+  spawn_entry: number = 0;
+  spawn_map: number = 0;
+  spawn_positionX: number = 0;
+  spawn_positionY: number = 0;
+  spawn_positionZ: number = 0;
+  spawn_orientation: number = 0;
+  spawn_rotation0: number = 0;
+  spawn_rotation1: number = 0;
+  spawn_rotation2: number = 0;
+  spawn_rotation3: number = 0;
+  spawn_spawntimemin: number = 0;
+  spawn_spawntimemax: number = 0;
+  spawn_animprogress: number = 0;
+  spawn_state: number = 0;
+  spawn_flags: number = 0;
+  spawn_visibility_mod: number = 0;
+  ignored: number = 0;
 }
