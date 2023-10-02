@@ -7,59 +7,39 @@
     <form [formGroup]="editorService.form" class="form-group edit-form">
       <div class="row">
         <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="Item">
-            <keira-icon [itemId]="editorService.form.controls.Item.value"></keira-icon>
-            Item
+          <label class="control-label" for="item">
+            <keira-icon [itemId]="editorService.form.controls.item.value"></keira-icon>
+            item
           </label>
-          <keira-item-selector-btn [control]="editorService.form.controls.Item" [config]="{ name: 'Item' }"></keira-item-selector-btn>
-          <input [formControlName]="'Item'" id="Item" type="number" class="form-control form-control-sm" />
+          <keira-item-selector-btn [control]="editorService.form.controls.item" [config]="{ name: 'Item' }"></keira-item-selector-btn>
+          <input [formControlName]="'item'" id="item" type="number" class="form-control form-control-sm" />
         </div>
         <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="Reference">Reference</label>
+          <label class="control-label" for="mincountOrRef">mincountOrRef</label>
           <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.REFERENCE' | translate"></i>
-          <input [formControlName]="'Reference'" id="Reference" type="number" class="form-control form-control-sm" />
+          <input [formControlName]="'mincountOrRef'" id="mincountOrRef" type="number" class="form-control form-control-sm" />
         </div>
         <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="Chance">Chance</label>
+          <label class="control-label" for="ChanceOrQuestChance">ChanceOrQuestC</label>
           <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.CHANCE' | translate"></i>
 
-          <input [formControlName]="'Chance'" id="Chance" type="number" class="form-control form-control-sm" />
+          <input [formControlName]="'ChanceOrQuestChance'" id="ChanceOrQuestChance" type="number" class="form-control form-control-sm" />
         </div>
         <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="QuestRequired">QuestRequired</label>
-          <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.QUEST_REQUIRED' | translate"></i>
-          <input [formControlName]="'QuestRequired'" id="QuestRequired" type="number" class="form-control form-control-sm" />
-        </div>
-        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="LootMode">LootMode</label>
-          <keira-flags-selector-btn
-            [control]="editorService.form.controls.LootMode"
-            [config]="{ flags: LOOT_MODE, name: 'LootMode' }"
-            [modalClass]="'modal-lg'"
-          ></keira-flags-selector-btn>
-          <input [formControlName]="'LootMode'" id="LootMode" type="number" class="form-control form-control-sm" />
-        </div>
-        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="GroupId">GroupId</label>
+          <label class="control-label" for="groupid">groupid</label>
           <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.GROUP_ID' | translate"></i>
-          <input [formControlName]="'GroupId'" id="GroupId" type="number" class="form-control form-control-sm" />
+          <input [formControlName]="'groupid'" id="groupid" type="number" class="form-control form-control-sm" />
         </div>
         <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="MinCount">MinCount</label>
-          <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.MIN_COUNT' | translate"></i>
-          <input [formControlName]="'MinCount'" id="MinCount" type="number" class="form-control form-control-sm" />
-        </div>
-        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="MaxCount">MaxCount</label>
+          <label class="control-label" for="maxcount">maxcount</label>
           <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.MAX_COUNT' | translate"></i>
-          <input [formControlName]="'MaxCount'" id="MaxCount" type="number" class="form-control form-control-sm" />
+          <input [formControlName]="'maxcount'" id="maxcount" type="number" class="form-control form-control-sm" />
         </div>
         <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <label class="control-label" for="Comment">Comment</label>
-          <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.COMMENT' | translate"></i>
-          <input [formControlName]="'Comment'" id="Comment" class="form-control form-control-sm" />
+          <label class="control-label" for="condition_id">condition_id</label>
+          <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'LOOT_EDITOR.CONDITION_ID' | translate"></i>
+          <input [formControlName]="'condition_id'" id="condition_id" type="number" class="form-control form-control-sm" />
         </div>
-
         <div class="col-12 form-error" [hidden]="editorService.isFormIdUnique()">
           <i class="fas fa-exclamation-triangle"></i>
           <span [innerHTML]="'UNIQUE' | translate: { ENTITY_SECOND_ID_FIELD: editorService.entitySecondIdField }"></span>
@@ -90,39 +70,32 @@
           </ngx-datatable-column>
           <ngx-datatable-column [minWidth]="42" [maxWidth]="42" [sortable]="false">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <keira-icon *ngIf="!isReference(row)" [itemId]="row.Item"></keira-icon>
+              <keira-icon *ngIf="!isReference(row)" [itemId]="row.item"></keira-icon>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Item" prop="Item" [minWidth]="80"></ngx-datatable-column>
+          <ngx-datatable-column name="item" prop="item" [minWidth]="80"></ngx-datatable-column>
           <ngx-datatable-column name="Name" [minWidth]="200" [sortable]="false">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <span *ngIf="!isReference(row)">{{ editorService.queryService.getItemNameById(row.Item) | async }}</span>
-              <span *ngIf="isReference(row)" class="reference">REFERENCE</span>
+              <span>{{ editorService.queryService.getItemNameById(row.item) | async }}</span>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Reference" prop="Reference">
+          <ngx-datatable-column name="mincountOrRef" prop="mincountOrRef">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <span [ngClass]="{ reference: isReference(row) }">{{ row.Reference }}</span>
+              <span [ngClass]="{ reference: isReference(row) }">{{ row.mincountOrRef }}</span>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Chance" prop="Chance"></ngx-datatable-column>
-          <ngx-datatable-column name="QuestRequired" prop="QuestRequired"></ngx-datatable-column>
-          <ngx-datatable-column name="LootMode" prop="LootMode"></ngx-datatable-column>
-          <ngx-datatable-column name="GroupId" prop="GroupId">
+          <ngx-datatable-column name="ChanceOrQuestChance" prop="ChanceOrQuestChance"></ngx-datatable-column>
+          <ngx-datatable-column name="groupid" prop="groupid">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <span class="group-{{ row.GroupId }}">{{ row.GroupId }}</span>
+              <span class="group-{{ row.groupid }}">{{ row.groupid }}</span>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="MinCount" prop="MinCount">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-              <span *ngIf="!isReference(row)">{{ row.MinCount }}</span>
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="MaxCount" prop="MaxCount"></ngx-datatable-column>
+          <ngx-datatable-column name="maxcount" prop="maxcount"></ngx-datatable-column>
+          <ngx-datatable-column name="condition_id" prop="conditon_id" [minWidth]="80"></ngx-datatable-column>
         </ngx-datatable>
       </div>
     </div>
   </div>
 
-  <keira-reference-viewer *ngFor="let id of referenceIds" [referenceId]="id"></keira-reference-viewer>
+  <!-- <keira-reference-viewer *ngFor="let id of referenceIds" [referenceId]="id"></keira-reference-viewer> -->
 </ng-container>

@@ -141,15 +141,15 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.TEMPLATE.VENDORID' | translate"></i>
             <input [formControlName]="'vendor_id'" id="vendor_id" type="number" class="form-control form-control-sm" />
           </div>
-        </div>
-        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-          <label class="control-label" for="unit_class">unit_class</label>
-          <keira-single-value-selector-btn
-            [control]="editorService.form.controls.unit_class"
-            [config]="{ options: UNIT_CLASS, name: 'unit_class' }"
-            [modalClass]="'modal-lg'"
-          ></keira-single-value-selector-btn>
-          <input [formControlName]="'unit_class'" id="unit_class" type="number" class="form-control form-control-sm" />
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <label class="control-label" for="unit_class">unit_class</label>
+            <keira-single-value-selector-btn
+              [control]="editorService.form.controls.unit_class"
+              [config]="{ options: UNIT_CLASS, name: 'unit_class' }"
+              [modalClass]="'modal-lg'"
+            ></keira-single-value-selector-btn>
+            <input [formControlName]="'unit_class'" id="unit_class" type="number" class="form-control form-control-sm" />
+          </div>
         </div>
       </div>
 

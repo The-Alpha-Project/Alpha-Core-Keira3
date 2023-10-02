@@ -22,10 +22,10 @@ export class LootEditorComponent<T extends LootTemplate> {
   }
 
   get referenceIds(): number[] {
-    return this.editorService.newRows.filter((row) => row.Reference > 0).map((row) => row.Reference);
+    return this.editorService.newRows.filter((row) => row.mincountOrRef > 0).map((row) => row.mincountOrRef);
   }
 
   isReference(row): boolean {
-    return row.Reference !== 0;
+    return row.mincountOrRef !== 0;
   }
 }

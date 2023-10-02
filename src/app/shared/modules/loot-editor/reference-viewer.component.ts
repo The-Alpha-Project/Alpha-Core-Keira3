@@ -17,7 +17,10 @@ export class ReferenceViewerComponent extends SubscriptionHandler implements OnC
   referenceLootRows: ReferenceLootTemplate[];
   nestedReferenceIds: number[] = [];
 
-  constructor(public service: ReferenceViewerService, public queryService: MysqlQueryService) {
+  constructor(
+    public service: ReferenceViewerService,
+    public queryService: MysqlQueryService,
+  ) {
     super();
   }
 
@@ -30,13 +33,13 @@ export class ReferenceViewerComponent extends SubscriptionHandler implements OnC
         this.referenceLootRows = result;
 
         this.nestedReferenceIds = this.referenceLootRows
-          .filter((referenceLootRow) => referenceLootRow.Reference > 0)
-          .map((referenceLootRow) => referenceLootRow.Reference);
+          .filter((referenceLootRow) => referenceLootRow.mincountOrRef > 0)
+          .map((referenceLootRow) => referenceLootRow.mincountOrRef);
       }),
     );
   }
 
   isReference(row): boolean {
-    return row.Reference !== 0;
+    return row.mincountOrRef !== 0;
   }
 }

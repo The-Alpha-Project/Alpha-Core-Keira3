@@ -16,45 +16,13 @@
       <form [formGroup]="editorService.form" class="form-group edit-form">
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="guid">guid</label>
-            <input [formControlName]="'guid'" id="guid" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawn_id">spawn_id</label>
+            <input [formControlName]="'spawn_id'" id="spawn_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
             <label class="control-label" for="map">map</label>
             <keira-map-selector-btn [config]="{ name: 'map' }" [control]="editorService.form.controls.map"></keira-map-selector-btn>
             <input [formControlName]="'map'" id="map" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="zoneId">zoneId</label>
-            <input [formControlName]="'zoneId'" id="zoneId" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="areaId">areaId</label>
-            <keira-area-selector-btn [config]="{ name: 'areaId' }" [control]="editorService.form.controls.areaId"></keira-area-selector-btn>
-            <input [formControlName]="'areaId'" id="areaId" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="spawnMask">spawnMask</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.spawnMask"
-              [config]="{ flags: SPAWN_MASK, name: 'spawnMask' }"
-              [modalClass]="'modal-lg'"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'spawnMask'" id="spawnMask" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="phaseMask">phaseMask</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.phaseMask"
-              [config]="{ flags: PHASE_MASK, name: 'phaseMask' }"
-              [modalClass]="'modal-lg'"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'phaseMask'" id="phaseMask" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="equipment_id">equipment_id</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.SPAWN.EQUIPMENT_ID_TOOLTIP' | translate"></i>
-            <input [formControlName]="'equipment_id'" id="equipment_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
             <label class="control-label" for="position_x">position_x</label>
@@ -74,8 +42,12 @@
             <input [formControlName]="'orientation'" id="orientation" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="spawntimesecs">spawntimesecs</label>
-            <input [formControlName]="'spawntimesecs'" id="spawntimesecs" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="spawntimesecsmin">spawntimesecsmin</label>
+            <input [formControlName]="'spawntimesecsmin'" id="spawntimesecsmin" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="spawntimesecsmax">spawntimesecsmax</label>
+            <input [formControlName]="'spawntimesecsmax'" id="spawntimesecsmax" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
             <label class="control-label" for="wander_distance">wander_distance</label>
@@ -83,59 +55,39 @@
             <input [formControlName]="'wander_distance'" id="wander_distance" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="currentwaypoint">currentwaypoint</label>
-            <input [formControlName]="'currentwaypoint'" id="currentwaypoint" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="health_percent">health_percent</label>
+            <input [formControlName]="'health_percent'" id="health_percent" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="curhealth">curhealth</label>
-            <input [formControlName]="'curhealth'" id="curhealth" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="mana_percent">mana_percent</label>
+            <input [formControlName]="'mana_percent'" id="mana_percent" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="curmana">curmana</label>
-            <input [formControlName]="'curmana'" id="curmana" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="MovementType">MovementType</label>
+            <label class="control-label" for="movement_type">movement_type</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.MovementType"
-              [config]="{ options: MOVEMENT_TYPE, name: 'MovementType' }"
+              [control]="editorService.form.controls.movement_type"
+              [config]="{ options: MOVEMENT_TYPE, name: 'movement_type' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'MovementType'" id="MovementType" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'movement_type'" id="movement_type" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="npcflag">npcflag</label>
+            <label class="control-label" for="spawn_flags">spawn_flags</label>
             <keira-flags-selector-btn
-              [control]="editorService.form.controls.npcflag"
-              [config]="{ flags: NPC_FLAGS, name: 'npcflag' }"
+              [control]="editorService.form.controls.spawn_flags"
+              [config]="{ flags: NPC_FLAGS, name: 'spawn_flags' }"
             ></keira-flags-selector-btn>
-            <input [formControlName]="'npcflag'" id="npcflag" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'spawn_flags'" id="spawn_flags" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="unit_flags">unit_flags</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.unit_flags"
-              [config]="{ flags: UNIT_FLAGS, name: 'unit_flags' }"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'unit_flags'" id="unit_flags" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="dynamicflags">dynamicflags</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.dynamicflags"
-              [config]="{ flags: DYNAMIC_FLAGS, name: 'dynamicflags' }"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'dynamicflags'" id="dynamicflags" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="ScriptName">ScriptName</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.SPAWN.SCRIPT_NAME' | translate"></i>
-            <input [formControlName]="'ScriptName'" id="ScriptName" class="form-control form-control-sm" />
+            <label class="control-label" for="ignored">ignored</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.SPAWN.IGNORED' | translate"></i>
+            <input [formControlName]="'ignored'" id="ignored" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="col-12 form-error" [hidden]="editorService.isFormIdUnique()">
             <i class="fas fa-exclamation-triangle"></i>
-            <span [innerHTML]="'UNIQUE' | translate : { ENTITY_SECOND_ID_FIELD: editorService.entitySecondIdField }"></span>
+            <span [innerHTML]="'UNIQUE' | translate: { ENTITY_SECOND_ID_FIELD: editorService.entitySecondIdField }"></span>
           </div>
         </div>
       </form>
@@ -161,25 +113,17 @@
                 <i [hidden]="!editorService.isRowSelected(row)" class="fas fa-chevron-right"></i>
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="guid" prop="guid" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="spawn_id" prop="spawn_id" [minWidth]="80"></ngx-datatable-column>
             <ngx-datatable-column name="M" prop="map" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="Z" prop="zoneId" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="A" prop="areaId" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="SM" prop="spawnMask" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="PM" prop="phaseMask" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="Equip" prop="equipment_id" [minWidth]="42"></ngx-datatable-column>
             <ngx-datatable-column name="position_x" prop="position_x" [minWidth]="90"></ngx-datatable-column>
             <ngx-datatable-column name="position_y" prop="position_y" [minWidth]="90"></ngx-datatable-column>
             <ngx-datatable-column name="position_z" prop="position_z" [minWidth]="90"></ngx-datatable-column>
             <ngx-datatable-column name="orient." prop="orientation" [minWidth]="90"></ngx-datatable-column>
             <ngx-datatable-column name="Time" prop="spawntimesecs" [minWidth]="50"></ngx-datatable-column>
             <ngx-datatable-column name="Dist" prop="wander_distance" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="CW" prop="currentwaypoint" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="Movement" prop="MovementType" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="npcFlags" prop="npcflag" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="unitFlags" prop="unit_flags" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="dynFlags" prop="dynamicflags" [minWidth]="42"></ngx-datatable-column>
-            <ngx-datatable-column name="ScriptName" prop="ScriptName" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="Movement" prop="movement_type" [minWidth]="42"></ngx-datatable-column>
+            <ngx-datatable-column name="npcFlags" prop="spawn_flags" [minWidth]="42"></ngx-datatable-column>
+            <ngx-datatable-column name="ignored" prop="ignored" [minWidth]="80"></ngx-datatable-column>
           </ngx-datatable>
         </div>
       </div>

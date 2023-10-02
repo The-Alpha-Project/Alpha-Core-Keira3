@@ -16,37 +16,60 @@
       <form [formGroup]="editorService.form" class="form-group edit-form">
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="SpellID">SpellID</label>
+            <label class="control-label" for="template_entry">template_entry</label>
+            <input [formControlName]="'template_entry'" id="template_entry" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="spell">spell</label>
             <keira-spell-selector-btn
-              [control]="editorService.form.controls.SpellID"
+              [control]="editorService.form.controls.spell"
               [config]="{ name: 'SpellID' }"
               [modalClass]="'modal-lg'"
             ></keira-spell-selector-btn>
-            <input [formControlName]="'SpellID'" id="SpellID" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'spell'" id="spell" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="MoneyCost">MoneyCost</label>
+            <label class="control-label" for="playerspell">playerspell</label>
+            <keira-spell-selector-btn
+              [control]="editorService.form.controls.playerspell"
+              [config]="{ name: 'SpellID' }"
+              [modalClass]="'modal-lg'"
+            ></keira-spell-selector-btn>
+            <input [formControlName]="'playerspell'" id="playerspell" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="spellcost">spellcost</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.MONEY_COST' | translate"></i>
-            <input [formControlName]="'MoneyCost'" id="MoneyCost" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'spellcost'" id="spellcost" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="ReqSkillLine">ReqSkillLine</label>
+            <label class="control-label" for="talentpointcost">talentpointcost</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.TALENT_POINT_COST' | translate"></i>
+            <input [formControlName]="'talentpointcost'" id="talentpointcost" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="skillpointcost">skillpointcost</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.SKILL_POINT_COST' | translate"></i>
+            <input [formControlName]="'skillpointcost'" id="skillpointcost" type="number" class="form-control form-control-sm" />
+          </div>
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="reqskill">reqskill</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.REQ_SKILL_LINE' | translate"></i>
             <keira-skill-selector-btn
               [config]="{ name: 'ReqSkillLine' }"
-              [control]="editorService.form.controls.ReqSkillLine"
+              [control]="editorService.form.controls.reqskill"
             ></keira-skill-selector-btn>
-            <input [formControlName]="'ReqSkillLine'" id="ReqSkillLine" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'reqskill'" id="reqskill" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="ReqSkillRank">ReqSkillRank</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.REQ_SKILL_RANK' | translate"></i>
-            <input [formControlName]="'ReqSkillRank'" id="ReqSkillRank" type="number" class="form-control form-control-sm" />
+            <label class="control-label" for="reqskillvalue">reqskillvalue</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.REQ_SKILL_VALUE' | translate"></i>
+            <input [formControlName]="'reqskillvalue'" id="reqskillvalue" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="ReqLevel">ReqLevel</label>
+            <label class="control-label" for="reqlevel">reqlevel</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_TRAINER.REQ_LEVEL' | translate"></i>
-            <input [formControlName]="'ReqLevel'" id="ReqLevel" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'reqlevel'" id="reqlevel" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="col-12 form-error" [hidden]="editorService.isFormIdUnique()">
@@ -77,16 +100,18 @@
                 <i [hidden]="!editorService.isRowSelected(row)" class="fas fa-chevron-right"></i>
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="SpellID" prop="SpellID" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="spell" prop="spell" [minWidth]="80"></ngx-datatable-column>
             <ngx-datatable-column name="Name" [minWidth]="200">
               <ng-template let-row="row" ngx-datatable-cell-template>
-                {{ sqliteQueryService.getSpellNameById(row.SpellID) | async }}
+                {{ sqliteQueryService.getSpellNameById(row.spell) | async }}
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="MoneyCost" prop="MoneyCost"></ngx-datatable-column>
-            <ngx-datatable-column name="ReqSkillLine" prop="ReqSkillLine"></ngx-datatable-column>
-            <ngx-datatable-column name="ReqSkillRank" prop="ReqSkillRank"></ngx-datatable-column>
-            <ngx-datatable-column name="ReqLevel" prop="ReqLevel"></ngx-datatable-column>
+            <ngx-datatable-column name="spellcost" prop="spellcost"></ngx-datatable-column>
+            <ngx-datatable-column name="talentpointcost" prop="talentpointcost"></ngx-datatable-column>
+            <ngx-datatable-column name="skillpointcost" prop="skillpointcost"></ngx-datatable-column>
+            <ngx-datatable-column name="reqskill" prop="reqskill"></ngx-datatable-column>
+            <ngx-datatable-column name="reqskillvalue" prop="reqskillvalue"></ngx-datatable-column>
+            <ngx-datatable-column name="reqlevel" prop="reqlevel"></ngx-datatable-column>
           </ngx-datatable>
         </div>
       </div>

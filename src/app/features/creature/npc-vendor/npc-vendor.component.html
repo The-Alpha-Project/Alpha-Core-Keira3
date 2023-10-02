@@ -39,13 +39,13 @@
             <input [formControlName]="'incrtime'" id="incrtime" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="ExtendedCost">ExtendedCost</label>
+            <label class="control-label" for="itemflags">itemflags</label>
             <keira-item-extended-cost-selector-btn
-              [config]="{ name: 'ExtendedCost' }"
-              [control]="editorService.form.controls.ExtendedCost"
+              [config]="{ name: 'itemflags' }"
+              [control]="editorService.form.controls.itemflags"
             ></keira-item-extended-cost-selector-btn>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_VENDOR.EXTENDED_COST' | translate"></i>
-            <input [formControlName]="'ExtendedCost'" id="ExtendedCost" type="number" class="form-control form-control-sm" />
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'CREATURE.NPC_VENDOR.ITEMFLAGS' | translate"></i>
+            <input [formControlName]="'itemflags'" id="itemflags" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="col-12 form-error" [hidden]="editorService.isFormIdUnique()">
@@ -90,12 +90,7 @@
             <ngx-datatable-column name="slot" prop="slot"></ngx-datatable-column>
             <ngx-datatable-column name="maxcount" prop="maxcount"></ngx-datatable-column>
             <ngx-datatable-column name="incrtime" prop="incrtime"></ngx-datatable-column>
-            <ngx-datatable-column name="ExtendedCost" prop="ExtendedCost"></ngx-datatable-column>
-            <ngx-datatable-column name="ExtendedCostReadable">
-              <ng-template let-row="row" ngx-datatable-cell-template>
-                <div [innerHTML]="editorService.getItemExtendedCost(row.ExtendedCost) | async"></div>
-              </ng-template>
-            </ngx-datatable-column>
+            <ngx-datatable-column name="itemflags" prop="itemflags"></ngx-datatable-column>
           </ngx-datatable>
         </div>
       </div>

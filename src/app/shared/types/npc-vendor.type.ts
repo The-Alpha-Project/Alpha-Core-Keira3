@@ -10,6 +10,5 @@ export class NpcVendor extends TableRow {
   item: number = 0;
   maxcount: number = 0;
   incrtime: number = 0;
-  ExtendedCost: number = 0;
-  VerifiedBuild: number = 0;
+  itemflags: number = 0;
 }

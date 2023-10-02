@@ -1,13 +1,11 @@
 import { TableRow } from './general';
 
 export const CREATURE_EQUIP_TEMPLATE_TABLE = 'creature_equip_template';
-export const CREATURE_EQUIP_TEMPLATE_ID = 'CreatureID';
+export const CREATURE_EQUIP_TEMPLATE_ID = 'entry';
 
 export class CreatureEquipTemplate extends TableRow {
-  CreatureID: number = 0;
-  ID: number = 1;
-  ItemID1: number = 0;
-  ItemID2: number = 0;
-  ItemID3: number = 0;
-  VerifiedBuild: number = 0;
+  entry: number = 0;
+  equipentry1: number = 0;
+  equipentry2: number = 0;
+  equipentry3: number = 0;
 }

@@ -6,9 +6,9 @@ export const CREATURE_TEMPLATE_NAME = 'name';
 export const CREATURE_TEMPLATE_CUSTOM_STARTING_ID = 9_000_000;
 export const CREATURE_TEMPLATE_SEARCH_FIELDS = [CREATURE_TEMPLATE_ID, CREATURE_TEMPLATE_NAME, 'subname', 'ScriptName'];
 
-export const CREATURE_TEMPLATE_LOOT_ID = 'lootid';
-export const CREATURE_TEMPLATE_PICKPOCKETING_LOOT_ID = 'pickpocketloot';
-export const CREATURE_TEMPLATE_SKINNING_LOOT_ID = 'skinloot';
+export const CREATURE_TEMPLATE_LOOT_ID = 'loot_id';
+export const CREATURE_TEMPLATE_PICKPOCKETING_LOOT_ID = 'pickpocket_loot_id';
+export const CREATURE_TEMPLATE_SKINNING_LOOT_ID = 'skinning_loot_id';
 export class CreatureTemplate extends TableRow {
   entry: number = 0;
   display_id1: number = 0;

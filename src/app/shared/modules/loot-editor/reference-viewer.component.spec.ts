@@ -23,14 +23,12 @@ class TestHostComponent {
 }
 
 describe('ReferenceViewerComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [TestHostComponent, ReferenceViewerComponent],
-        imports: [TooltipModule.forRoot(), LootEditorModule],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [TestHostComponent, ReferenceViewerComponent],
+      imports: [TooltipModule.forRoot(), LootEditorModule],
+    }).compileComponents();
+  }));
 
   const setup = () => {
     const fixture = TestBed.createComponent(TestHostComponent);
@@ -46,8 +44,8 @@ describe('ReferenceViewerComponent', () => {
     const id = 1234;
     host.referenceId = id;
     const mockLootRows: LootTemplate[] = [new LootTemplate(), new LootTemplate(), new LootTemplate()];
-    mockLootRows[0].Reference = 111;
-    mockLootRows[1].Reference = 222;
+    mockLootRows[0].mincountOrRef = 111;
+    mockLootRows[1].mincountOrRef = 222;
     const getReferenceByIdSpy = spyOn(service, 'getReferenceById').and.returnValues(of(mockLootRows), of([]));
 
     fixture.detectChanges();

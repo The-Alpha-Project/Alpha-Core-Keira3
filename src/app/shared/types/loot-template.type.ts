@@ -1,17 +1,14 @@
 import { TableRow } from './general';
 
-export const LOOT_TEMPLATE_ID = 'Entry';
-export const LOOT_TEMPLATE_ID_2 = 'Item';
+export const LOOT_TEMPLATE_ID = 'entry';
+export const LOOT_TEMPLATE_ID_2 = 'item';
 
 export class LootTemplate extends TableRow {
-  Entry: number = 0;
-  Item: number = 0;
-  Reference: number = 0;
-  Chance: number = 100;
-  QuestRequired: number = 0;
-  LootMode: number = 1;
-  GroupId: number = 0;
-  MinCount: number = 1;
-  MaxCount: number = 1;
-  Comment: string = '';
+  entry: number = 0;
+  item: number = 0;
+  ChanceOrQuestChance: number = 0.02;
+  groupid: number = 0;
+  mincountOrRef: number = 1;
+  maxcount: number = 1;
+  condition_id: number = 1;
 }

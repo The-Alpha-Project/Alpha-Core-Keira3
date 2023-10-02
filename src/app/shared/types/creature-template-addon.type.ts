@@ -1,7 +1,7 @@
 import { TableRow } from './general';
 
 export const CREATURE_ADDON_TABLE = 'creature_addon';
-export const CREATURE_ADDON_ID = 'entry';
+export const CREATURE_ADDON_ID = 'guid';
 
 export class CreatureAddon extends TableRow {
   guid: number = 0;

@@ -46,8 +46,8 @@ describe('LootEditorComponent', () => {
   it('should correctly show the references', () => {
     const { page, fixture, editorService } = setup();
     const mockLootRows: LootTemplate[] = [new LootTemplate(), new LootTemplate(), new LootTemplate()];
-    mockLootRows[0].Reference = 111;
-    mockLootRows[1].Reference = 222;
+    mockLootRows[0].mincountOrRef = 111;
+    mockLootRows[1].mincountOrRef = 222;
     spyOnProperty(editorService, 'newRows').and.returnValue(mockLootRows);
 
     fixture.detectChanges();
