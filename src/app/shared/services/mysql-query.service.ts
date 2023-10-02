@@ -367,17 +367,13 @@ export class MysqlQueryService extends QueryService {
   }
 
   getPrevQuestById(id: string | number): Promise<string> {
-    return this.queryValueToPromiseCached(
-      'getPrevQuestById',
-      String(id),
-      `SELECT PrevQuestID AS v FROM quest_template_addon WHERE id = ${id}`,
-    );
+    return this.queryValueToPromiseCached('getPrevQuestById', String(id), `SELECT PrevQuestId AS v FROM quest_template WHERE id = ${id}`);
   }
 
   getNextQuestById(id: string | number, usingPrev = false): Promise<string> {
     return usingPrev
-      ? this.queryValueToPromiseCached('getNextQuest1', String(id), `SELECT id AS v FROM quest_template_addon WHERE PrevQuestID = ${id}`)
-      : this.queryValueToPromiseCached('getNextQuest2', String(id), `SELECT NextQuestID AS v FROM quest_template_addon WHERE id = ${id}`);
+      ? this.queryValueToPromiseCached('getNextQuest1', String(id), `SELECT id AS v FROM quest_template WHERE PrevQuestId = ${id}`)
+      : this.queryValueToPromiseCached('getNextQuest2', String(id), `SELECT id AS v FROM quest_template WHERE NextQuestId = ${id}`);
   }
 
   getItemByStartQuest(id: string | number): Promise<string> {

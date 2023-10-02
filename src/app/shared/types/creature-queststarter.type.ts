@@ -1,10 +1,10 @@
 import { TableRow } from './general';
 
-export const CREATURE_QUESTSTARTER_TABLE = 'creature_queststarter';
+export const CREATURE_QUESTSTARTER_TABLE = 'creature_quest_starter';
 export const CREATURE_QUESTSTARTER_ID = 'quest';
-export const CREATURE_QUESTSTARTER_ID_2 = 'id';
+export const CREATURE_QUESTSTARTER_ID_2 = 'entry';
 
 export class CreatureQueststarter extends TableRow {
-  id: number = 0;
+  entry: number = 0;
   quest: number = 0;
 }

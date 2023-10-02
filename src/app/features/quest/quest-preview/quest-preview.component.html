@@ -31,8 +31,8 @@
       <p id="requiredSkill" *ngIf="service.requiredSkill$ | async as skill">
         Profession:
         <keira-icon
-          *ngIf="!!service.ICON_SKILLS[service.questTemplateAddon.RequiredSkillID]"
-          [skillId]="service.questTemplateAddon.RequiredSkillID"
+          *ngIf="!!service.ICON_SKILLS[service.questTemplate.RequiredSkill]"
+          [skillId]="service.questTemplate.RequiredSkill"
           [size]="'small'"
         ></keira-icon>
         {{ skill }} {{ reqSkillPoint }}
@@ -47,30 +47,30 @@
       <div *ngIf="service.creatureQueststarterList.length > 0" id="npc-start">
         <p *ngFor="let q of service.creatureQueststarterList">
           <img [src]="'assets/img/quest/' + questStartIcon" id="creatureQuestStartIcon" /> NPC Start:
-          <strong class="colored">{{ service.mysqlQueryService.getCreatureNameById(q.id) | async }}</strong>
-          <span class="greyed"> [{{ q.id }}]</span>
+          <strong class="colored">{{ service.mysqlQueryService.getCreatureNameById(q.entry) | async }}</strong>
+          <span class="greyed"> [{{ q.entry }}]</span>
         </p>
       </div>
       <div *ngIf="service.gameobjectQueststarterList.length > 0" id="go-start">
         <p *ngFor="let q of service.gameobjectQueststarterList">
           <img [src]="'assets/img/quest/' + questStartIcon" id="gameobjectQuestStartIcon" /> GO Start:
-          <strong class="colored">{{ service.mysqlQueryService.getGameObjectNameById(q.id) | async }}</strong>
-          <span class="greyed"> [{{ q.id }}]</span>
+          <strong class="colored">{{ service.mysqlQueryService.getGameObjectNameById(q.entry) | async }}</strong>
+          <span class="greyed"> [{{ q.entry }}]</span>
         </p>
       </div>
       <!-- Quest ender -->
       <div *ngIf="service.creatureQuestenderList.length > 0" id="npc-end">
         <p *ngFor="let q of service.creatureQuestenderList">
           <img [src]="'assets/img/quest/' + questEndIcon" id="creatureQuestEndIcon" /> NPC End:
-          <strong class="colored">{{ service.mysqlQueryService.getCreatureNameById(q.id) | async }}</strong>
-          <span class="greyed"> [{{ q.id }}]</span>
+          <strong class="colored">{{ service.mysqlQueryService.getCreatureNameById(q.entry) | async }}</strong>
+          <span class="greyed"> [{{ q.entry }}]</span>
         </p>
       </div>
       <div *ngIf="service.gameobjectQuestenderList.length > 0" id="go-end">
         <p *ngFor="let q of service.gameobjectQuestenderList">
           <img [src]="'assets/img/quest/' + questEndIcon" id="gameobjectQuestEndIcon" /> GO End:
-          <strong class="colored">{{ service.mysqlQueryService.getGameObjectNameById(q.id) | async }}</strong>
-          <span class="greyed"> [{{ q.id }}]</span>
+          <strong class="colored">{{ service.mysqlQueryService.getGameObjectNameById(q.entry) | async }}</strong>
+          <span class="greyed"> [{{ q.entry }}]</span>
         </p>
       </div>
       <p *ngIf="service.isRepeatable()">Repeatable</p>
@@ -132,8 +132,8 @@
         </div>
 
         <div class="mt-2" id="itemObjectives">
-          <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6]">
-            <p *ngIf="service.questTemplate['RequiredItemId' + i]; let reqItem">
+          <ng-container *ngFor="let i of [1, 2, 3, 4]">
+            <p *ngIf="service.questTemplate['ReqItemId' + i]; let reqItem">
               • <keira-icon [size]="'small'" [itemId]="reqItem"></keira-icon> &nbsp;<span class="colored">{{
                 service.mysqlQueryService.getItemNameById(reqItem) | async
               }}</span>
