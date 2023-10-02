@@ -4,9 +4,7 @@
       <h5 id="title" *ngIf="!!service.title">{{ service.title }}</h5>
       <p id="unavailable" *ngIf="service.isUnavailable()" class="text-center font-weight-bold red">Unavailable</p>
       <p id="level" *ngIf="!!service.level">Level: {{ service.level }}</p>
-      <p id="minlevel" *ngIf="!!service.minLevel">
-        Req. level: {{ service.minLevel }} <span *ngIf="showMaxLevel">- {{ service.maxLevel }}</span>
-      </p>
+      <p id="minlevel" *ngIf="!!service.minLevel">Req. level: {{ service.minLevel }}</p>
       <p id="required-money" *ngIf="service.rewardMoney < 0">
         Req. money: <span [innerHTML]="helper.formatMoney(-service.rewardMoney)"></span>
       </p>
@@ -77,7 +75,6 @@
       </div>
       <p *ngIf="service.isRepeatable()">Repeatable</p>
       <p>{{ service.sharable }}</p>
-
       <p *ngIf="service.difficultyLevels; let difficulty">
         Difficulty:
         <span class="r0" *ngIf="!!difficulty.red"> {{ difficulty.red }} </span>
@@ -86,14 +83,12 @@
         <span class="r3" *ngIf="!!difficulty.green"> {{ difficulty.green }} </span>
         <span class="r4" *ngIf="!!difficulty.grey"> {{ difficulty.grey }} </span>
       </p>
-
       <p *ngIf="!!service.startItem" id="provided-item">
         Provided item:<br />
         <keira-icon [size]="'small'" [itemId]="service.startItem"></keira-icon>
         <strong class="colored"> {{ service.startItemName$ | async }}</strong>
         <span class="greyed"> [{{ service.startItem }}]</span>
       </p>
-
       <ng-container *ngIf="{ prev: service.prevQuestList$ | async, next: service.nextQuestList$ | async } as questLists">
         <ng-container *ngIf="questLists?.prev?.length > 0 || questLists?.next?.length > 0">
           <p class="title">Series</p>
@@ -127,10 +122,6 @@
         <div class="greyed text-sm">
           {{ service.objectiveText }}
         </div>
-        <p class="greyed text-sm mt-3" id="areaDescription" *ngIf="!!service.questTemplate.AreaDescription">
-          {{ service.questTemplate.AreaDescription }}
-        </p>
-
         <div class="mt-2" id="npcOrGoObjectives">
           <ng-container *ngFor="let i of [1, 2, 3, 4]">
             <p *ngIf="!!service.isNpcOrGoObj(i)">
@@ -150,36 +141,32 @@
             </p>
           </ng-container>
         </div>
-
-        <div class="mt-2" id="RequiredFaction">
-          <ng-container *ngFor="let i of [1, 2]">
-            <p *ngIf="service.questTemplate['RequiredFactionId' + i]; let reqFaction">
-              • <span class="colored">{{ service.sqliteQueryService.getFactionNameById(reqFaction) | async }}</span>
-              {{ service.getFactionByValue(i) }}
-            </p>
-          </ng-container>
-        </div>
       </div>
 
       <p class="title text-left cursor-pointer mt-3" (click)="descriptionToggle = !descriptionToggle" id="description-toggle">
-        <i class="fa" [ngClass]="getCollapseClass(descriptionToggle)"></i> Description
+        <i class="fa" [ngClass]="getCollapseClass(descriptionToggle)"></i> Details
       </p>
       <div [collapse]="descriptionToggle" class="greyed text-sm" id="description-text">
-        {{ service.questTemplate.QuestDescription }}
+        {{ service.questTemplate.Details }}
       </div>
 
       <p class="title text-left cursor-pointer" (click)="progressToggle = !progressToggle" id="progress-toggle">
-        <i class="fa" [ngClass]="getCollapseClass(progressToggle)"></i> Progress (CompletionText)
+        <i class="fa" [ngClass]="getCollapseClass(progressToggle)"></i> Request
       </p>
       <div [collapse]="progressToggle" class="greyed text-sm" id="progress-text">
-        {{ service.questRequestItems.CompletionText }}
+        {{ service.questTemplate.RequestItemsText }}
       </div>
-
+      <p class="title text-left cursor-pointer" (click)="offerRewardToggle = !offerRewardToggle" id="offer-reward-toggle">
+        <i class="fa" [ngClass]="getCollapseClass(offerRewardToggle)"></i> Offer Reward
+      </p>
+      <div [collapse]="offerRewardToggle" class="greyed text-sm" id="offer-reward-text">
+        {{ service.questTemplate.OfferRewardText }}
+      </div>
       <p class="title text-left cursor-pointer" (click)="completionToggle = !completionToggle" id="completion-toggle">
-        <i class="fa" [ngClass]="getCollapseClass(completionToggle)"></i> Completion (RewardText)
+        <i class="fa" [ngClass]="getCollapseClass(offerRewardToggle)"></i> End
       </p>
       <div [collapse]="completionToggle" class="greyed text-sm" id="completion-text">
-        {{ service.questOfferReward.RewardText }}
+        {{ service.questTemplate.EndText }}
       </div>
 
       <div id="rewards" *ngIf="service.isReward()">
@@ -192,7 +179,7 @@
 
         <!-- Reward Bonus Money -->
         <div *ngIf="service.isRewardBonusMoney()" class="mt-1" id="reward-bonus-money">
-          Level 80 bonus: <span [innerHTML]="helper.formatMoney(service.rewardBonusMoney)"></span>
+          <span [innerHTML]="helper.formatMoney(service.rewardBonusMoney)"></span>
         </div>
 
         <!-- Reward Spell -->
@@ -220,12 +207,12 @@
           <p>You will be able to choose one of these rewards:</p>
 
           <div *ngFor="let i of [1, 2, 3, 4]">
-            <p *ngIf="service.isFieldAvailable('RewardChoiceItemID', 'RewardChoiceItemQuantity', i)">
-              <keira-icon [size]="'small'" [itemId]="service.questTemplate['RewardChoiceItemID' + i]"></keira-icon>
+            <p *ngIf="service.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', i)">
+              <keira-icon [size]="'small'" [itemId]="service.questTemplate['RewChoiceItemId' + i]"></keira-icon>
               <span class="colored">
-                {{ service.mysqlQueryService.getItemNameById(service.questTemplate['RewardChoiceItemID' + i]) | async }}</span
+                {{ service.mysqlQueryService.getItemNameById(service.questTemplate['RewChoiceItemId' + i]) | async }}</span
               >
-              <span class="greyed"> [{{ service.questTemplate['RewardChoiceItemID' + i] }}]</span>
+              <span class="greyed"> [{{ service.questTemplate['RewChoiceItemId' + i] }}]</span>
             </p>
           </div>
         </div>
@@ -233,15 +220,15 @@
 
       <div id="gains" *ngIf="service.isGains()">
         <p class="title mt-3">Gains</p>
-        <p id="rewardXP" *ngIf="service.rewardXP$ | async as xp">• {{ xp }} experience</p>
-        <p id="rewardTalents" *ngIf="service.questTemplate.RewardTalents">• {{ service.questTemplate.RewardTalents }} talent points</p>
+        <p id="RewXP" *ngIf="service.rewXP as xp">• {{ xp }} experience</p>
+        <p id="rewardSpell" *ngIf="service.questTemplate.RewSpell">• Spell : {{ service.questTemplate.RewSpell }}</p>
 
         <div *ngIf="service.isRewardReputation()">
           <div id="rewardReputations" *ngFor="let i of [1, 2, 3, 4, 5]">
-            <div *ngIf="service.isFieldAvailable('RewardFactionID', 'RewardFactionValue', i)">
+            <div *ngIf="service.isFieldAvailable('RewRepFaction', 'RewRepFactionValue', i)">
               <p *ngIf="service.getRewardReputation(i, service.getRepReward$(i) | async); let repReward">
                 • {{ repReward }} reputation with
-                {{ service.sqliteQueryService.getFactionNameById(service.questTemplate['RewardFactionID' + i]) | async }}
+                {{ service.sqliteQueryService.getFactionNameById(service.questTemplate['RewRepFaction' + i]) | async }}
               </p>
             </div>
           </div>

@@ -8,11 +8,15 @@ import { QuestPreviewService } from './quest-preview.service';
   styleUrls: ['./quest-preview.component.scss'],
 })
 export class QuestPreviewComponent implements OnInit {
-  constructor(readonly service: QuestPreviewService, readonly helper: PreviewHelperService) {}
+  constructor(
+    readonly service: QuestPreviewService,
+    readonly helper: PreviewHelperService,
+  ) {}
 
   descriptionToggle = true;
   progressToggle = true;
   completionToggle = true;
+  offerRewardToggle = true;
 
   get showMaxLevel(): boolean {
     return !!this.service.maxLevel && this.service.maxLevel !== '0';

@@ -15,7 +15,10 @@ declare const squel: Squel & { flavour: null };
   providedIn: 'root',
 })
 export class MysqlQueryService extends QueryService {
-  constructor(private mysqlService: MysqlService, private configService: ConfigService) {
+  constructor(
+    private mysqlService: MysqlService,
+    private configService: ConfigService,
+  ) {
     super();
   }
 
@@ -360,7 +363,7 @@ export class MysqlQueryService extends QueryService {
   }
 
   getQuestTitleById(id: string | number): Promise<string> {
-    return this.queryValueToPromiseCached('getQuestTitleById', String(id), `SELECT LogTitle AS v FROM quest_template WHERE ID = ${id}`);
+    return this.queryValueToPromiseCached('getQuestTitleById', String(id), `SELECT Title AS v FROM quest_template WHERE entry = ${id}`);
   }
 
   getPrevQuestById(id: string | number): Promise<string> {
@@ -417,19 +420,19 @@ export class MysqlQueryService extends QueryService {
     requiredNpcOrGo4: string | number | null,
     requiredSpellCast1: string | number | null = null,
   ): Promise<string> {
-    const query = squel.select(squelConfig).fields({ LogTitle: 'v' }).from('quest_template');
+    const query = squel.select(squelConfig).fields({ Title: 'v' }).from('quest_template');
 
     if (!!requiredNpcOrGo1) {
-      query.where(`RequiredNpcOrGo1 = ${requiredNpcOrGo1}`);
+      query.where(`ReqCreatureOrGOId1 = ${requiredNpcOrGo1}`);
     }
     if (!!requiredNpcOrGo2) {
-      query.where(`RequiredNpcOrGo2 = ${requiredNpcOrGo2}`);
+      query.where(`ReqCreatureOrGOId2 = ${requiredNpcOrGo2}`);
     }
     if (!!requiredNpcOrGo3) {
-      query.where(`RequiredNpcOrGo3 = ${requiredNpcOrGo3}`);
+      query.where(`ReqCreatureOrGOId3 = ${requiredNpcOrGo3}`);
     }
     if (!!requiredNpcOrGo4) {
-      query.where(`RequiredNpcOrGo4 = ${requiredNpcOrGo4}`);
+      query.where(`ReqCreatureOrGOId4 = ${requiredNpcOrGo4}`);
     }
     if (!!requiredSpellCast1) {
       query.where(`RequiredSpellCast1 = ${requiredSpellCast1}`);

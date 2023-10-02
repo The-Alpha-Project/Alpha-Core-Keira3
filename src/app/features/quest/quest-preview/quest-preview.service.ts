@@ -91,10 +91,10 @@ export class QuestPreviewService {
 
   // get QuestTemplate values
   get id(): number {
-    return this.questTemplate.ID;
+    return this.questTemplate.entry;
   }
   get title(): string {
-    return this.questTemplate.LogTitle;
+    return this.questTemplate.Title;
   }
   get level(): string {
     return String(this.questTemplate.QuestLevel);
@@ -103,28 +103,28 @@ export class QuestPreviewService {
     return String(this.questTemplate.MinLevel);
   }
   get side(): string {
-    return this.helperService.getFactionFromRace(this.questTemplate.AllowableRaces);
+    return this.helperService.getFactionFromRace(this.questTemplate.RequiredRaces);
   }
   get races(): number[] {
-    return this.helperService.getRaceString(this.questTemplate.AllowableRaces);
+    return this.helperService.getRaceString(this.questTemplate.RequiredRaces);
   }
   get sharable(): string {
-    return this.questTemplate.Flags & QUEST_FLAG_SHARABLE ? 'Sharable' : 'Not sharable';
+    return this.questTemplate.QuestFlags & QUEST_FLAG_SHARABLE ? 'Sharable' : 'Not sharable';
   }
   get startItem(): number {
-    return this.questTemplate.StartItem;
+    return this.questTemplate.SrcItemId;
   }
   get startItemName$(): Promise<string> {
     return this.mysqlQueryService.getItemNameById(this.startItem);
   }
   get objectiveText(): string {
-    return this.questTemplate.LogDescription;
+    return this.questTemplate.Objectives;
   }
   get rewardMoney(): number {
-    return this.questTemplate.RewardMoney;
+    return this.questTemplate.RewOrReqMoney;
   }
   get rewardBonusMoney(): number {
-    return this.questTemplate.RewardBonusMoney;
+    return this.questTemplate.RewMailMoney;
   }
 
   // get QuestTemplateAddon values
@@ -132,15 +132,15 @@ export class QuestPreviewService {
     return String(this.questTemplateAddon.MaxLevel);
   }
   get classes(): number[] {
-    return this.helperService.getRequiredClass(this.questTemplateAddon.AllowableClasses);
+    return this.helperService.getRequiredClass(this.questTemplate.RequiredRaces);
   }
 
   // Item Quest Starter
   get questGivenByItem$(): Promise<string> {
-    return this.mysqlQueryService.getItemByStartQuest(this.questTemplate.ID);
+    return this.mysqlQueryService.getItemByStartQuest(this.questTemplate.entry);
   }
   get questStarterItem$(): Promise<string> {
-    return this.mysqlQueryService.getItemNameByStartQuest(this.questTemplate.ID);
+    return this.mysqlQueryService.getItemNameByStartQuest(this.questTemplate.entry);
   }
 
   // Quest Serie & relations
@@ -218,7 +218,7 @@ export class QuestPreviewService {
   }
 
   private getPeriodicQuest(): QUEST_PERIOD {
-    const flags = this.questTemplate.Flags;
+    const flags = this.questTemplate.QuestFlags;
     const specialFlags = this.questTemplateAddon.SpecialFlags;
 
     if (flags & QUEST_FLAG_DAILY) {
@@ -253,7 +253,7 @@ export class QuestPreviewService {
   }
 
   private getPrevQuestListCached(): Promise<Quest[]> {
-    const id = this.questTemplateAddon.PrevQuestID;
+    const id = this.questTemplate.PrevQuestId;
 
     if (!this.prevSerieCache[id]) {
       this.prevSerieCache[id] = this.getPrevQuestList(id);
@@ -297,10 +297,10 @@ export class QuestPreviewService {
   }
 
   private getNextQuestListCached(): Promise<Quest[]> {
-    const next = this.questTemplateAddon.NextQuestID;
+    const next = this.questTemplate.NextQuestId;
 
     if (!!next) {
-      // if a NextQuestID is specified, we calculate the chain using that
+      // if a NextQuestId is specified, we calculate the chain using that
 
       if (!this.nextSerieCache[next]) {
         this.nextSerieCache[next] = this.getNextQuestListUsingNext(next);
@@ -309,7 +309,7 @@ export class QuestPreviewService {
       return this.nextSerieCache[next];
     }
 
-    // otherwise, we calculate the chain using the PrevQuestID of the next
+    // otherwise, we calculate the chain using the PrevQuestId of the next
     const id = this.id;
     if (!this.nextSerieUsingPrevCache[id]) {
       this.nextSerieUsingPrevCache[id] = this.getNextQuestListUsingPrev(id);
@@ -319,7 +319,7 @@ export class QuestPreviewService {
   }
 
   private getEnabledByQuestId(): number {
-    return this.questTemplateAddon.PrevQuestID < 0 ? -this.questTemplateAddon.PrevQuestID : 0;
+    return this.questTemplate.PrevQuestId < 0 ? -this.questTemplate.PrevQuestId : 0;
   }
 
   private getEnabledByQuestName(): Promise<string> {
@@ -328,28 +328,30 @@ export class QuestPreviewService {
 
   public isUnavailable(): boolean {
     const UNAVAILABLE = 0x04000;
-    return (this.questTemplate.Flags & UNAVAILABLE) === UNAVAILABLE;
+    return (this.questTemplate.QuestFlags & UNAVAILABLE) === UNAVAILABLE;
   }
 
   public isRepeatable(): boolean {
-    return !!(this.questTemplate.Flags & QUEST_FLAG_REPEATABLE || this.questTemplateAddon.SpecialFlags & QUEST_FLAG_SPECIAL_REPEATABLE);
+    return !!(
+      this.questTemplate.QuestFlags & QUEST_FLAG_REPEATABLE || this.questTemplateAddon.SpecialFlags & QUEST_FLAG_SPECIAL_REPEATABLE
+    );
   }
 
   get requiredSkill$(): Promise<string> {
     return this.sqliteQueryService.getSkillNameById(Number(this.questTemplateAddon.RequiredSkillID));
   }
 
-  get rewardXP$(): Promise<string> {
-    return this.sqliteQueryService.getRewardXP(this.questTemplate.RewardXPDifficulty, this.questTemplate.QuestLevel);
+  get rewXP(): number {
+    return this.questTemplate.RewXP;
   }
 
   getRepReward$(field: number | string): Promise<QuestReputationReward[]> {
-    return this.mysqlQueryService.getReputationRewardByFaction(this.questTemplate[`RewardFactionID${field}`]);
+    return this.mysqlQueryService.getReputationRewardByFaction(this.questTemplate[`RewRepFaction${field}`]);
   }
 
   getRewardReputation(field: string | number, reputationReward: QuestReputationReward[]): number {
-    const faction = this.questTemplate[`RewardFactionID${field}`];
-    const value = this.questTemplate[`RewardFactionValue${field}`];
+    const faction = this.questTemplate[`RewRepFaction${field}`];
+    const value = this.questTemplate[`RewRepValue${field}`];
 
     if (!faction || !value) {
       return null;
@@ -389,7 +391,7 @@ export class QuestPreviewService {
   }
 
   getObjective$(field: string | number): Promise<string> {
-    const RequiredNpcOrGo = Number(this.questTemplate[`RequiredNpcOrGo${field}`]);
+    const RequiredNpcOrGo = Number(this.questTemplate[`ReqCreatureOrGOId${field}`]);
     if (!!RequiredNpcOrGo) {
       if (RequiredNpcOrGo > 0) {
         return this.mysqlQueryService.getCreatureNameById(RequiredNpcOrGo);
@@ -400,17 +402,17 @@ export class QuestPreviewService {
   }
 
   getObjectiveCount(field: string | number): string {
-    const reqNpcOrGo = this.questTemplate[`RequiredNpcOrGoCount${field}`];
+    const reqNpcOrGo = this.questTemplate[`ReqCreatureOrGOCount${field}`];
     return !!reqNpcOrGo && reqNpcOrGo > 1 ? `(${reqNpcOrGo})` : '';
   }
 
   isNpcOrGoObj(field: string | number): boolean {
-    return !!this.questTemplate[`RequiredNpcOrGoCount${field}`];
+    return !!this.questTemplate[`ReqCreatureOrGOCount${field}`];
     // return !!this.questTemplate[`ObjectiveText${field}`] || !!this.questTemplate[`RequiredNpcOrGo${field}`];
   }
 
   getObjItemCount(field: string | number) {
-    const reqItemCount = this.questTemplate[`RequiredItemCount${field}`];
+    const reqItemCount = this.questTemplate[`ReqItemCount${field}`];
     return !!reqItemCount && reqItemCount > 1 ? `(${reqItemCount})` : '';
   }
 
@@ -438,11 +440,11 @@ export class QuestPreviewService {
 
   isRewardReputation(): boolean {
     return (
-      this.isFieldAvailable('RewardFactionID', 'RewardFactionValue', 1) ||
-      this.isFieldAvailable('RewardFactionID', 'RewardFactionValue', 2) ||
-      this.isFieldAvailable('RewardFactionID', 'RewardFactionValue', 3) ||
-      this.isFieldAvailable('RewardFactionID', 'RewardFactionValue', 4) ||
-      this.isFieldAvailable('RewardFactionID', 'RewardFactionValue', 5)
+      this.isFieldAvailable('RewRepFaction', 'RewRepValue', 1) ||
+      this.isFieldAvailable('RewRepFaction', 'RewRepValue', 2) ||
+      this.isFieldAvailable('RewRepFaction', 'RewRepValue', 3) ||
+      this.isFieldAvailable('RewRepFaction', 'RewRepValue', 4) ||
+      this.isFieldAvailable('RewRepFaction', 'RewRepValue', 5)
     );
   }
 
@@ -452,19 +454,21 @@ export class QuestPreviewService {
 
   isRewardItems(): boolean {
     return (
-      this.isFieldAvailable('RewardItem', 'RewardAmount', 1) ||
-      this.isFieldAvailable('RewardItem', 'RewardAmount', 2) ||
-      this.isFieldAvailable('RewardItem', 'RewardAmount', 3) ||
-      this.isFieldAvailable('RewardItem', 'RewardAmount', 4)
+      this.isFieldAvailable('RewItemId', 'RewItemCount', 1) ||
+      this.isFieldAvailable('RewItemId', 'RewItemCount', 2) ||
+      this.isFieldAvailable('RewItemId', 'RewItemCount', 3) ||
+      this.isFieldAvailable('RewItemId', 'RewItemCount', 4)
     );
   }
 
   isRewardChoiceItems(): boolean {
     return (
-      this.isFieldAvailable('RewardChoiceItemID', 'RewardChoiceItemQuantity', 1) ||
-      this.isFieldAvailable('RewardChoiceItemID', 'RewardChoiceItemQuantity', 2) ||
-      this.isFieldAvailable('RewardChoiceItemID', 'RewardChoiceItemQuantity', 3) ||
-      this.isFieldAvailable('RewardChoiceItemID', 'RewardChoiceItemQuantity', 4)
+      this.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', 1) ||
+      this.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', 2) ||
+      this.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', 3) ||
+      this.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', 4) ||
+      this.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', 5) ||
+      this.isFieldAvailable('RewChoiceItemId', 'RewChoiceItemCount', 6)
     );
   }
 
@@ -482,11 +486,13 @@ export class QuestPreviewService {
 
   rewardSpell(): number {
     if (!!this.questTemplate.RewardDisplaySpell) {
-      return this.questTemplate.RewardDisplaySpell;
+      return 0;
+      // return this.questTemplate.RewardDisplaySpell;
     }
 
     if (!!this.questTemplate.RewardSpell) {
-      return this.questTemplate.RewardSpell;
+      return 0;
+      // return this.questTemplate.RewardSpell;
     }
 
     return null;
