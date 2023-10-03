@@ -566,10 +566,10 @@
             <div [innerHTML]="itemPreview"></div>
             <br />
             <img
-              src="https://geo-tp.github.io/Alpha-Core-Keira3/src/assets/models/{{ editorService.form.controls.display_id.value }}.webp"
+              class="img-fluid"
+              src="https://geo-tp.github.io/Model-Viewer/static/unsorted_models/{{ editorService.form.controls.display_id.value }}.webp"
               alt="Item model for {{ editorService.form.controls.display_id.value }}"
             />
-
             <!-- <keira-model-3d-viewer
               [viewerType]="ITEM_VIEWER_TYPE"
               [displayId]="editorService.form.controls.display_id.value"

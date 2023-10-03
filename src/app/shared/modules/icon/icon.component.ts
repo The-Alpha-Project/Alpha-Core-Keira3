@@ -36,7 +36,7 @@ export class IconComponent extends SubscriptionHandler {
   }
 
   get iconLink(): string {
-    return `https://geo-tp.github.io/Alpha-Core-Keira3/src/assets/icons/${this._iconId}.png`;
+    return `https://geo-tp.github.io/Model-Viewer/static/icons_lower/${this._iconId}.png`;
   }
 
   constructor(
