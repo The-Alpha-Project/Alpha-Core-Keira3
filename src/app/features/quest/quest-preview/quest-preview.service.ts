@@ -242,7 +242,7 @@ export class QuestPreviewService {
     while (!!prev && prev > 0) {
       // when < 0 it's "enabled by"
       array.push({
-        id: prev,
+        entry: prev,
         title: await this.mysqlQueryService.getQuestTitleById(prev),
       });
 
@@ -267,7 +267,7 @@ export class QuestPreviewService {
 
     while (!!next) {
       array.push({
-        id: next,
+        entry: next,
         title: await this.mysqlQueryService.getQuestTitleById(next),
       });
 
@@ -285,7 +285,7 @@ export class QuestPreviewService {
 
       if (!!next) {
         array.push({
-          id: next,
+          entry: next,
           title: await this.mysqlQueryService.getQuestTitleById(next),
         });
       }

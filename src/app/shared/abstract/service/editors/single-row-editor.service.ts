@@ -94,7 +94,11 @@ export abstract class SingleRowEditorService<T extends TableRow> extends EditorS
       const control = this._form.controls[field];
       /* istanbul ignore else */
       if (control) {
-        control.setValue(this._originalValue[field]);
+        if (field == 'parse_timestamp') {
+          control.setValue('1970-01-01' as T[string]);
+        } else {
+          control.setValue(this._originalValue[field]);
+        }
       } else {
         console.error(`Control '${field}' does not exist!`);
         console.log(`----------- DEBUG CONTROL KEYS:`);

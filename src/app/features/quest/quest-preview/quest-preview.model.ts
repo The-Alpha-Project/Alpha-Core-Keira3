@@ -1,7 +1,7 @@
 import { TableRow } from '@keira-shared/types/general';
 
 export interface Quest {
-  id: number;
+  entry: number;
   title: string;
 }
 

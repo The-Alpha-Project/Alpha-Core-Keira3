@@ -94,13 +94,13 @@
           <p class="title">Series</p>
           <ol>
             <li *ngFor="let quest of questLists.prev">
-              <span class="colored">{{ quest.title }}</span> <span class="greyed"> [{{ quest.id }}]</span>
+              <span class="colored">{{ quest.title }}</span> <span class="greyed"> [{{ quest.entry }}]</span>
             </li>
             <li>
               <strong>{{ service.title }}</strong> <span class="greyed"> [{{ service.id }}]</span>
             </li>
             <li *ngFor="let quest of questLists.next">
-              <span class="colored">{{ quest.title }}</span> <span class="greyed"> [{{ quest.id }}]</span>
+              <span class="colored">{{ quest.title }}</span> <span class="greyed"> [{{ quest.entry }}]</span>
             </li>
           </ol>
         </ng-container>
