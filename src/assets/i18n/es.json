@@ -305,6 +305,7 @@
       "POI_X": "Coordenada en Plano cartesiano X del Punto de Interés que será mostrado en el mapa cuando la Misión esté activa.",
       "POI_Y": "Coordenada en Plano cartesiano Y del Punto de Interés que será mostrado en el mapa cuando la Misión esté activa.",
       "OBJECTIVE_TEXTS_TOOLTIP": "Textos de Objetivos de Misión no-estándar mostrados dentro del Registro de Misiones.",
+      "REQUIRED_MISC": "Required Misc",
       "REQUIRED_ITEMS_TOOLTIP": "Items requeridos para completar la Misión.",
       "REQUIRED_FACTION_OR_NPC_TOOLTIP": "Sí es > (mayor que) 0 vendría a ser una Criatura o sí es < (menor que) 0 equivaldría a un Objeto del Juego.",
       "REWARD_TALENTS": "Cantidad de Puntos de Talento extra recibidos al completar la Misión.",

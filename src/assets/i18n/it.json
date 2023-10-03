@@ -304,6 +304,7 @@
       "POI_X": "X coordinate of the Point Of Interest that will be shown on the map when the quest is active",
       "POI_Y": "Y coordinate of the Point Of Interest that will be shown on the map when the quest is active",
       "OBJECTIVE_TEXTS_TOOLTIP": "Non-standard objective texts displayed in the quest log",
+      "REQUIRED_MISC": "Required Misc",
       "REQUIRED_ITEMS_TOOLTIP": "Items required to complete the quest",
       "REQUIRED_FACTION_OR_NPC_TOOLTIP": "If > 0: creature; if < 0: gameobject",
       "REWARD_TALENTS": "Amount of bonus talent points received when completing the quest",

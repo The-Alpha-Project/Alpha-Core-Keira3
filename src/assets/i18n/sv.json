@@ -305,6 +305,7 @@
       "POI_X": "X koordinat utav Point Of Interest som visas på kartan när du har ditt Quest",
       "POI_Y": "Y koordinat utav Point Of Interest som visas på kartan när du har ditt Quest",
       "OBJECTIVE_TEXTS_TOOLTIP": "Non-standard objective text som visas i Quest log",
+      "REQUIRED_MISC": "Required Misc",
       "REQUIRED_ITEMS_TOOLTIP": "Items du behöver ha till ditt Quest",
       "REQUIRED_FACTION_OR_NPC_TOOLTIP": "If > 0: creature; if < 0: gameobject",
       "REWARD_TALENTS": "Antal bonus talent points du får när du är klar med Quest",

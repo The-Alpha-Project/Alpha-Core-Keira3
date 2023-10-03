@@ -303,6 +303,7 @@
       "POI_X": "当任务激活时，标记点的X坐标，这会显示在地图上",
       "POI_Y": "当任务激活时，标记点的Y坐标，这会显示在地图上",
       "OBJECTIVE_TEXTS_TOOLTIP": "任务日志中显示的非标准目标文本",
+      "REQUIRED_MISC": "Required Misc",
       "REQUIRED_ITEMS_TOOLTIP": "完成任务所需的物品",
       "REQUIRED_FACTION_OR_NPC_TOOLTIP": "如果 > 0: 生物; 如果 < 0: 游戏对象",
       "REWARD_TALENTS": "完成任务时获得的天赋点数",

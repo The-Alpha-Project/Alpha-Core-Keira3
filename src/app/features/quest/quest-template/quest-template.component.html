@@ -54,13 +54,13 @@
 
           <div class="form-group col-12 col-sm-6 col-md-6 col-lg-4 col-xl-2">
             <label class="control-label" for="PrevQuestId">PrevQuestId</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.PREV_QUEST_ID' | translate"></i>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE_ADDON.PREV_QUEST_ID' | translate"></i>
             <input [formControlName]="'PrevQuestId'" id="PrevQuestId" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="form-group col-12 col-sm-6 col-md-6 col-lg-4 col-xl-2">
             <label class="control-label" for="NextQuestId">NextQuestId</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.NEXT_QUEST_ID' | translate"></i>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE_ADDON.NEXT_QUEST_ID' | translate"></i>
             <input [formControlName]="'NextQuestId'" id="NextQuestId" type="number" class="form-control form-control-sm" />
           </div>
 
@@ -78,39 +78,6 @@
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
             <input [formControlName]="'Type'" id="Type" type="number" class="form-control form-control-sm" />
-          </div>
-
-          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
-            <label class="control-label" for="RequiredClasses">RequiredClasses</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REQUIRED_CLASSES' | translate"></i>
-            <input [formControlName]="'RequiredClasses'" id="RequiredClasses" type="number" class="form-control form-control-sm" />
-          </div>
-
-          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
-            <label class="control-label" for="RequiredRaces">RequiredRaces</label>
-            <keira-flags-selector-btn
-              [control]="editorService.form.controls.RequiredRaces"
-              [config]="{ flags: ALLOWABLE_RACES, name: 'AllowableRaces' }"
-            ></keira-flags-selector-btn>
-            <input [formControlName]="'RequiredRaces'" id="RequiredRaces" type="number" class="form-control form-control-sm" />
-          </div>
-
-          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
-            <label class="control-label" for="RequiredSkill">RequiredSkill</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REQUIRED_SKILL' | translate"></i>
-            <input [formControlName]="'RequiredSkill'" id="RequiredSkill" type="number" class="form-control form-control-sm" />
-          </div>
-
-          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
-            <label class="control-label" for="RequiredSkillValue">RequiredSkillValue</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REQUIRED_SKILL' | translate"></i>
-            <input [formControlName]="'RequiredSkillValue'" id="RequiredSkillValue" type="number" class="form-control form-control-sm" />
-          </div>
-
-          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
-            <label class="control-label" for="RequiredCondition">RequiredCondition</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REQUIRED_CONDITION' | translate"></i>
-            <input [formControlName]="'RequiredCondition'" id="RequiredCondition" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
@@ -296,32 +263,6 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div *ngFor="let i of [1, 2, 3, 4]" class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
-            <div class="row">
-              <div class="col-12">
-                <label class="control-label" for="ReqSourceId{{ i }}">
-                  <keira-icon [itemId]="editorService.form.controls['ReqSourceId' + i].value"></keira-icon>
-                  ReqSourceId{{ i }}
-                </label>
-                <keira-item-selector-btn
-                  [control]="editorService.form.controls['ReqSourceId' + i]"
-                  [config]="{ name: 'ReqSourceId' + i }"
-                ></keira-item-selector-btn>
-                <input [formControlName]="'ReqSourceId' + i" id="ReqSourceId{{ i }}" type="number" class="form-control form-control-sm" />
-              </div>
-              <div class="col-12">
-                <label class="control-label" for="ReqSourceCount{{ i }}">ReqSourceCount{{ i }}</label>
-                <input
-                  [formControlName]="'ReqSourceCount' + i"
-                  id="ReqSourceCount{{ i }}"
-                  type="number"
-                  class="form-control form-control-sm"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="content-block">
         <span class="category-title">
@@ -383,12 +324,75 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="content-block">
+        <span class="category-title" [translate]="'QUEST.TEMPLATE.REQUIRED_MISC'"></span>
         <div class="row">
+          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
+            <label class="control-label" for="RequiredClasses">RequiredClasses</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REQUIRED_CLASSES' | translate"></i>
+            <input [formControlName]="'RequiredClasses'" id="RequiredClasses" type="number" class="form-control form-control-sm" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
+            <label class="control-label" for="RequiredRaces">RequiredRaces</label>
+            <keira-flags-selector-btn
+              [control]="editorService.form.controls.RequiredRaces"
+              [config]="{ flags: ALLOWABLE_RACES, name: 'AllowableRaces' }"
+            ></keira-flags-selector-btn>
+            <input [formControlName]="'RequiredRaces'" id="RequiredRaces" type="number" class="form-control form-control-sm" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
+            <label class="control-label" for="RequiredSkill">RequiredSkill</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE_ADDON.REQ_SKILL_ID' | translate"></i>
+            <input [formControlName]="'RequiredSkill'" id="RequiredSkill" type="number" class="form-control form-control-sm" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
+            <label class="control-label" for="RequiredSkillValue">RequiredSkillValue</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE_ADDON.REQ_SKILL_POINTS' | translate"></i>
+            <input [formControlName]="'RequiredSkillValue'" id="RequiredSkillValue" type="number" class="form-control form-control-sm" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
+            <label class="control-label" for="RequiredCondition">RequiredCondition</label>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REQUIRED_CONDITION' | translate"></i>
+            <input [formControlName]="'RequiredCondition'" id="RequiredCondition" type="number" class="form-control form-control-sm" />
+          </div>
+
           <div *ngFor="let i of [1, 2, 3, 4]" class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
             <div class="row">
               <div class="col-12">
                 <label class="control-label" for="ReqSpellCast{{ i }}">ReqSpellCast{{ i }}</label>
                 <input [formControlName]="'ReqSpellCast' + i" id="ReqSpellCast{{ i }}" type="number" class="form-control form-control-sm" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div *ngFor="let i of [1, 2, 3, 4]" class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
+              <div class="row">
+                <div class="col-12">
+                  <label class="control-label" for="ReqSourceId{{ i }}">
+                    <keira-icon [itemId]="editorService.form.controls['ReqSourceId' + i].value"></keira-icon>
+                    ReqSourceId{{ i }}
+                  </label>
+                  <keira-item-selector-btn
+                    [control]="editorService.form.controls['ReqSourceId' + i]"
+                    [config]="{ name: 'ReqSourceId' + i }"
+                  ></keira-item-selector-btn>
+                  <input [formControlName]="'ReqSourceId' + i" id="ReqSourceId{{ i }}" type="number" class="form-control form-control-sm" />
+                </div>
+                <div class="col-12">
+                  <label class="control-label" for="ReqSourceCount{{ i }}">ReqSourceCount{{ i }}</label>
+                  <input
+                    [formControlName]="'ReqSourceCount' + i"
+                    id="ReqSourceCount{{ i }}"
+                    type="number"
+                    class="form-control form-control-sm"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -399,7 +403,7 @@
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
             <label class="control-label" for="RewSpell">RewSpell</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REWARD_SPELLS' | translate"></i>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REWARD_SPELL' | translate"></i>
             <input [formControlName]="'RewSpell'" id="RewSpell" type="number" class="form-control form-control-sm" />
           </div>
 
@@ -411,13 +415,13 @@
 
           <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
             <label class="control-label" for="RewMailTemplateId">RewMailTemplateId</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REWARD_MAIL_TEMPLATE_ID' | translate"></i>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE_ADDON.REWARD_MAIL_TEMPLATE_ID' | translate"></i>
             <input [formControlName]="'RewMailTemplateId'" id="RewMailTemplateId" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="form-group col-12 col-sm-6 col-md-5 col-lg-4 col-xl-2">
             <label class="control-label" for="RewMailDelaySecs">RewMailDelaySecs</label>
-            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE.REWARD_MAIL_DELAY_SECS' | translate"></i>
+            <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'QUEST.TEMPLATE_ADDON.REWARD_MAIL_DELAY' | translate"></i>
             <input [formControlName]="'RewMailDelaySecs'" id="RewMailDelaySecs" type="number" class="form-control form-control-sm" />
           </div>
 
@@ -440,6 +444,7 @@
           </div>
         </div>
       </div>
+
       <div class="content-block">
         <span class="category-title" [translate]="'QUEST.TEMPLATE.REWARD_ITEMS'"></span>
         <div class="row">

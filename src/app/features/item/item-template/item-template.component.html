@@ -444,17 +444,17 @@
         <span class="category-title" [translate]="'ITEM.TEMPLATE.DAMAGE'"></span>
         <div class="row">
           <ng-container *ngFor="let i of [1, 2]">
-            <div class="col-sm-6 col-md-4">
+            <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
               <label class="control-label" for="dmg_min{{ i }}">min{{ i }}</label>
               <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.MAX_DURABILITY' | translate"></i>
               <input [formControlName]="'dmg_min' + i" id="dmg_min{{ i }}" type="number" class="form-control form-control-sm" />
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
               <label class="control-label" for="dmg_max{{ i }}">max{{ i }}</label>
               <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.DMG_MIN' | translate"></i>
               <input [formControlName]="'dmg_max' + i" id="dmg_max{{ i }}" type="number" class="form-control form-control-sm" />
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
               <label class="control-label" for="dmg_type{{ i }}">type{{ i }}</label>
               <keira-single-value-selector-btn
                 [control]="editorService.form.controls['dmg_type' + i]"
