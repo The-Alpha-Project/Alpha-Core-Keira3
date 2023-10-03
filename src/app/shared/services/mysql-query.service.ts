@@ -367,7 +367,11 @@ export class MysqlQueryService extends QueryService {
   }
 
   getPrevQuestById(id: string | number): Promise<string> {
-    return this.queryValueToPromiseCached('getPrevQuestById', String(id), `SELECT PrevQuestId AS v FROM quest_template WHERE id = ${id}`);
+    return this.queryValueToPromiseCached(
+      'getPrevQuestById',
+      String(id),
+      `SELECT PrevQuestId AS v FROM quest_template WHERE entry = ${id}`,
+    );
   }
 
   getNextQuestById(id: string | number, usingPrev = false): Promise<string> {
@@ -380,7 +384,7 @@ export class MysqlQueryService extends QueryService {
     return this.queryValueToPromiseCached(
       'getItemByStartQuest',
       String(id),
-      `SELECT entry AS v FROM item_template WHERE startquest = ${id}`,
+      `SELECT entry AS v FROM item_template WHERE start_quest = ${id}`,
     );
   }
 
@@ -388,7 +392,7 @@ export class MysqlQueryService extends QueryService {
     return this.queryValueToPromiseCached(
       'getItemNameByStartQuest',
       String(id),
-      `SELECT name AS v FROM item_template WHERE startquest = ${id}`,
+      `SELECT name AS v FROM item_template WHERE start_quest = ${id}`,
     );
   }
 

@@ -163,9 +163,9 @@ export class QuestPreviewService {
 
   initializeServices() {
     this.initService(this.questTemplateService);
-    this.initService(this.questRequestItemsService);
-    this.initService(this.questOfferRewardService);
-    this.initService(this.questTemplateAddonService);
+    // this.initService(this.questRequestItemsService);
+    // this.initService(this.questOfferRewardService);
+    // this.initService(this.questTemplateAddonService);
     this.initService(this.gameobjectQueststarterService);
     this.initService(this.gameobjectQuestenderService);
     this.initService(this.creatureQueststarterService);

@@ -40,7 +40,7 @@ describe('ItemTemplate integration tests', () => {
     '`spellcategory_3`, `spellcategorycooldown_3`, `spellid_4`, `spelltrigger_4`, `spellcharges_4`, `spellppmRate_4`, ' +
     '`spellcooldown_4`, `spellcategory_4`, `spellcategorycooldown_4`, `spellid_5`, `spelltrigger_5`, `spellcharges_5`, ' +
     '`spellppmRate_5`, `spellcooldown_5`, `spellcategory_5`, `spellcategorycooldown_5`, `bonding`, `description`, `PageText`, ' +
-    '`LanguageID`, `PageMaterial`, `startquest`, `lockid`, `Material`, `sheath`, `RandomProperty`, `RandomSuffix`, `block`, ' +
+    '`LanguageID`, `PageMaterial`, `start_quest`, `lockid`, `Material`, `sheath`, `RandomProperty`, `RandomSuffix`, `block`, ' +
     '`itemset`, `MaxDurability`, `area`, `Map`, `BagFamily`, `TotemCategory`, `socketColor_1`, `socketContent_1`, `socketColor_2`, ' +
     '`socketContent_2`, `socketColor_3`, `socketContent_3`, `socketBonus`, `GemProperties`, `RequiredDisenchantSkill`, ' +
     '`ArmorDamageModifier`, `duration`, `ItemLimitCategory`, `HolidayId`, `ScriptName`, `DisenchantID`, `FoodType`, ' +
@@ -196,7 +196,7 @@ describe('ItemTemplate integration tests', () => {
         '`spellcooldown_4` = 86, `spellcategory_4` = 87, `spellcategorycooldown_4` = 88, `spellid_5` = 89, `spelltrigger_5` = 6, ' +
         '`spellcharges_5` = 90, `spellppmRate_5` = 91, `spellcooldown_5` = 92, `spellcategory_5` = 93, ' +
         "`spellcategorycooldown_5` = 94, `bonding` = 95, `description` = '96', `PageText` = 97, `LanguageID` = 98, " +
-        '`PageMaterial` = 99, `startquest` = 100, `lockid` = 101, `Material` = 102, `sheath` = 103, `RandomProperty` = 104, ' +
+        '`PageMaterial` = 99, `start_quest` = 100, `lockid` = 101, `Material` = 102, `sheath` = 103, `RandomProperty` = 104, ' +
         '`RandomSuffix` = 105, `block` = 106, `itemset` = 107, `MaxDurability` = 108, `area` = 109, `Map` = 110, `BagFamily` = 111, ' +
         '`TotemCategory` = 112, `socketColor_1` = 113, `socketContent_1` = 114, `socketColor_2` = 115, `socketContent_2` = 116, ' +
         '`socketColor_3` = 117, `socketContent_3` = 118, `socketBonus` = 119, `GemProperties` = 120, `RequiredDisenchantSkill` = 121, ' +
@@ -487,7 +487,7 @@ describe('ItemTemplate integration tests', () => {
         page.setInputValueById('PageText', 123);
         page.setInputValueById('LanguageID', 123);
         page.setInputValueById('PageMaterial', 123);
-        page.setInputValueById('startquest', 123);
+        page.setInputValueById('start_quest', 123);
         page.setInputValueById('lockid', 123);
         page.setInputValueById('Material', 123);
         page.setInputValueById('sheath', 123);

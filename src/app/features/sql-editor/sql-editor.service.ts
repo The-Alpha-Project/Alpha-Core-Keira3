@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SqlEditorService {
   code =
-    'SELECT `entry`, `name`, `subname` \n' +
+    'SELECT `entry`, `name`, `subname`, `level_min` \n' +
     'FROM `creature_template` \n' +
     'WHERE `entry` > 100 \n' +
     'ORDER BY `entry` ASC \n' +

@@ -411,7 +411,7 @@ describe('ItemPreviewService', () => {
       output: `<br><!-- ITEM_FLAG.HEROIC --><span class="q2">Heroic</span><br> Conjured Item<br><!-- bonding[0] -->Binds to account<br><!-- uniqueEquipped -->Unique-Equipped`,
     },
     { name: 'Empty variables', template: { HolidayId: 140 }, output: `<br>Requires ${mockGetEventNameByHolidayId}140` },
-    { name: 'StartQuest', template: { startquest: 1 }, output: `<br><span class="q1">This Item Begins a Quest</span>` },
+    { name: 'StartQuest', template: { start_quest: 1 }, output: `<br><span class="q1">This Item Begins a Quest</span>` },
     { name: 'ContainerSlots', template: { ContainerSlots: 1 }, output: `<br>1 Slot Bag` },
     { name: 'ContainerSlots-2', template: { ContainerSlots: 1, BagFamily: 2 }, output: `<br>1 Slot Ammo Pouch` },
     {

@@ -1264,8 +1264,8 @@ export class ItemPreviewService {
     }
 
     // item begins a quest
-    const startquest: number = Number(itemTemplate.startquest);
-    if (!!startquest && startquest > 0) {
+    const start_quest: number = Number(itemTemplate.start_quest);
+    if (!!start_quest && start_quest > 0) {
       tmpItemPreview += `<br><span class="q1">This Item Begins a Quest</span>`;
     }
 
