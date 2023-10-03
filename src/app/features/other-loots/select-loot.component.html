@@ -17,7 +17,7 @@
       <div class="row">
         <ng-container [formGroup]="selectService.fields">
           <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <input [formControlName]="'Entry'" type="number" class="form-control form-control-sm" id="search-id" placeholder="Entry" />
+            <input [formControlName]="'entry'" type="number" class="form-control form-control-sm" id="search-id" placeholder="entry" />
           </div>
         </ng-container>
         <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -43,9 +43,9 @@
         [selectionType]="DTCFG.selectionType"
         (select)="selectService.onSelect($event)"
       >
-        <ngx-datatable-column name="Entry" prop="Entry" [minWidth]="500">
+        <ngx-datatable-column name="entry" prop="entry" [minWidth]="500">
           <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ entityTable }} <strong>#{{ row.Entry }}</strong>
+            {{ entityTable }} <strong>#{{ row.entry }}</strong>
           </ng-template>
         </ngx-datatable-column>
       </ngx-datatable>

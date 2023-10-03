@@ -17,10 +17,10 @@
       <div class="row">
         <ng-container [formGroup]="selectService.fields">
           <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <input [formControlName]="'MenuID'" type="number" class="form-control form-control-sm" id="search-id" placeholder="MenuID" />
+            <input [formControlName]="'entry'" type="number" class="form-control form-control-sm" id="search-id" placeholder="Entry" />
           </div>
           <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-3">
-            <input [formControlName]="'TextID'" type="number" class="form-control form-control-sm" id="name" placeholder="TextID" />
+            <input [formControlName]="'text_id'" type="number" class="form-control form-control-sm" id="name" placeholder="Text Id" />
           </div>
         </ng-container>
         <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -45,20 +45,20 @@
         [selectionType]="DTCFG.selectionType"
         (select)="selectService.onSelect($event)"
       >
-        <ngx-datatable-column name="MenuID" prop="MenuID" [minWidth]="80">
+        <ngx-datatable-column name="entry" prop="entry" [minWidth]="80">
           <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.MenuID }}
+            {{ row.entry }}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="TextID" prop="TextID" [minWidth]="80"></ngx-datatable-column>
+        <ngx-datatable-column name="text_id" prop="text_id" [minWidth]="80"></ngx-datatable-column>
         <ngx-datatable-column name="Text0_0" [minWidth]="200">
           <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ queryService.getText0ById(row.TextID) | async }}
+            {{ queryService.getText0ById(row.text_id) | async }}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Text0_1" [minWidth]="200">
           <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ queryService.getText1ById(row.TextID) | async }}
+            {{ queryService.getText1ById(row.text_id) | async }}
           </ng-template>
         </ngx-datatable-column>
       </ngx-datatable>

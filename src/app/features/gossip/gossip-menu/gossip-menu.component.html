@@ -16,13 +16,25 @@
       <form [formGroup]="editorService.form" class="form-group edit-form">
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-            <label class="control-label" for="TextID">TextID</label>
+            <label class="control-label" for="text_id">text_id</label>
             <keira-npc-text-selector-btn
-              [control]="editorService.form.controls.TextID"
+              [control]="editorService.form.controls.text_id"
               [config]="{ name: 'TextID' }"
             ></keira-npc-text-selector-btn>
             <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'GOSSIP.GOSSIP_MENU.TEXT_ID_TOOLTIP' | translate"></i>
-            <input [formControlName]="'TextID'" id="TextID" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'text_id'" id="text_id" type="number" class="form-control form-control-sm" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="script_id">script_id</label>
+            <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'GOSSIP.GOSSIP_MENU.SCRIPT_ID_TOOLTIP' | translate"></i>
+            <input [formControlName]="'script_id'" id="script_id" type="number" class="form-control form-control-sm" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+            <label class="control-label" for="condition_id">condition_id</label>
+            <i class="fas fa-info-circle ms-1" [placement]="'auto'" [tooltip]="'GOSSIP.GOSSIP_MENU.CONDITION_ID_TOOLTIP' | translate"></i>
+            <input [formControlName]="'condition_id'" id="condition_id" type="number" class="form-control form-control-sm" />
           </div>
 
           <div class="col-12 form-error" [hidden]="editorService.isFormIdUnique()">
@@ -53,15 +65,15 @@
                 <i [hidden]="!editorService.isRowSelected(row)" class="fas fa-chevron-right"></i>
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="TextID" prop="TextID" [minWidth]="80"></ngx-datatable-column>
+            <ngx-datatable-column name="text_id" prop="text_id" [minWidth]="80"></ngx-datatable-column>
             <ngx-datatable-column name="Text0_0" [minWidth]="80">
               <ng-template let-row="row" ngx-datatable-cell-template>
-                {{ queryService.getText0ById(row.TextID) | async }}
+                {{ queryService.getText0ById(row.text_id) | async }}
               </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="Text0_1" [minWidth]="80">
               <ng-template let-row="row" ngx-datatable-cell-template>
-                {{ queryService.getText1ById(row.TextID) | async }}
+                {{ queryService.getText1ById(row.text_id) | async }}
               </ng-template>
             </ngx-datatable-column>
           </ngx-datatable>

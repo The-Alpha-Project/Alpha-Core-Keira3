@@ -385,18 +385,18 @@
                   </a>
                 </li>
                 <hr />
-                <li>
+                <!-- <li>
                   <a href="#" routerLinkActive="active" [routerLink]="'other-loots/select-spell'">
                     {{ 'SIDEBAR.OTHER_LOOTS.SELECT_SPELL_LOOT' | translate }}
                   </a>
-                </li>
-                <li *ngIf="spellLootHandlerService.selected">
+                </li> -->
+                <!-- <li *ngIf="spellLootHandlerService.selected">
                   <a href="#" routerLinkActive="active" [routerLink]="'other-loots/spell'">
                     {{ 'SIDEBAR.OTHER_LOOTS.SPELL_LOOT_TEMPLATE' | translate }}
                     <keira-unsaved-icon *ngIf="spellLootHandlerService.isUnsaved"></keira-unsaved-icon>
                   </a>
-                </li>
-                <hr />
+                </li> -->
+                <!-- <hr /> -->
                 <li>
                   <a href="#" routerLinkActive="active" [routerLink]="'other-loots/select-fishing'">
                     {{ 'SIDEBAR.OTHER_LOOTS.SELECT_FISHING_LOOT' | translate }}
@@ -408,7 +408,7 @@
                     <keira-unsaved-icon *ngIf="fishingLootHandlerService.isUnsaved"></keira-unsaved-icon>
                   </a>
                 </li>
-                <hr />
+                <!-- <hr />
                 <li>
                   <a href="#" routerLinkActive="active" [routerLink]="'other-loots/select-mail'">
                     {{ 'SIDEBAR.OTHER_LOOTS.SELECT_MAIL_LOOT' | translate }}
@@ -419,7 +419,7 @@
                     {{ 'SIDEBAR.OTHER_LOOTS.MAIL_LOOT_TEMPLATE' | translate }}
                     <keira-unsaved-icon *ngIf="mailLootHandlerService.isUnsaved"></keira-unsaved-icon>
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>
@@ -443,7 +443,7 @@
                       <keira-unsaved-icon *ngIf="gossipHandlerService.isGossipMenuTableUnsaved"></keira-unsaved-icon>
                     </a>
                   </li>
-                  <ng-container *ngIf="!gossipHandlerService.isNew">
+                  <!-- <ng-container *ngIf="!gossipHandlerService.isNew">
                     <li>
                       <a href="#" routerLinkActive="active" [routerLink]="'gossip/gossip-menu-option'">
                         {{ 'SIDEBAR.GOSSIP.GOSSIP_MENU_OPTION' | translate }}
@@ -451,7 +451,7 @@
                         <keira-unsaved-icon *ngIf="gossipHandlerService.isGossipMenuOptionTableUnsaved"></keira-unsaved-icon>
                       </a>
                     </li>
-                  </ng-container>
+                  </ng-container> -->
                 </ng-container>
               </ul>
             </div>
