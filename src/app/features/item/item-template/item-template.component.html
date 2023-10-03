@@ -565,13 +565,18 @@
           <div class="item-stats">
             <div [innerHTML]="itemPreview"></div>
             <br />
-            <keira-model-3d-viewer
+            <img
+              src="https://geo-tp.github.io/Alpha-Core-Keira3/src/assets/models/{{ editorService.form.controls.display_id.value }}.webp"
+              alt="Item model for {{ editorService.form.controls.display_id.value }}"
+            />
+
+            <!-- <keira-model-3d-viewer
               [viewerType]="ITEM_VIEWER_TYPE"
               [displayId]="editorService.form.controls.display_id.value"
               [itemClass]="editorService.form.controls.class.value"
               [itemInventoryType]="editorService.form.controls.inventory_type.value"
               ><div id="model_3d"></div>
-            </keira-model-3d-viewer>
+            </keira-model-3d-viewer> -->
           </div>
         </div>
       </div>
