@@ -1,12 +1,12 @@
 {
   "name": "Keira3",
   "version": "3.5.4",
-  "description": "Database Editor for AzerothCore",
-  "homepage": "https://github.com/AzerothCore/Keira3",
+  "description": "Database Editor for Alpha Core",
+  "homepage": "https://github.com/geo-tp/Alpha-Core-Keira3",
   "author": {
-    "name": "Francesco Borzi'",
-    "email": "borzifrancesco@gmail.com",
-    "url": "https://github.com/FrancescoBorzi"
+    "name": "Geo",
+    "email": "geoffrey.menon38@gmail.com",
+    "url": "https://github.com/geo-tp"
   },
   "main": "main.js",
   "private": true,

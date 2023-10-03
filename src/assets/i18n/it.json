@@ -154,7 +154,7 @@
   },
   "DASHBOARD": {
     "WELCOME": "Welcome to Keira3",
-    "WELCOME_1": "This is a version of Keira3 adapted for WoW Alpha 0.5.3 3368. You can always find the latest Keira3 version at the <a href=\" {{ REPO_URL }}/releases\" target=\"_blank\">releases page</a>. Join our <strong>#keira-editor</strong> channel on <a href=\"{{ DISCORD_URL }}\" target=\"_blank\">Discord</a> to stay up to date with the latest news and releases!",
+    "WELCOME_1": "Keira3 for the version 0.5.3 of WoW. You can always find the latest Keira3 version at the <a href=\" {{ REPO_URL }}/releases\" target=\"_blank\">releases page</a>. Join our <strong>#keira-editor</strong> channel on <a href=\"{{ DISCORD_URL }}\" target=\"_blank\">Discord</a> to stay up to date with the latest news and releases!",
     "WELCOME_2": "Please report any bugs or suggestions using <a href=\"{{ REPO_URL }}/issues/new\" target=\"_blank\">the official repository</a>. If you like Keira3, don't forget to give us a &#11088;  on GitHub!",
     "WELCOME_3": "Keira3 is free and open source software that we build during our own spare time, you can <a href=\"{{ DONATE_URL }}\" target=\"_blank\">support us with a donation</a> ❤",
     "WELCOME_4": "We hope that you enjoy using this software and don't forget to contribute with the community by <a href=\"http://www.azerothcore.org/wiki/Contribute#how-to-create-a-pull-request\" target=\"_blank\"> sharing your code </a>",

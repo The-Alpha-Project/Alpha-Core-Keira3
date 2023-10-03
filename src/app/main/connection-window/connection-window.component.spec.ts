@@ -131,8 +131,8 @@ describe('ConnectionWindowComponent', () => {
       host: '127.0.0.1',
       port: 3306,
       user: 'root',
-      password: 'root',
-      database: 'acore_world',
+      password: 'pwd',
+      database: 'alpha_world',
     });
     expect(component.error).toBeNull();
     expect(page.errorElement.innerHTML).not.toContain('error-box');
