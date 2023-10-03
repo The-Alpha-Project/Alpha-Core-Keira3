@@ -8,8 +8,8 @@ export class QuestTemplateAddon extends TableRow {
   MaxLevel: number = 0;
   AllowableClasses: number = 0;
   SourceSpellID: number = 0;
-  PrevQuestID: number = 0;
-  NextQuestID: number = 0;
+  PrevQuestId: number = 0;
+  NextQuestId: number = 0;
   ExclusiveGroup: number = 0;
   RewardMailTemplateID: number = 0;
   RewardMailDelay: number = 0;

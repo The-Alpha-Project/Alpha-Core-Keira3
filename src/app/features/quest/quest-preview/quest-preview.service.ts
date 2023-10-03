@@ -129,7 +129,7 @@ export class QuestPreviewService {
 
   // get QuestTemplateAddon values
   get maxLevel(): string {
-    return String(this.questTemplateAddon.MaxLevel);
+    return String(this.questTemplate.level_max);
   }
   get classes(): number[] {
     return this.helperService.getRequiredClass(this.questTemplate.RequiredRaces);
@@ -219,7 +219,7 @@ export class QuestPreviewService {
 
   private getPeriodicQuest(): QUEST_PERIOD {
     const flags = this.questTemplate.QuestFlags;
-    const specialFlags = this.questTemplateAddon.SpecialFlags;
+    const specialFlags = this.questTemplate.SpecialFlags;
 
     if (flags & QUEST_FLAG_DAILY) {
       return QUEST_PERIOD.DAILY;
@@ -332,13 +332,11 @@ export class QuestPreviewService {
   }
 
   public isRepeatable(): boolean {
-    return !!(
-      this.questTemplate.QuestFlags & QUEST_FLAG_REPEATABLE || this.questTemplateAddon.SpecialFlags & QUEST_FLAG_SPECIAL_REPEATABLE
-    );
+    return !!(this.questTemplate.QuestFlags & QUEST_FLAG_REPEATABLE || this.questTemplate.SpecialFlags & QUEST_FLAG_SPECIAL_REPEATABLE);
   }
 
   get requiredSkill$(): Promise<string> {
-    return this.sqliteQueryService.getSkillNameById(Number(this.questTemplateAddon.RequiredSkillID));
+    return this.sqliteQueryService.getSkillNameById(Number(this.questTemplate.RequiredSkill));
   }
 
   get rewXP(): number {
