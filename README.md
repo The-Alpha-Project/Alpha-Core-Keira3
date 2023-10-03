@@ -9,7 +9,7 @@
 [![Discord](https://img.shields.io/discord/217589275766685707.svg)](https://discordapp.com/channels/217589275766685707/536630256048799744)
 
 
-![Keira3](https://raw.githubusercontent.com/azerothcore/Keira3/master/screenshot.png)
+![Keira3](screenshot.png)
 
 
 Cross-platform desktop application featuring a **Database Editor** for the [Alpha Core](https://github.com/The-Alpha-Project/alpha-core).
