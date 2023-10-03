@@ -13,19 +13,6 @@ export class Conditions extends TableRow {
   value3: number = 0;
   value4: number = 0;
   flags: number = 0;
-
-  // SourceGroup: number = 0;
-  // SourceEntry: number = 0;
-  // SourceId: number = 0;
-  // ElseGroup: number = 0;
-  // ConditionTypeOrReference: number = 0;
-  // ConditionTarget: number = 0;
-
-  // NegativeCondition: number = 0;
-  // ErrorType: number = 0;
-  // ErrorTextId: number = 0;
-  // ScriptName: string = '';
-  // Comment: string = '';
 }
 
 export enum CONDITION_SOURCE_TYPES {

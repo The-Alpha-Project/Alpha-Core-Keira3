@@ -7,17 +7,16 @@
     <form [formGroup]="selectService.queryForm">
       <ng-container [formGroup]="selectService.fields">
         <div class="form-group row">
-          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="condition_entry" [translate]="'SOURCE_TYPE'"></label>
-          <div class="col-sm-8 col-md-9 col-lg-10">
-            <select [formControlName]="'condition_entry'" class="form-control form-control-sm" id="condition_entry">
+          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="condition_entry">Entry</label>
+          <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <input [formControlName]="'condition_entry'" class="form-control form-control-sm" id="condition_entry" placeholder="Entry" />
+          </div>
+
+          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="type">Type</label>
+          <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <select [formControlName]="'type'" class="form-control form-control-sm" id="type">
               <option *ngFor="let key of CONDITION_SOURCE_TYPES_KEYS" [ngValue]="key" [label]="CONDITION_SOURCE_TYPES[key]"></option>
             </select>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="type">{{ 'CONDITIONS.SELECT.SOURCE_GROUP' | translate }}</label>
-          <div class="col-sm-8 col-md-9 col-lg-10">
-            <input [formControlName]="'type'" type="number" class="form-control form-control-sm" id="type" placeholder="type" />
           </div>
         </div>
       </ng-container>
