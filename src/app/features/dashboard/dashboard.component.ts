@@ -37,7 +37,8 @@ export class DashboardComponent extends SubscriptionHandler implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCoreVersion();
+    false;
+    // this.getCoreVersion();
     // this.getWorldDbVersion();
   }
 

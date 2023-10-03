@@ -67,11 +67,11 @@ export class ConditionsComponent extends SingleRowEditorComponent<Conditions> {
   readonly CONDITION_STAND_STATE_CV2 = CONDITION_STAND_STATE_CV2;
 
   get selectedSourceType(): number {
-    return this.editorService.form.controls.SourceTypeOrReferenceId.value;
+    return this.editorService.form.controls.condition_entry.value;
   }
 
   get conditionType(): number {
-    return this.editorService.form.controls.ConditionTypeOrReference.value;
+    return this.editorService.form.controls.type.value;
   }
 
   get showQuestState(): boolean {
@@ -129,7 +129,10 @@ export class ConditionsComponent extends SingleRowEditorComponent<Conditions> {
   }
 
   /* istanbul ignore next */ // because of: https://github.com/gotwarlost/istanbul/issues/690
-  constructor(public editorService: ConditionsService, public handlerService: ConditionsHandlerService) {
+  constructor(
+    public editorService: ConditionsService,
+    public handlerService: ConditionsHandlerService,
+  ) {
     super(editorService, handlerService);
   }
 }

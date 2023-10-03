@@ -2,36 +2,30 @@ import { getEnumKeys } from '../utils/helpers';
 import { TableRow } from './general';
 
 export const CONDITIONS_TABLE = 'conditions';
-export const CONDITIONS_ID_FIELDS = [
-  'SourceTypeOrReferenceId',
-  'SourceGroup',
-  'SourceEntry',
-  'SourceId',
-  'ElseGroup',
-  'ConditionTypeOrReference',
-  'ConditionTarget',
-  'ConditionValue1',
-  'ConditionValue2',
-  'ConditionValue3',
-];
-export const CONDITIONS_SEARCH_FIELDS = ['SourceTypeOrReferenceId', 'SourceGroup', 'SourceEntry'];
+export const CONDITIONS_ID_FIELDS = ['condition_entry', 'type', 'value1', 'value2', 'value3', 'value4', 'flags'];
+export const CONDITIONS_SEARCH_FIELDS = ['condition_entry', 'type'];
 
 export class Conditions extends TableRow {
-  SourceTypeOrReferenceId: number = 0;
-  SourceGroup: number = 0;
-  SourceEntry: number = 0;
-  SourceId: number = 0;
-  ElseGroup: number = 0;
-  ConditionTypeOrReference: number = 0;
-  ConditionTarget: number = 0;
-  ConditionValue1: number = 0;
-  ConditionValue2: number = 0;
-  ConditionValue3: number = 0;
-  NegativeCondition: number = 0;
-  ErrorType: number = 0;
-  ErrorTextId: number = 0;
-  ScriptName: string = '';
-  Comment: string = '';
+  condition_entry: number = 0;
+  type: number = 0;
+  value1: number = 0;
+  value2: number = 0;
+  value3: number = 0;
+  value4: number = 0;
+  flags: number = 0;
+
+  // SourceGroup: number = 0;
+  // SourceEntry: number = 0;
+  // SourceId: number = 0;
+  // ElseGroup: number = 0;
+  // ConditionTypeOrReference: number = 0;
+  // ConditionTarget: number = 0;
+
+  // NegativeCondition: number = 0;
+  // ErrorType: number = 0;
+  // ErrorTextId: number = 0;
+  // ScriptName: string = '';
+  // Comment: string = '';
 }
 
 export enum CONDITION_SOURCE_TYPES {

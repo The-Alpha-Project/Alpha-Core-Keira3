@@ -7,39 +7,17 @@
     <form [formGroup]="selectService.queryForm">
       <ng-container [formGroup]="selectService.fields">
         <div class="form-group row">
-          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="SourceTypeOrReferenceId" [translate]="'SOURCE_TYPE'"></label>
+          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="condition_entry" [translate]="'SOURCE_TYPE'"></label>
           <div class="col-sm-8 col-md-9 col-lg-10">
-            <select [formControlName]="'SourceTypeOrReferenceId'" class="form-control form-control-sm" id="SourceTypeOrReferenceId">
+            <select [formControlName]="'condition_entry'" class="form-control form-control-sm" id="condition_entry">
               <option *ngFor="let key of CONDITION_SOURCE_TYPES_KEYS" [ngValue]="key" [label]="CONDITION_SOURCE_TYPES[key]"></option>
             </select>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="SourceGroup">{{
-            'CONDITIONS.SELECT.SOURCE_GROUP' | translate
-          }}</label>
+          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="type">{{ 'CONDITIONS.SELECT.SOURCE_GROUP' | translate }}</label>
           <div class="col-sm-8 col-md-9 col-lg-10">
-            <input
-              [formControlName]="'SourceGroup'"
-              type="number"
-              class="form-control form-control-sm"
-              id="SourceGroup"
-              placeholder="SourceGroup"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-4 col-md-3 col-lg-2 col-form-label" for="SourceEntry">{{
-            'CONDITIONS.SELECT.SOURCE_ENTRY' | translate
-          }}</label>
-          <div class="col-sm-8 col-md-9 col-lg-10">
-            <input
-              [formControlName]="'SourceEntry'"
-              type="number"
-              class="form-control form-control-sm"
-              id="SourceEntry"
-              placeholder="SourceEntry"
-            />
+            <input [formControlName]="'type'" type="number" class="form-control form-control-sm" id="type" placeholder="type" />
           </div>
         </div>
       </ng-container>
@@ -75,16 +53,13 @@
         [selectionType]="DTCFG.selectionType"
         (select)="onSelect($event)"
       >
-        <ngx-datatable-column name="Type" prop="SourceTypeOrReferenceId" [minWidth]="60"></ngx-datatable-column>
-        <ngx-datatable-column name="Group" prop="SourceGroup"></ngx-datatable-column>
-        <ngx-datatable-column name="Entry" prop="SourceEntry"></ngx-datatable-column>
-        <ngx-datatable-column name="Id" prop="SourceId"></ngx-datatable-column>
-        <ngx-datatable-column name="CondType" prop="ConditionTypeOrReference"></ngx-datatable-column>
-        <ngx-datatable-column name="CondTarget" prop="ConditionTarget"></ngx-datatable-column>
-        <ngx-datatable-column name="CondValue1" prop="ConditionValue1"></ngx-datatable-column>
-        <ngx-datatable-column name="CondValue2" prop="ConditionValue2"></ngx-datatable-column>
-        <ngx-datatable-column name="CondValue3" prop="ConditionValue3"></ngx-datatable-column>
-        <ngx-datatable-column name="NegativeCond" prop="NegativeCondition"></ngx-datatable-column>
+        <ngx-datatable-column name="condition_entry" prop="condition_entry" [minWidth]="60"></ngx-datatable-column>
+        <ngx-datatable-column name="type" prop="type"></ngx-datatable-column>
+        <ngx-datatable-column name="value1" prop="value1"></ngx-datatable-column>
+        <ngx-datatable-column name="value2" prop="value2"></ngx-datatable-column>
+        <ngx-datatable-column name="value3" prop="value3"></ngx-datatable-column>
+        <ngx-datatable-column name="value4" prop="value4"></ngx-datatable-column>
+        <ngx-datatable-column name="flags" prop="flags"></ngx-datatable-column>
       </ngx-datatable>
     </div>
   </div>
