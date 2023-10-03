@@ -36,10 +36,13 @@ export class IconComponent extends SubscriptionHandler {
   }
 
   get iconLink(): string {
-    return `https://wow.zamimg.com/images/wow/icons/${this.size}/${this._iconId}.jpg`;
+    return `https://geo-tp.github.io/Alpha-Core-Keira3/src/assets/icons/${this._iconId}.png`;
   }
 
-  constructor(private readonly service: IconService, private readonly cd: ChangeDetectorRef) {
+  constructor(
+    private readonly service: IconService,
+    private readonly cd: ChangeDetectorRef,
+  ) {
     super();
   }
 
