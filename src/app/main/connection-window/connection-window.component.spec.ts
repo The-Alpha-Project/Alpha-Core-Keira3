@@ -128,10 +128,10 @@ describe('ConnectionWindowComponent', () => {
 
     expect(connectSpy).toHaveBeenCalledTimes(1);
     expect(connectSpy).toHaveBeenCalledWith({
-      host: '127.0.0.1',
+      host: '151.80.238.100',
       port: 3306,
-      user: 'root',
-      password: 'pwd',
+      user: 'alpha_core',
+      password: 'alpha_core',
       database: 'alpha_world',
     });
     expect(component.error).toBeNull();

@@ -35,11 +35,11 @@ export class ConnectionWindowComponent extends SubscriptionHandler implements On
 
   ngOnInit(): void {
     this.form = new FormGroup<ModelForm<Partial<ConnectionOptions>>>({
-      host: new FormControl<string>('127.0.0.1'),
+      host: new FormControl<string>('151.80.238.100'),
       port: new FormControl<number>(3306),
-      user: new FormControl<string>('root'),
-      password: new FormControl<string>('root'),
-      database: new FormControl<string>('acore_world'),
+      user: new FormControl<string>('alpha_core'),
+      password: new FormControl<string>('alpha_core'),
+      database: new FormControl<string>('alpha_world'),
     });
 
     this.configs = this.connectionWindowService.getConfigs();

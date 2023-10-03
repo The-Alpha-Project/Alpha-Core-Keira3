@@ -4,9 +4,9 @@ export const GAMEOBJECT_TEMPLATE_TABLE = 'gameobject_template';
 export const GAMEOBJECT_TEMPLATE_ID = 'entry';
 export const GAMEOBJECT_TEMPLATE_NAME = 'name';
 export const GAMEOBJECT_TEMPLATE_CUSTOM_STARTING_ID = 900_000;
-export const GAMEOBJECT_TEMPLATE_SEARCH_FIELDS = [GAMEOBJECT_TEMPLATE_ID, GAMEOBJECT_TEMPLATE_NAME, 'ScriptName'];
+export const GAMEOBJECT_TEMPLATE_SEARCH_FIELDS = [GAMEOBJECT_TEMPLATE_ID, GAMEOBJECT_TEMPLATE_NAME, 'script_name'];
 
-export const GAMEOBJECT_TEMPLATE_LOOT_ID = 'Data1';
+export const GAMEOBJECT_TEMPLATE_LOOT_ID = 'data1';
 export const GAMEOBJECT_TEMPLATE_TYPE = 'type';
 
 export class GameobjectTemplate extends TableRow {
