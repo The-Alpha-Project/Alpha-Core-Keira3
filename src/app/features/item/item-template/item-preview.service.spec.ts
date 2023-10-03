@@ -723,27 +723,27 @@ describe('ItemPreviewService', () => {
     },
     { name: 'Item Limit Category, no data', template: { ItemLimitCategory: 124 }, output: `` },
     {
-      name: 'inventoryType, class ARMOR, armorDamager',
+      name: 'inventory_type, class ARMOR, armorDamager',
       template: { class: ITEM_TYPE.ARMOR, subclass: 1, InventoryType: 1, ArmorDamageModifier: 1, armor: 1 },
       output: `<table style="float: left; width: 100%;"><tr><td>Head</td><th style="text-align: right;"><!--asc 1 -->Cloth</th></tr></table><br><span class="q2"><!--addamr1--><span>1 Armor</span></span>`,
     },
     {
-      name: 'inventoryType - 1',
+      name: 'inventory_type - 1',
       template: { class: 3, subclass: 2, InventoryType: 2 },
       output: `<br><!-- InventoryType -->Neck`,
     },
     {
-      name: 'inventoryType, armor',
+      name: 'inventory_type, armor',
       template: { class: ITEM_TYPE.WEAPON, armor: 1, ItemLevel: 10 },
       output: `<br><span><!--amr-->1 Armor</span><br>Item Level 10`,
     },
     {
-      name: 'inventoryType, block',
+      name: 'inventory_type, block',
       template: { class: ITEM_TYPE.AMMUNITION, block: 1 },
       output: `<br><span>1 Block</span>`,
     },
     {
-      name: 'inventoryType, subclass',
+      name: 'inventory_type, subclass',
       template: { class: ITEM_TYPE.AMMUNITION, subclass: 2 },
       output: `<table style="float: left; width: 100%;"><tr><th>Arrow</th></tr></table>`,
     },
@@ -752,7 +752,7 @@ describe('ItemPreviewService', () => {
       template: {
         RequiredSkill: 1,
         RequiredReputationFaction: 1,
-        RequiredReputationRank: 1,
+        required_reputation_rank: 1,
         RequiredSkillRank: 10,
       },
       output: `<br>Requires: profession (10)<br>Requires mockGetFactionNameById1 (Hostile)`,

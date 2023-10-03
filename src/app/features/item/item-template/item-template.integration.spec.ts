@@ -25,10 +25,10 @@ describe('ItemTemplate integration tests', () => {
   const id = 1234;
   const expectedFullCreateQuery =
     'DELETE FROM `item_template` WHERE (`entry` = 1234);\n' +
-    'INSERT INTO `item_template` (`entry`, `class`, `subclass`, `SoundOverrideSubclass`, `name`, `displayid`, `Quality`, ' +
+    'INSERT INTO `item_template` (`entry`, `class`, `subclass`, `SoundOverrideSubclass`, `name`, `display_id`, `Quality`, ' +
     '`Flags`, `FlagsExtra`, `BuyCount`, `BuyPrice`, `SellPrice`, `InventoryType`, `AllowableClass`, `AllowableRace`, ' +
     '`ItemLevel`, `RequiredLevel`, `RequiredSkill`, `RequiredSkillRank`, `requiredspell`, `requiredhonorrank`, ' +
-    '`RequiredCityRank`, `RequiredReputationFaction`, `RequiredReputationRank`, `maxcount`, `stackable`, `ContainerSlots`, ' +
+    '`RequiredCityRank`, `RequiredReputationFaction`, `required_reputation_rank`, `maxcount`, `stackable`, `ContainerSlots`, ' +
     '`StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, ' +
     '`stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, ' +
     '`stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `ScalingStatDistribution`, ' +
@@ -177,10 +177,10 @@ describe('ItemTemplate integration tests', () => {
       const { page, querySpy } = setup(false);
       const expectedQuery =
         'UPDATE `item_template` SET ' +
-        "`subclass` = 1, `SoundOverrideSubclass` = 2, `name` = '3', `displayid` = 4, `Quality` = 5, `Flags` = 6, `FlagsExtra` = 7, " +
+        "`subclass` = 1, `SoundOverrideSubclass` = 2, `name` = '3', `display_id` = 4, `Quality` = 5, `Flags` = 6, `FlagsExtra` = 7, " +
         '`BuyCount` = 8, `BuyPrice` = 9, `SellPrice` = 10, `InventoryType` = 11, `AllowableClass` = 12, `AllowableRace` = 13, ' +
         '`ItemLevel` = 14, `RequiredLevel` = 15, `RequiredSkill` = 16, `RequiredSkillRank` = 17, `requiredspell` = 18, ' +
-        '`requiredhonorrank` = 19, `RequiredCityRank` = 20, `RequiredReputationFaction` = 21, `RequiredReputationRank` = 22, ' +
+        '`requiredhonorrank` = 19, `RequiredCityRank` = 20, `RequiredReputationFaction` = 21, `required_reputation_rank` = 22, ' +
         '`maxcount` = 23, `stackable` = 24, `ContainerSlots` = 25, `StatsCount` = 26, `stat_type1` = 27, `stat_value1` = 28, ' +
         '`stat_type2` = 29, `stat_value2` = 30, `stat_type3` = 31, `stat_value3` = 32, `stat_type4` = 33, `stat_value4` = 34, ' +
         '`stat_type5` = 35, `stat_value5` = 36, `stat_type6` = 37, `stat_value6` = 38, `stat_type7` = 39, `stat_value7` = 40, ' +
@@ -386,7 +386,7 @@ describe('ItemTemplate integration tests', () => {
         page.setInputValueById('subclass', 2);
         page.setInputValueById('SoundOverrideSubclass', 3);
         page.setInputValueById('name', 'Helias item');
-        page.setInputValueById('displayid', 4);
+        page.setInputValueById('display_id', 4);
         page.setInputValueById('Quality', 5);
         page.setInputValueById('Flags', 6);
         page.setInputValueById('FlagsExtra', 7);
@@ -404,7 +404,7 @@ describe('ItemTemplate integration tests', () => {
         page.setInputValueById('requiredhonorrank', 123);
         page.setInputValueById('RequiredCityRank', 123);
         page.setInputValueById('RequiredReputationFaction', 123);
-        page.setInputValueById('RequiredReputationRank', 1);
+        page.setInputValueById('required_reputation_rank', 1);
         page.setInputValueById('maxcount', 123);
         page.setInputValueById('stackable', 123);
         page.setInputValueById('ContainerSlots', 123);

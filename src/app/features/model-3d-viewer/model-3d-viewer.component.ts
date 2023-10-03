@@ -69,16 +69,16 @@ export class Model3DViewerComponent implements OnInit, OnDestroy, OnChanges {
 
   private getItemData$(): Observable<TableRow[]> {
     return this.queryService.query(
-      `SELECT entry, class AS _class, inventoryType FROM item_template WHERE displayid=${this.displayId} LIMIT 1`,
+      `SELECT entry, class AS _class, inventory_type FROM item_template WHERE display_id=${this.displayId} LIMIT 1`,
     );
   }
 
-  private verifyModelAndLoad({ entry, inventoryType, _class }: TableRow): void {
-    const modelType = this.getModelType(_class as number, inventoryType as number);
+  private verifyModelAndLoad({ entry, inventory_type, _class }: TableRow): void {
+    const modelType = this.getModelType(_class as number, inventory_type as number);
 
     this.subscriptions.add(
       this.http
-        .get(this.getContentPathUrl(inventoryType))
+        .get(this.getContentPathUrl(inventory_type))
         .pipe(
           catchError(
             /* istanbul ignore next */
@@ -119,9 +119,9 @@ export class Model3DViewerComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-  private getContentPathUrl(inventoryType: number | string): string {
-    if (inventoryType === 3 || inventoryType === 4) {
-      return `${CONTENT_WOTLK}meta/armor/${inventoryType}/${this.displayId}.json`;
+  private getContentPathUrl(inventory_type: number | string): string {
+    if (inventory_type === 3 || inventory_type === 4) {
+      return `${CONTENT_WOTLK}meta/armor/${inventory_type}/${this.displayId}.json`;
     }
 
     return `${CONTENT_WOTLK}meta/item/${this.displayId}.json`;

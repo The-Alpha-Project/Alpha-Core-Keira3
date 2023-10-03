@@ -159,7 +159,7 @@ describe('Model3DViewerComponent', () => {
 
     expect(component['getItemData$']()).toBe(mockObj);
     expect(queryService.query).toHaveBeenCalledOnceWith(
-      `SELECT entry, class AS _class, inventoryType FROM item_template WHERE displayid=${mockDisplayId} LIMIT 1`,
+      `SELECT entry, class AS _class, inventory_type FROM item_template WHERE display_id=${mockDisplayId} LIMIT 1`,
     );
   });
 
@@ -173,7 +173,7 @@ describe('Model3DViewerComponent', () => {
       spyOn<any>(component, 'generate3Dmodel');
       spyOn<any>(component, 'getModelType').and.returnValue(mockModelType);
 
-      component['verifyModelAndLoad']({ entry: 1, inventoryType: 2, _class: 2 });
+      component['verifyModelAndLoad']({ entry: 1, inventory_type: 2, _class: 2 });
 
       const req = httpTestingController.expectOne(mockUrl);
       expect(req.request.method).toEqual('GET');

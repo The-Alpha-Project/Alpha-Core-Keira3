@@ -18,7 +18,7 @@ declare const ZamModelViewer: any;
 /**
  * Returns a 2 dimensional list the inner list contains on first position the item slot, the second the item
  * display-id ex: [[1,1170],[3,4925]]
- * @param {*[{item: {entry: number, displayid: number}, transmog: {entry: number, displayid: number}, slot: number}]} equipments
+ * @param {*[{item: {entry: number, display_id: number}, transmog: {entry: number, display_id: number}, slot: number}]} equipments
  * @returns {Promise<int[]>}
  */
 // async function findItemsInEquipments(equipments: any[]): Promise<number[][]> {
@@ -28,7 +28,7 @@ declare const ZamModelViewer: any;
 //     }
 
 //     const displayedItem = Object.keys(equipment.transmog).length !== 0 ? equipment.transmog : equipment.item;
-//     const displaySlot = await getDisplaySlot(displayedItem.entry, equipment.slot, displayedItem.displayid);
+//     const displaySlot = await getDisplaySlot(displayedItem.entry, equipment.slot, displayedItem.display_id);
 //     equipment.displaySlot = displaySlot.displaySlot;
 //     equipment.displayId = displaySlot.displayId;
 //     Object.assign(displaySlot, equipment);

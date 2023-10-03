@@ -34,11 +34,11 @@
             <input [formControlName]="'description'" id="description" class="form-control form-control-sm" />
           </div>
 
-          <div class="form-group col-12 col-sm-5 col-md-5 col-lg-4 col-xl-3">
+          <!-- <div class="form-group col-12 col-sm-5 col-md-5 col-lg-4 col-xl-3">
             <label class="control-label" for="ScriptName">ScriptName</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SCRIPT_NAME' | translate"></i>
             <input [formControlName]="'ScriptName'" id="ScriptName" class="form-control form-control-sm" />
-          </div>
+          </div> -->
         </div>
 
         <div class="row">
@@ -67,7 +67,7 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SUBCLASS' | translate"></i>
             <input [formControlName]="'subclass'" id="subclass" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="SoundOverrideSubclass">SoundOverride</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SOUND_OVERRIDE_SUBCLASS' | translate"></i>
             <input
@@ -76,49 +76,49 @@
               type="number"
               class="form-control form-control-sm"
             />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="displayid">displayid</label>
+            <label class="control-label" for="display_id">display_id</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.DISPLAYID' | translate"></i>
-            <input [formControlName]="'displayid'" id="displayid" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'display_id'" id="display_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="Quality">Quality</label>
+            <label class="control-label" for="quality">quality</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.Quality"
+              [control]="editorService.form.controls.quality"
               [config]="{ options: ITEM_QUALITY, name: 'Quality' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'Quality'" id="Quality" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'quality'" id="quality" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="BuyCount">BuyCount</label>
+            <label class="control-label" for="buy_count">buy_count</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.BUY_COUNT' | translate"></i>
-            <input [formControlName]="'BuyCount'" id="BuyCount" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'buy_count'" id="buy_count" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="BuyPrice">BuyPrice</label>
+            <label class="control-label" for="buy_price">buy_price</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.BUY_PRICE' | translate"></i>
-            <input [formControlName]="'BuyPrice'" id="BuyPrice" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'buy_price'" id="buy_price" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="SellPrice">SellPrice</label>
+            <label class="control-label" for="sell_price">sell_price</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SELL_PRICE' | translate"></i>
-            <input [formControlName]="'SellPrice'" id="SellPrice" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'sell_price'" id="sell_price" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="InventoryType">InventoryType</label>
+            <label class="control-label" for="inventory_type">inventory_type</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.InventoryType"
+              [control]="editorService.form.controls.inventory_type"
               [config]="{ options: INVENTORY_TYPE, name: 'InventoryType' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'InventoryType'" id="InventoryType" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'inventory_type'" id="inventory_type" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="maxcount">maxcount</label>
+            <label class="control-label" for="max_count">max_count</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.MAXCOUNT' | translate"></i>
-            <input [formControlName]="'maxcount'" id="maxcount" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'max_count'" id="max_count" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="stackable">stackable</label>
@@ -126,49 +126,49 @@
             <input [formControlName]="'stackable'" id="stackable" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="startquest">startquest</label>
+            <label class="control-label" for="start_quest">start_quest</label>
             <keira-quest-selector-btn
-              [control]="editorService.form.controls.startquest"
+              [control]="editorService.form.controls.start_quest"
               [config]="{ name: 'startquest' }"
               [modalClass]="'modal-lg'"
             ></keira-quest-selector-btn>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.STARTQUEST' | translate"></i>
-            <input [formControlName]="'startquest'" id="startquest" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'start_quest'" id="start_quest" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="Material">Material</label>
+            <label class="control-label" for="material">material</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.Material"
+              [control]="editorService.form.controls.material"
               [config]="{ options: ITEM_MATERIAL, name: 'Material' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'Material'" id="Material" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'material'" id="material" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RandomProperty">RandomProperty</label>
+            <label class="control-label" for="random_property">random_property</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.RANDOM_PROPERTY' | translate"></i>
-            <input [formControlName]="'RandomProperty'" id="RandomProperty" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'random_property'" id="random_property" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="RandomSuffix">RandomSuffix</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.RANDOM_SUFFIX' | translate"></i>
             <input [formControlName]="'RandomSuffix'" id="RandomSuffix" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="BagFamily">BagFamily</label>
+            <label class="control-label" for="bag_family">bag_family</label>
             <keira-flags-selector-btn
-              [control]="editorService.form.controls.BagFamily"
+              [control]="editorService.form.controls.bag_family"
               [config]="{ flags: BAG_FAMILY, name: 'BagFamily' }"
               [modalClass]="'modal-md'"
             ></keira-flags-selector-btn>
-            <input [formControlName]="'BagFamily'" id="BagFamily" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'bag_family'" id="bag_family" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="ContainerSlots">ContainerSlots</label>
+            <label class="control-label" for="container_slots">container_slots</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.CONTAINER_SLOTS' | translate"></i>
-            <input [formControlName]="'ContainerSlots'" id="ContainerSlots" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'container_slots'" id="container_slots" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="TotemCategory">TotemCategory</label>
             <keira-single-value-selector-btn
               [control]="editorService.form.controls.TotemCategory"
@@ -176,48 +176,48 @@
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
             <input [formControlName]="'TotemCategory'" id="TotemCategory" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="duration">duration</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.DURATION' | translate"></i>
             <input [formControlName]="'duration'" id="duration" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="ItemLimitCategory">ItemLimitCat.</label>
             <keira-item-limit-category-selector-btn
               [config]="{ name: 'ItemLimitCategory' }"
               [control]="editorService.form.controls.ItemLimitCategory"
             ></keira-item-limit-category-selector-btn>
             <input [formControlName]="'ItemLimitCategory'" id="ItemLimitCategory" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="DisenchantID">DisenchantID</label>
+            <label class="control-label" for="disenchant_id">disenchant_id</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.DISENCHANT_ID' | translate"></i>
-            <input [formControlName]="'DisenchantID'" id="DisenchantID" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'disenchant_id'" id="disenchant_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="FoodType">FoodType</label>
+            <label class="control-label" for="food_type">food_type</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.FoodType"
+              [control]="editorService.form.controls.food_type"
               [config]="{ options: FOOD_TYPE, name: 'FoodType' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'FoodType'" id="FoodType" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'food_type'" id="food_type" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="minMoneyLoot">minMoneyLoot</label>
+            <label class="control-label" for="fmin_money_loot">min_money_loot</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.MIN_MONEY_LOOT' | translate"></i>
-            <input [formControlName]="'minMoneyLoot'" id="minMoneyLoot" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'min_money_loot'" id="min_money_loot" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="maxMoneyLoot">maxMoneyLoot</label>
+            <label class="control-label" for="max_money_loot">max_money_loot</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.MAX_MONEY_LOOT' | translate"></i>
-            <input [formControlName]="'maxMoneyLoot'" id="maxMoneyLoot" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'max_money_loot'" id="max_money_loot" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="itemset">itemset</label>
+            <label class="control-label" for="set_id">set_id</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.ITEMSET' | translate"></i>
-            <input [formControlName]="'itemset'" id="itemset" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'set_id'" id="set_id" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="bonding">bonding</label>
@@ -236,24 +236,24 @@
             <span class="category-title" [translate]="'ITEM.TEMPLATE.FLAGS'"></span>
             <div class="row">
               <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                <label class="control-label" for="Flags">Flags</label>
+                <label class="control-label" for="flags">flags</label>
                 <keira-flags-selector-btn
-                  [control]="editorService.form.controls.Flags"
+                  [control]="editorService.form.controls.flags"
                   [config]="{ flags: ITEM_FLAGS, name: 'Flags' }"
                   [modalClass]="'modal-lg'"
                 ></keira-flags-selector-btn>
-                <input [formControlName]="'Flags'" id="Flags" type="number" class="form-control form-control-sm" />
+                <input [formControlName]="'flags'" id="flags" type="number" class="form-control form-control-sm" />
               </div>
               <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                <label class="control-label" for="FlagsExtra">FlagsExtra</label>
+                <label class="control-label" for="extra_flags">extra_flags</label>
                 <keira-flags-selector-btn
-                  [control]="editorService.form.controls.FlagsExtra"
+                  [control]="editorService.form.controls.extra_flags"
                   [config]="{ flags: ITEM_FLAGS_EXTRA, name: 'FlagsExtra' }"
                   [modalClass]="'modal-lg'"
                 ></keira-flags-selector-btn>
-                <input [formControlName]="'FlagsExtra'" id="FlagsExtra" type="number" class="form-control form-control-sm" />
+                <input [formControlName]="'extra_flags'" id="extra_flags" type="number" class="form-control form-control-sm" />
               </div>
-              <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
+              <!-- <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
                 <label class="control-label" for="flagsCustom">flagsCustom</label>
                 <keira-flags-selector-btn
                   [control]="editorService.form.controls.flagsCustom"
@@ -261,7 +261,7 @@
                   [modalClass]="'modal-lg'"
                 ></keira-flags-selector-btn>
                 <input [formControlName]="'flagsCustom'" id="flagsCustom" type="number" class="form-control form-control-sm" />
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -270,23 +270,23 @@
             <span class="category-title" [translate]="'ITEM.TEMPLATE.TEXTS'"></span>
             <div class="row">
               <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                <label class="control-label" for="PageText">PageText</label>
+                <label class="control-label" for="page_text">page_text</label>
                 <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.PAGE_TEXT' | translate"></i>
-                <input [formControlName]="'PageText'" id="PageText" type="number" class="form-control form-control-sm" />
+                <input [formControlName]="'page_text'" id="page_text" type="number" class="form-control form-control-sm" />
               </div>
               <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                <label class="control-label" for="PageMaterial">PageMaterial</label>
+                <label class="control-label" for="page_material">page_material</label>
                 <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.PAGE_MATERIAL' | translate"></i>
-                <input [formControlName]="'PageMaterial'" id="PageMaterial" type="number" class="form-control form-control-sm" />
+                <input [formControlName]="'page_material'" id="page_material" type="number" class="form-control form-control-sm" />
               </div>
               <div class="form-group col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                <label class="control-label" for="LanguageID">Lang.ID</label>
+                <label class="control-label" for="page_language">page_language</label>
                 <keira-language-selector-btn
                   [config]="{ name: 'LanguageID' }"
-                  [control]="editorService.form.controls.LanguageID"
+                  [control]="editorService.form.controls.page_language"
                 ></keira-language-selector-btn>
                 <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.LANG_ID' | translate"></i>
-                <input [formControlName]="'LanguageID'" id="LanguageID" type="number" class="form-control form-control-sm" />
+                <input [formControlName]="'page_language'" id="page_language" type="number" class="form-control form-control-sm" />
               </div>
             </div>
           </div>
@@ -296,101 +296,101 @@
         <span class="category-title" [translate]="'ITEM.TEMPLATE.REQUIREMENTS'"></span>
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="AllowableClass">AllowableClass</label>
+            <label class="control-label" for="allowable_class">allowable_class</label>
             <keira-flags-selector-btn
-              [control]="editorService.form.controls.AllowableClass"
+              [control]="editorService.form.controls.allowable_class"
               [config]="{ flags: ALLOWABLE_CLASSES, name: 'AllowableClass' }"
               [modalClass]="'modal-lg'"
             ></keira-flags-selector-btn>
-            <input [formControlName]="'AllowableClass'" id="AllowableClass" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'allowable_class'" id="allowable_class" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="AllowableRace">AllowableRace</label>
+            <label class="control-label" for="allowable_race">allowable_race</label>
             <keira-flags-selector-btn
-              [control]="editorService.form.controls.AllowableRace"
+              [control]="editorService.form.controls.allowable_race"
               [config]="{ flags: ALLOWABLE_RACES, name: 'AllowableRace' }"
               [modalClass]="'modal-lg'"
             ></keira-flags-selector-btn>
-            <input [formControlName]="'AllowableRace'" id="AllowableRace" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'allowable_race'" id="allowable_race" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="ItemLevel">ItemLevel</label>
+            <label class="control-label" for="item_level">item_level</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.ITEM_LEVEL' | translate"></i>
-            <input [formControlName]="'ItemLevel'" id="ItemLevel" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'item_level'" id="item_level" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredLevel">Req.Level</label>
+            <label class="control-label" for="required_level">ReqLevel</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_LEVEL' | translate"></i>
-            <input [formControlName]="'RequiredLevel'" id="RequiredLevel" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'required_level'" id="required_level" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredSkill">Req.Skill</label>
+            <label class="control-label" for="required_skill">ReqSkill</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_SKILL' | translate"></i>
             <keira-skill-selector-btn
               [config]="{ name: 'RequiredSkill' }"
-              [control]="editorService.form.controls.RequiredSkill"
+              [control]="editorService.form.controls.required_skill"
             ></keira-skill-selector-btn>
-            <input [formControlName]="'RequiredSkill'" id="RequiredSkill" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'required_skill'" id="required_skill" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredSkillRank">Req.SkillRank</label>
+            <label class="control-label" for="required_skill_rank">ReqSkillRank</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_SKILL_RANK' | translate"></i>
-            <input [formControlName]="'RequiredSkillRank'" id="RequiredSkillRank" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'required_skill_rank'" id="required_skill_rank" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="requiredspell">Req.spell</label>
+            <label class="control-label" for="required_spell">ReqSpell</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_SPELL' | translate"></i>
             <keira-spell-selector-btn
-              [control]="editorService.form.controls.requiredspell"
+              [control]="editorService.form.controls.required_spell"
               [config]="{ name: 'requiredspell' }"
               [modalClass]="'modal-lg'"
             ></keira-spell-selector-btn>
-            <input [formControlName]="'requiredspell'" id="requiredspell" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'required_spell'" id="required_spell" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="requiredhonorrank">Req.honorrank</label>
+            <label class="control-label" for="required_honor_rank">ReqHonorRank</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_HONORRANK' | translate"></i>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.requiredhonorrank"
+              [control]="editorService.form.controls.required_honor_rank"
               [config]="{ options: PVP_RANK, name: 'PvP Honor Rank' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
-            <input [formControlName]="'requiredhonorrank'" id="requiredhonorrank" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'required_honor_rank'" id="required_honor_rank" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredCityRank">Req.CityRank</label>
+            <label class="control-label" for="required_city_rank">ReqCityRank</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_CITY_RANK' | translate"></i>
-            <input [formControlName]="'RequiredCityRank'" id="RequiredCityRank" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'required_city_rank'" id="required_city_rank" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredReputationFaction">Req.Rep.Faction</label>
+            <label class="control-label" for="required_reputation_faction">ReqRepFaction</label>
             <keira-faction-selector-btn
               [config]="{ name: 'RequiredReputationFaction' }"
-              [control]="editorService.form.controls.RequiredReputationFaction"
+              [control]="editorService.form.controls.required_reputation_faction"
             ></keira-faction-selector-btn>
             <input
-              [formControlName]="'RequiredReputationFaction'"
-              id="RequiredReputationFaction"
+              [formControlName]="'required_reputation_faction'"
+              id="required_reputation_faction"
               type="number"
               class="form-control form-control-sm"
             />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredReputationRank">Req.Rep.Rank</label>
+            <label class="control-label" for="required_reputation_rank">ReqRepRank</label>
             <keira-single-value-selector-btn
-              [control]="editorService.form.controls.RequiredReputationRank"
-              [config]="{ options: FACTION_RANK, name: 'RequiredReputationRank' }"
+              [control]="editorService.form.controls.required_reputation_rank"
+              [config]="{ options: FACTION_RANK, name: 'required_reputation_rank' }"
               [modalClass]="'modal-md'"
             ></keira-single-value-selector-btn>
             <input
-              [formControlName]="'RequiredReputationRank'"
-              id="RequiredReputationRank"
+              [formControlName]="'required_reputation_rank'"
+              id="required_reputation_rank"
               type="number"
               class="form-control form-control-sm"
             />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RequiredDisenchantSkill">Req.Disenchant</label>
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <label class="control-label" for="RequiredDisenchantSkill">ReqDisenchant</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.REQUIRED_DISENCHANT_SKILL' | translate"></i>
             <input
               [formControlName]="'RequiredDisenchantSkill'"
@@ -398,20 +398,23 @@
               type="number"
               class="form-control form-control-sm"
             />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="Map">Map</label>
-            <keira-map-selector-btn [config]="{ name: 'Map' }" [control]="editorService.form.controls.Map"></keira-map-selector-btn>
+            <label class="control-label" for="map_bound">map_bound</label>
+            <keira-map-selector-btn [config]="{ name: 'Map' }" [control]="editorService.form.controls.map_bound"></keira-map-selector-btn>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.MAP' | translate"></i>
-            <input [formControlName]="'Map'" id="Map" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'map_bound'" id="map_bound" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="area">area</label>
-            <keira-area-selector-btn [config]="{ name: 'area' }" [control]="editorService.form.controls.area"></keira-area-selector-btn>
+            <label class="control-label" for="area_bound">area_bound</label>
+            <keira-area-selector-btn
+              [config]="{ name: 'area' }"
+              [control]="editorService.form.controls.area_bound"
+            ></keira-area-selector-btn>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.AREA' | translate"></i>
-            <input [formControlName]="'area'" id="area" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'area_bound'" id="area_bound" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="HolidayId">HolidayId</label>
             <keira-holiday-selector-btn
               [config]="{ name: 'HolidayId' }"
@@ -419,11 +422,11 @@
             ></keira-holiday-selector-btn>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.HOLIDAY_ID' | translate"></i>
             <input [formControlName]="'HolidayId'" id="HolidayId" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="lockid">lockid</label>
+            <label class="control-label" for="lock_id">lock_id</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.LOCKID' | translate"></i>
-            <input [formControlName]="'lockid'" id="lockid" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'lock_id'" id="lock_id" type="number" class="form-control form-control-sm" />
           </div>
         </div>
       </div>
@@ -445,7 +448,7 @@
       <div class="content-block">
         <span class="category-title" [translate]="'ITEM.TEMPLATE.STATS'"></span>
         <div class="row">
-          <div class="form-group col-12 col-sm-6 col-lg-4 col-xl-3">
+          <!-- <div class="form-group col-12 col-sm-6 col-lg-4 col-xl-3">
             <label class="control-label" for="ScalingStatDistribution">ScalingStatDistribution</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SCALING_STAT_DISTRIBUTION' | translate"></i>
             <input
@@ -454,17 +457,17 @@
               type="number"
               class="form-control form-control-sm"
             />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-lg-4 col-xl-3">
+          </div> -->
+          <!-- <div class="form-group col-12 col-sm-6 col-lg-4 col-xl-3">
             <label class="control-label" for="ScalingStatValue">ScalingStatValue</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SCALING_STAT_VALUE' | translate"></i>
             <input [formControlName]="'ScalingStatValue'" id="ScalingStatValue" type="number" class="form-control form-control-sm" />
-          </div>
-          <div class="form-group col-12 col-sm-6 col-lg-4 col-xl-3">
+          </div> -->
+          <!-- <div class="form-group col-12 col-sm-6 col-lg-4 col-xl-3">
             <label class="control-label" for="StatsCount">count</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.STATS_COUNT' | translate"></i>
             <input [formControlName]="'StatsCount'" id="StatsCount" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -487,7 +490,7 @@
           </div>
         </div>
       </div>
-      <div class="content-block">
+      <!-- <div class="content-block">
         <span class="category-title" [translate]="'ITEM.TEMPLATE.SOCKET'"></span>
         <div class="row">
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg col-xl-5">
@@ -518,11 +521,7 @@
               </div>
               <div class="col-12">
                 <label class="control-label" for="socketContent_{{ i }}">Content_{{ i }}</label>
-                <i
-                  class="fas fa-info-circle ms-1"
-                  placement="auto"
-                  [tooltip]="'ITEM.TEMPLATE.SOCKET_CONTENTS' | translate : { idx: i }"
-                ></i>
+                <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SOCKET_CONTENTS' | translate: { idx: i }"></i>
                 <input
                   [formControlName]="'socketContent_' + i"
                   id="socketContent_{{ i }}"
@@ -533,7 +532,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="content-block">
         <span class="category-title" [translate]="'ITEM.TEMPLATE.WEAPON_ARMOR'"></span>
         <div class="row">
@@ -542,35 +541,35 @@
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.ARMOR' | translate"></i>
             <input [formControlName]="'armor'" id="armor" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="ArmorDamageModifier">ArmorDamageModifier</label>
             <input [formControlName]="'ArmorDamageModifier'" id="ArmorDamageModifier" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="delay">delay</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.ARMOR_DAMAGE_MODIFIER' | translate"></i>
             <input [formControlName]="'delay'" id="delay" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="ammo_type">ammo_type</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.DELAY' | translate"></i>
             <input [formControlName]="'ammo_type'" id="ammo_type" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <label class="control-label" for="RangedModRange">RangModRange</label>
+            <label class="control-label" for="range_mod">range_mod</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.AMMO_TYPE' | translate"></i>
-            <input [formControlName]="'RangedModRange'" id="RangedModRange" type="number" class="form-control form-control-sm" />
+            <input [formControlName]="'range_mod'" id="range_mod" type="number" class="form-control form-control-sm" />
           </div>
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="block">block</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.RANGED_MOD_RANGE' | translate"></i>
             <input [formControlName]="'block'" id="block" type="number" class="form-control form-control-sm" />
           </div>
-          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <!-- <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="MaxDurability">MaxDurability</label>
             <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.BLOCK' | translate"></i>
             <input [formControlName]="'MaxDurability'" id="MaxDurability" type="number" class="form-control form-control-sm" />
-          </div>
+          </div> -->
           <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <label class="control-label" for="sheath">sheath</label>
             <keira-single-value-selector-btn
@@ -642,11 +641,11 @@
                 />
               </div>
               <div class="col-12">
-                <label class="control-label" for="spellppmRate_{{ i }}">ppmRate_{{ i }}</label>
+                <label class="control-label" for="spellppmrate_{{ i }}">ppmrate_{{ i }}</label>
                 <i class="fas fa-info-circle ms-1" placement="auto" [tooltip]="'ITEM.TEMPLATE.SPELL_PPM_RATES' | translate"></i>
                 <input
-                  [formControlName]="'spellppmRate_' + i"
-                  id="spellppmRate_{{ i }}"
+                  [formControlName]="'spellppmrate_' + i"
+                  id="spellppmrate_{{ i }}"
                   type="number"
                   class="form-control form-control-sm"
                 />
@@ -691,7 +690,7 @@
       <div class="transparent perfect-scrollbar">
         <div class="item-preview">
           <div class="icon-container">
-            <keira-icon [size]="'large'" [itemDisplayId]="editorService.form.controls.displayid.value" class="icon"></keira-icon>
+            <keira-icon [size]="'large'" [itemDisplayId]="editorService.form.controls.display_id.value" class="icon"></keira-icon>
             <div class="item-stock-container">
               <span
                 class="item-stock q1 stackable"
@@ -709,9 +708,9 @@
             <br />
             <keira-model-3d-viewer
               [viewerType]="ITEM_VIEWER_TYPE"
-              [displayId]="editorService.form.controls.displayid.value"
+              [displayId]="editorService.form.controls.display_id.value"
               [itemClass]="editorService.form.controls.class.value"
-              [itemInventoryType]="editorService.form.controls.InventoryType.value"
+              [itemInventoryType]="editorService.form.controls.inventory_type.value"
               ><div id="model_3d"></div>
             </keira-model-3d-viewer>
           </div>

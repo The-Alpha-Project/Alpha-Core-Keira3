@@ -136,5 +136,5 @@ export class QuestTemplate extends TableRow {
   StartScript: number = 0;
   CompleteScript: number = 0;
   ignored = 0;
-  // parse_timestamp: string = '1970-01-01';
+  parse_timestamp: string = '1970-01-01';
 }

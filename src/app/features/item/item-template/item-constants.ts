@@ -110,7 +110,7 @@ export const ITEM_CONSTANTS = {
     'Gem Bag',
     'Mining Bag',
   ],
-  inventoryType: [
+  inventory_type: [
     // INVTYPE_*
     null,
     'Head',

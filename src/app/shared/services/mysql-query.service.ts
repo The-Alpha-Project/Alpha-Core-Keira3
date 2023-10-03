@@ -402,7 +402,7 @@ export class MysqlQueryService extends QueryService {
           this.queryValueToPromiseCached(
             'getDisplayIdByItemId',
             String(id),
-            `SELECT displayid AS v FROM item_template WHERE entry = ${id}`,
+            `SELECT display_id AS v FROM item_template WHERE entry = ${id}`,
           ),
         )
       : of(null);

@@ -29,7 +29,7 @@ export class ItemPreviewService {
    */
 
   private getItemsetSlotBak(itemset: number | string): Promise<any[]> {
-    return this.sqliteQueryService.query(`SELECT * FROM items WHERE itemset = ${itemset} ORDER BY slotBak, id`).toPromise();
+    return this.sqliteQueryService.query(`SELECT * FROM items WHERE set_id = ${itemset} ORDER BY slotBak, id`).toPromise();
   }
 
   private getItemNameByIDsASC(IDs: number[]): Promise<any[]> {
@@ -312,7 +312,7 @@ export class ItemPreviewService {
     const itemz = {};
     let xCostData = [];
     const xCostDataArr = {};
-    const rawEntries = await this.getItemExtendedCostFromVendor(entry);
+    const rawEntries = null;
 
     if (!rawEntries) {
       return [];
@@ -540,7 +540,7 @@ export class ItemPreviewService {
   private getStats(itemTemplate: ItemTemplate, greenText: string[]): string {
     let stats = '';
 
-    const requiredLevel = Number(itemTemplate.RequiredLevel);
+    const requiredLevel = Number(itemTemplate.required_level);
 
     for (let i = 1; i <= 10; i++) {
       const type = Number(itemTemplate['stat_type' + i]);
@@ -737,7 +737,7 @@ export class ItemPreviewService {
   private async getBonding(itemTemplate: ItemTemplate): Promise<string> {
     let bondingText = '';
 
-    const flags = itemTemplate.Flags;
+    const flags = itemTemplate.flags;
     const bonding: number = Number(itemTemplate.bonding);
     const maxcount: number = Number(itemTemplate.maxcount);
     const bagFamily: number = Number(itemTemplate.BagFamily);
@@ -772,7 +772,7 @@ export class ItemPreviewService {
     return bondingText;
   }
 
-  private getClassText(inventoryType: number, itemClass: number, subclass: number): string {
+  private getClassText(inventory_type: number, itemClass: number, subclass: number): string {
     let classText = '';
 
     let textRight = '';
@@ -780,8 +780,8 @@ export class ItemPreviewService {
       let classTmpText = '<table style="float: left; width: 100%;"><tr>';
 
       // Class
-      if (inventoryType && !!ITEM_CONSTANTS.inventoryType[inventoryType]) {
-        classTmpText += `<td>${ITEM_CONSTANTS.inventoryType[inventoryType]}</td>`;
+      if (inventory_type && !!ITEM_CONSTANTS.inventory_type[inventory_type]) {
+        classTmpText += `<td>${ITEM_CONSTANTS.inventory_type[inventory_type]}</td>`;
         textRight = ' style="text-align: right;"';
       }
 
@@ -804,8 +804,8 @@ export class ItemPreviewService {
       }
 
       // inventoryType/slot can occur on random items and is then also displayed <_< .. excluding Bags >_>
-    } else if (inventoryType && itemClass !== ITEM_TYPE.CONTAINER && !!ITEM_CONSTANTS.inventoryType[subclass]) {
-      classText += `<br><!-- InventoryType -->${ITEM_CONSTANTS.inventoryType[subclass]}`;
+    } else if (inventory_type && itemClass !== ITEM_TYPE.CONTAINER && !!ITEM_CONSTANTS.inventory_type[subclass]) {
+      classText += `<br><!-- InventoryType -->${ITEM_CONSTANTS.inventory_type[subclass]}`;
     }
 
     return classText;
@@ -815,15 +815,9 @@ export class ItemPreviewService {
     let armorText = '';
 
     // Armor
-    const armorDamageModifier = itemTemplate.ArmorDamageModifier;
+    // const armorDamageModifier = itemTemplate.ArmorDamageModifier;
     const armor = itemTemplate.armor;
-    const itemClass: number = Number(itemTemplate.class);
-    if (itemClass === ITEM_TYPE.ARMOR && armorDamageModifier > 0 && !!armor) {
-      armorText += `<br><span class="q2"><!--addamr${armorDamageModifier}--><span>${ITEM_CONSTANTS.armor.replace(
-        '%s',
-        String(armor),
-      )}</span></span>`;
-    } else if (armor) {
+    if (armor) {
       armorText += `<br><span><!--amr-->${ITEM_CONSTANTS.armor.replace('%s', String(armor))}</span>`;
     }
 
@@ -840,13 +834,13 @@ export class ItemPreviewService {
     let requiredText = '';
 
     // required classes
-    const classes = this.helperService.getRequiredClass(itemTemplate.AllowableClass);
+    const classes = this.helperService.getRequiredClass(itemTemplate.allowable_class);
     if (classes != null && classes.length > 0) {
       requiredText += `<br>Classes: ${classes.map((i) => `<span class="c${i}">${CLASSES_TEXT[i]}</span>`).join(', ')}`;
     }
 
     // required races
-    let races = this.helperService.getRaceString(itemTemplate.AllowableRace);
+    let races = this.helperService.getRaceString(itemTemplate.allowable_race);
     if (races) {
       if (!isNaN(Number(races[0]))) {
         races = races.map((el) => RACES_TEXT[el]);
@@ -862,15 +856,15 @@ export class ItemPreviewService {
     // required CityRank -> the value is always 0
 
     // required level
-    if (itemTemplate.Flags & ITEM_FLAG.ACCOUNTBOUND && itemTemplate.Quality === ITEMS_QUALITY.HEIRLOOM) {
+    if (itemTemplate.flags & ITEM_FLAG.ACCOUNTBOUND && itemTemplate.quality === ITEMS_QUALITY.HEIRLOOM) {
       requiredText +=
         '<br>' + ITEM_CONSTANTS.reqLevelRange.replace('%d', '1').replace('%d', MAX_LEVEL.toString()).replace('%s', MAX_LEVEL.toString());
-    } else if (itemTemplate.RequiredLevel > 1) {
-      requiredText += '<br>' + ITEM_CONSTANTS.reqMinLevel.replace('%d', String(itemTemplate.RequiredLevel));
+    } else if (itemTemplate.required_level > 1) {
+      requiredText += '<br>' + ITEM_CONSTANTS.reqMinLevel.replace('%d', String(itemTemplate.required_level));
     }
 
     // required arena team rating / personal rating / todo (low): sort out what kind of rating
-    const [res, reqRating] = await this.getExtendedCost(itemTemplate.entry, itemTemplate.FlagsExtra, itemTemplate.BuyPrice);
+    const [res, reqRating] = await this.getExtendedCost(itemTemplate.entry, itemTemplate.extra_flags, itemTemplate.buy_price);
 
     if (!!res && !!reqRating && res[itemTemplate.entry] && Object.keys(res[itemTemplate.entry]).length > 0 && reqRating.length > 0) {
       requiredText += '<br>' + ITEM_CONSTANTS.reqRating[reqRating[1]].replace('%d', reqRating[0]);
@@ -878,14 +872,14 @@ export class ItemPreviewService {
 
     // item level
     const itemClass = Number(itemTemplate.class);
-    const itemLevel = itemTemplate.ItemLevel;
-    if (itemLevel > 0 && [ITEM_TYPE.ARMOR, ITEM_TYPE.WEAPON].includes(itemClass)) {
-      requiredText += `<br>${ITEM_CONSTANTS.itemLevel.replace('%d', String(itemLevel))}`;
+    const item_level = itemTemplate.item_level;
+    if (item_level > 0 && [ITEM_TYPE.ARMOR, ITEM_TYPE.WEAPON].includes(itemClass)) {
+      requiredText += `<br>${ITEM_CONSTANTS.itemLevel.replace('%d', String(item_level))}`;
     }
 
     // required skill
-    const requiredSkill = itemTemplate.RequiredSkill;
-    const requiredSkillRank = itemTemplate.RequiredSkillRank;
+    const requiredSkill = itemTemplate.required_skill;
+    const requiredSkillRank = itemTemplate.required_skill_rank;
     if (!!requiredSkill && requiredSkill > 0) {
       let reqSkill = await this.sqliteQueryService.getSkillNameById(requiredSkill);
 
@@ -900,14 +894,14 @@ export class ItemPreviewService {
     }
 
     // required spell
-    const requiredSpell = itemTemplate.requiredspell;
+    const requiredSpell = itemTemplate.required_spell;
     if (!!requiredSpell && requiredSpell > 0) {
       requiredText += `<br>Requires <span class="q1">${await this.sqliteQueryService.getSpellNameById(requiredSpell)}</span>`;
     }
 
     // required reputation w/ faction
-    const requiredFaction = itemTemplate.RequiredReputationFaction;
-    const requiredFactionRank = itemTemplate.RequiredReputationRank;
+    const requiredFaction = itemTemplate.required_reputation_faction;
+    const requiredFactionRank = itemTemplate.required_reputation_rank;
     if (!!requiredFaction && requiredFaction > 0) {
       let reqFaction = await this.sqliteQueryService.getFactionNameById(requiredFaction);
 
@@ -984,7 +978,7 @@ export class ItemPreviewService {
     }
 
     // readable
-    const PageText = itemTemplate.PageText;
+    const PageText = itemTemplate.page_text;
     if (PageText > 0) {
       xMisc.push(`<br><!--pagetext--><span class="q2">${ITEM_CONSTANTS.readClick}</span>`);
     }
@@ -1237,9 +1231,9 @@ export class ItemPreviewService {
     let tmpItemPreview = '';
     const green: string[] = [];
 
-    const flags = itemTemplate.Flags;
+    const flags = itemTemplate.flags;
     const bagFamily: number = Number(itemTemplate.BagFamily);
-    const quality: number = Number(itemTemplate.Quality);
+    const quality: number = Number(itemTemplate.quality);
 
     // ITEM NAME
     const itemName = itemTemplate.name;
@@ -1260,7 +1254,7 @@ export class ItemPreviewService {
     }
 
     tmpItemPreview += await this.getBonding(itemTemplate);
-    tmpItemPreview += this.getDuration(itemTemplate.duration, itemTemplate.flagsCustom);
+    // tmpItemPreview += this.getDuration(itemTemplate.duration, itemTemplate.flagsCustom);
 
     // required holiday
     const holiday = itemTemplate.HolidayId;
@@ -1282,7 +1276,7 @@ export class ItemPreviewService {
       tmpItemPreview += `<br>${containerSlots} Slot ${ITEM_CONSTANTS.bagFamily[fam] ?? ''}`;
     }
 
-    tmpItemPreview += this.getClassText(itemTemplate.InventoryType, itemTemplate.class, itemTemplate.subclass);
+    tmpItemPreview += this.getClassText(itemTemplate.inventory_type, itemTemplate.class, itemTemplate.subclass);
     tmpItemPreview += this.getDamageText(itemTemplate);
     tmpItemPreview += this.getArmorText(itemTemplate);
 
@@ -1290,9 +1284,9 @@ export class ItemPreviewService {
     tmpItemPreview += await this.getGemEnchantment(itemTemplate.entry);
 
     // Random Enchantment - if random enchantment is set, prepend stats from it
-    const RandomProperty: number = itemTemplate.RandomProperty;
-    const RandomSuffix: number = itemTemplate.RandomSuffix;
-    if (!!RandomProperty || !!RandomSuffix) {
+    const RandomProperty: number = itemTemplate.random_property;
+    // const RandomSuffix: number = itemTemplate.RandomSuffix;
+    if (!!RandomProperty) {
       tmpItemPreview += `<br><!--randEnchant--><span class="q2">${ITEM_CONSTANTS.randEnchant}</span>`;
     }
 
@@ -1312,7 +1306,7 @@ export class ItemPreviewService {
 
     tmpItemPreview += await this.getRequiredText(itemTemplate);
 
-    const lockid = itemTemplate.lockid;
+    const lockid = itemTemplate.lock_id;
     tmpItemPreview += await this.getLockText(flags, lockid);
 
     // spells on item
@@ -1326,14 +1320,14 @@ export class ItemPreviewService {
       }
     }
 
-    tmpItemPreview += await this.getItemSet(itemTemplate.entry, itemTemplate.itemset);
+    tmpItemPreview += await this.getItemSet(itemTemplate.entry, itemTemplate.set_id);
 
     // recipes, vanity pets, mounts
     tmpItemPreview += await this.getLearnSpellText(itemTemplate);
 
     tmpItemPreview += this.getMisc(itemTemplate);
 
-    const sellPrice = itemTemplate.SellPrice;
+    const sellPrice = itemTemplate.sell_price;
     if (!!sellPrice && sellPrice > 0) {
       tmpItemPreview += '<br>Sell Price: ' + this.helperService.formatMoney(sellPrice);
     }
