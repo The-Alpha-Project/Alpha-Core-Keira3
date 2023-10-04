@@ -447,7 +447,7 @@ export class QuestPreviewService {
   }
 
   isGains(): boolean {
-    return !!this.questTemplate.RewardXPDifficulty || !!this.questTemplate.RewardTalents || this.isRewardReputation();
+    return !!this.questTemplate.RewXP || !!this.questTemplate.RewSpell || this.isRewardReputation();
   }
 
   isRewardItems(): boolean {

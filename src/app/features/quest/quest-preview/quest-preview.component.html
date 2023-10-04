@@ -220,8 +220,8 @@
 
       <div id="gains" *ngIf="service.isGains()">
         <p class="title mt-3">Gains</p>
-        <p id="RewXP" *ngIf="service.rewXP as xp">• {{ xp }} experience</p>
-        <p id="rewardSpell" *ngIf="service.questTemplate.RewSpell">• Spell : {{ service.questTemplate.RewSpell }}</p>
+        <p id="RewXP" *ngIf="service.questTemplate.RewXP">• {{ service.questTemplate.RewXP }} experience</p>
+        <p id="RewSpell" *ngIf="service.questTemplate.RewSpell">• Spell : {{ service.questTemplate.RewSpell }}</p>
 
         <div *ngIf="service.isRewardReputation()">
           <div id="rewardReputations" *ngFor="let i of [1, 2, 3, 4, 5]">

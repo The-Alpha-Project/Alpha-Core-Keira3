@@ -477,7 +477,7 @@
               <div class="col-12">
                 <label class="control-label" for="RewChoiceItemId{{ i }}">
                   <keira-icon [itemId]="editorService.form.controls['RewChoiceItemId' + i].value"></keira-icon>
-                  RewChoiceItemId{{ i }}
+                  RewChItemId{{ i }}
                 </label>
                 <keira-item-selector-btn
                   [control]="editorService.form.controls['RewChoiceItemId' + i]"
@@ -493,7 +493,7 @@
               <div class="col-12">
                 <label class="control-label" for="RewChoiceItemCount{{ i }}">
                   <keira-icon [itemId]="editorService.form.controls['RewChoiceItemId' + i].value"></keira-icon>
-                  RewChoiceItemCount{{ i }}
+                  RewChItemCnt{{ i }}
                 </label>
                 <input
                   [formControlName]="'RewChoiceItemCount' + i"

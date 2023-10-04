@@ -1,1 +1,6 @@
-<img [src]="iconLink" class="item-list-icon" onerror="this.style.display='none'" />
+<img
+  [src]="iconLink"
+  [ngStyle]="size === 'small' ? { 'width.px': 20 } : { width: 'unset' }"
+  class="item-list-icon"
+  onerror="this.style.display='none'"
+/>
