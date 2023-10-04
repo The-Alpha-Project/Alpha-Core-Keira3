@@ -28,7 +28,7 @@ Keira3 is the direct successor of [Keira2](https://github.com/Helias/Keira2). We
 
 ## How to install Alpha Core Keira3
 
-To use Keira3, you don't need to install any dependency. Just [download](https://github.com/azerothcore/Keira3/releases) and run it.
+To use Keira3, you don't need to install any dependency. Just [download](https://github.com/geo-tp/Alpha-Core-Keira3/releases/) and run it.
 
 If you are using Arch Linux you can find the package on [AUR](https://aur.archlinux.org/packages/keira3/)
 
