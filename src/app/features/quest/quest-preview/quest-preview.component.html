@@ -194,10 +194,10 @@
         <div id="reward-items" *ngIf="service.isRewardItems()" class="mt-3">
           <p>You will receive:</p>
           <div *ngFor="let i of [1, 2, 3, 4]">
-            <p *ngIf="service.isFieldAvailable('RewardItem', 'RewardAmount', i)">
-              <keira-icon [size]="'small'" [itemId]="service.questTemplate['RewardItem' + i]"></keira-icon>
-              <span class="colored"> {{ service.mysqlQueryService.getItemNameById(service.questTemplate['RewardItem' + i]) | async }}</span>
-              <span class="greyed"> [{{ service.questTemplate['RewardItem' + i] }}]</span>
+            <p *ngIf="service.isFieldAvailable('RewItemId', 'RewItemCount', i)">
+              <keira-icon [size]="'small'" [itemId]="service.questTemplate['RewItemId' + i]"></keira-icon>
+              <span class="colored"> {{ service.mysqlQueryService.getItemNameById(service.questTemplate['RewItemId' + i]) | async }}</span>
+              <span class="greyed"> [{{ service.questTemplate['RewItemId' + i] }}]</span>
             </p>
           </div>
         </div>
