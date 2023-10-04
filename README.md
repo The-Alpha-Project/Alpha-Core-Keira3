@@ -38,7 +38,7 @@ If you are using Arch Linux you can find the package on [AUR](https://aur.archli
 
 ### Dependencies
 
-**Note:** these are the dependencies if you want to run Keira3 in development mode. If you just want to use Keira3, download it from the [releases page](https://github.com/azerothcore/Keira3/releases).
+**Note:** these are the dependencies if you want to run Alpha Core Keira3 in development mode. If you just want to use Keira3, download it from the [releases page](https://github.com/geo-tp/Alpha-Core-Keira3/releases/).
 
 You need to first install [node](https://nodejs.org) in order to have `npm` available in your system.
 
