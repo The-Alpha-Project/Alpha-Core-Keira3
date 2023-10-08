@@ -14,7 +14,7 @@ import { SelectGossipModule } from './select-gossip.module';
 import { SelectGossipService } from './select-gossip.service';
 
 class SelectGossipComponentPage extends SelectPageObject<SelectGossipComponent> {
-  ID_FIELD = 'MenuID';
+  ID_FIELD = 'entry';
 }
 
 describe('SelectGossip integration tests', () => {
@@ -48,7 +48,7 @@ describe('SelectGossip integration tests', () => {
     await fixture.whenStable();
     expect(page.createInput.value).toEqual(`${component.customStartingId}`);
     page.expectNewEntityFree();
-    expect(querySpy).toHaveBeenCalledWith('SELECT MAX(MenuID) AS max FROM gossip_menu;');
+    expect(querySpy).toHaveBeenCalledWith('SELECT MAX(entry) AS max FROM gossip_menu;');
     expect(page.queryWrapper.innerText).toContain('SELECT * FROM `gossip_menu` LIMIT 50');
   }));
 
@@ -61,7 +61,7 @@ describe('SelectGossip integration tests', () => {
     page.setInputValue(page.createInput, value);
 
     expect(querySpy).toHaveBeenCalledTimes(1);
-    expect(querySpy).toHaveBeenCalledWith(`SELECT * FROM \`gossip_menu\` WHERE (MenuID = ${value})`);
+    expect(querySpy).toHaveBeenCalledWith(`SELECT * FROM \`gossip_menu\` WHERE (entry = ${value})`);
     page.expectNewEntityFree();
 
     page.clickElement(page.selectNewBtn);
@@ -80,42 +80,42 @@ describe('SelectGossip integration tests', () => {
     page.setInputValue(page.createInput, value);
 
     expect(querySpy).toHaveBeenCalledTimes(1);
-    expect(querySpy).toHaveBeenCalledWith(`SELECT * FROM \`gossip_menu\` WHERE (MenuID = ${value})`);
+    expect(querySpy).toHaveBeenCalledWith(`SELECT * FROM \`gossip_menu\` WHERE (entry = ${value})`);
     page.expectEntityAlreadyInUse();
   }));
 
-  for (const { testId, MenuID, TextID, limit, expectedQuery } of [
+  for (const { testId, entry, text_id, limit, expectedQuery } of [
     {
       testId: 1,
-      MenuID: 1200,
-      TextID: 123,
+      entry: 1200,
+      text_id: 123,
       limit: '100',
-      expectedQuery: "SELECT * FROM `gossip_menu` WHERE (`MenuID` LIKE '%1200%') AND (`TextID` LIKE '%123%') LIMIT 100",
+      expectedQuery: "SELECT * FROM `gossip_menu` WHERE (`entry` LIKE '%1200%') AND (`text_id` LIKE '%123%') LIMIT 100",
     },
     {
       testId: 2,
-      MenuID: '',
-      TextID: 123,
+      entry: '',
+      text_id: 123,
       limit: '100',
-      expectedQuery: "SELECT * FROM `gossip_menu` WHERE (`TextID` LIKE '%123%') LIMIT 100",
+      expectedQuery: "SELECT * FROM `gossip_menu` WHERE (`text_id` LIKE '%123%') LIMIT 100",
     },
     {
       testId: 3,
-      MenuID: 1200,
-      TextID: '',
+      entry: 1200,
+      text_id: '',
       limit: '',
-      expectedQuery: "SELECT * FROM `gossip_menu` WHERE (`MenuID` LIKE '%1200%')",
+      expectedQuery: "SELECT * FROM `gossip_menu` WHERE (`entry` LIKE '%1200%')",
     },
   ]) {
     it(`searching an existing entity should correctly work [${testId}]`, () => {
       const { page, querySpy } = setup();
       querySpy.calls.reset();
       // Note: this is different than in other editors
-      if (MenuID) {
-        page.setInputValue(page.searchIdInput, MenuID);
+      if (entry) {
+        page.setInputValue(page.searchIdInput, entry);
       }
-      if (TextID) {
-        page.setInputValue(page.searchNameInput, TextID);
+      if (text_id) {
+        page.setInputValue(page.searchNameInput, text_id);
       }
       page.setInputValue(page.searchLimitInput, limit);
 
@@ -131,9 +131,9 @@ describe('SelectGossip integration tests', () => {
   it('searching and selecting an existing entity from the datatable should correctly work', () => {
     const { navigateSpy, page, querySpy } = setup();
     const results: GossipMenu[] = [
-      { MenuID: 1, TextID: 1 },
-      { MenuID: 1, TextID: 2 },
-      { MenuID: 1, TextID: 3 },
+      { entry: 1, text_id: 1, script_id: 0, condition_id: 0 },
+      { entry: 1, text_id: 2, script_id: 0, condition_id: 0 },
+      { entry: 1, text_id: 3, script_id: 0, condition_id: 0 },
     ];
     querySpy.calls.reset();
     querySpy.and.returnValue(of(results));
@@ -144,15 +144,15 @@ describe('SelectGossip integration tests', () => {
     const row1 = page.getDatatableRowExternal(1);
     const row2 = page.getDatatableRowExternal(2);
 
-    expect(row0.innerText).toContain(`${results[0].TextID}`);
-    expect(row1.innerText).toContain(`${results[1].TextID}`);
-    expect(row2.innerText).toContain(`${results[2].TextID}`);
+    expect(row0.innerText).toContain(`${results[0].text_id}`);
+    expect(row1.innerText).toContain(`${results[1].text_id}`);
+    expect(row2.innerText).toContain(`${results[2].text_id}`);
 
     page.clickElement(page.getDatatableCellExternal(1, 1));
 
     expect(navigateSpy).toHaveBeenCalledTimes(1);
     expect(navigateSpy).toHaveBeenCalledWith(['gossip/gossip-menu']);
     // Note: this is different than in other editors
-    expect(page.topBar.innerText).toContain(`Editing: gossip_menu (${results[1].MenuID})`);
+    expect(page.topBar.innerText).toContain(`Editing: gossip_menu (${results[1].entry})`);
   });
 });

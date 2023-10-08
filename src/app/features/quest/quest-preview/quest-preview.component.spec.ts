@@ -16,7 +16,7 @@ import { QuestPreviewService } from './quest-preview.service';
 import Spy = jasmine.Spy;
 
 class QuestPreviewComponentPage extends PageObject<QuestPreviewComponent> {
-  get title(): HTMLHeadElement {
+  get Title(): HTMLHeadElement {
     return this.query<HTMLHeadElement>('#title');
   }
   get level(): HTMLParagraphElement {
@@ -156,7 +156,7 @@ describe('QuestPreviewComponent', () => {
 
     fixture.detectChanges();
 
-    expect(page.title.innerText).toContain(title);
+    expect(page.Title.innerText).toContain(title);
     expect(page.level.innerText).toContain(level);
     expect(page.minLevel.innerText).toContain(`${minLevel} - ${maxLevel}`);
     page.removeElement();
@@ -165,8 +165,8 @@ describe('QuestPreviewComponent', () => {
   it('should show questStart and questEnd icons', () => {
     const { fixture, service, page } = setup();
     const periodicQuestSpy = spyOnProperty(service, 'periodicQuest', 'get').and.returnValue('');
-    spyOnProperty(service, 'creatureQueststarterList', 'get').and.returnValue([{ id: 123, quest: 123 }]);
-    spyOnProperty(service, 'creatureQuestenderList', 'get').and.returnValue([{ id: 123, quest: 123 }]);
+    spyOnProperty(service, 'creatureQueststarterList', 'get').and.returnValue([{ entry: 123, quest: 123 }]);
+    spyOnProperty(service, 'creatureQuestenderList', 'get').and.returnValue([{ entry: 123, quest: 123 }]);
 
     fixture.detectChanges();
 
@@ -259,8 +259,8 @@ describe('QuestPreviewComponent', () => {
 
   it('should show rewardXP', async () => {
     const { fixture, service, page } = setup();
-    const questTemplate = createMockObject({ RewardXPDifficulty: 2, QuestLevel: 10 }, QuestTemplate);
-    spyOnProperty(service, 'rewardXP$', 'get').and.returnValue(Promise.resolve('200'));
+    const questTemplate = createMockObject({ rewXP: 200 }, QuestTemplate);
+    spyOnProperty(service, 'rewXP', 'get').and.returnValue(200);
     spyOnProperty(service, 'questTemplate', 'get').and.returnValue(questTemplate);
 
     fixture.detectChanges();

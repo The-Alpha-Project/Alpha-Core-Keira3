@@ -24,12 +24,12 @@ describe('CreatureEquipTemplate integration tests', () => {
 
   const id = 1234;
   const expectedFullCreateQuery =
-    'DELETE FROM `creature_equip_template` WHERE (`CreatureID` = 1234);\n' +
-    'INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES\n' +
-    '(1234, 1, 0, 0, 0, 0);';
+    'DELETE FROM `creature_equip_template` WHERE (`entry` = 1234);\n' +
+    'INSERT INTO `creature_equip_template` (`entry`, `equipentry1`, `equipentry2`, `equipentry3`) VALUES\n' +
+    '(1234, 0, 0, 0);';
 
   const originalEntity = new CreatureEquipTemplate();
-  originalEntity.CreatureID = id;
+  originalEntity.entry = id;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -65,7 +65,7 @@ describe('CreatureEquipTemplate integration tests', () => {
     });
 
     it('should correctly update the unsaved status', () => {
-      const field = 'ItemID1';
+      const field = 'equipentry1';
       expect(handlerService.isCreatureEquipTemplateUnsaved).toBe(false);
       page.setInputValueById(field, 3);
       expect(handlerService.isCreatureEquipTemplateUnsaved).toBe(true);
@@ -75,12 +75,12 @@ describe('CreatureEquipTemplate integration tests', () => {
 
     it('changing a property and executing the query should correctly work', () => {
       const expectedQuery =
-        'DELETE FROM `creature_equip_template` WHERE (`CreatureID` = 1234);\n' +
-        'INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES\n' +
-        '(1234, 1, 0, 2, 0, 0);';
+        'DELETE FROM `creature_equip_template` WHERE (`entry` = 1234);\n' +
+        'INSERT INTO `creature_equip_template` (`entry`, `equipentry1`, `equipentry2`, `equipentry3`) VALUES\n' +
+        '(1234, 0, 2, 0);';
       querySpy.calls.reset();
 
-      page.setInputValueById('ItemID2', '2');
+      page.setInputValueById('equipentry2', '2');
       page.expectFullQueryToContain(expectedQuery);
 
       page.clickExecuteQuery();
@@ -100,10 +100,10 @@ describe('CreatureEquipTemplate integration tests', () => {
     });
 
     it('changing all properties and executing the query should correctly work', () => {
-      const expectedQuery = 'UPDATE `creature_equip_template` SET `ItemID2` = 1, `ItemID3` = 2 WHERE (`CreatureID` = 1234);';
+      const expectedQuery = 'UPDATE `creature_equip_template` SET `equipentry2` = 1, `equipentry3` = 2 WHERE (`entry` = 1234);';
       querySpy.calls.reset();
 
-      page.changeAllFields(originalEntity, ['ID', 'VerifiedBuild']);
+      page.changeAllFields(originalEntity);
       page.expectDiffQueryToContain(expectedQuery);
 
       page.clickExecuteQuery();
@@ -112,20 +112,20 @@ describe('CreatureEquipTemplate integration tests', () => {
     });
 
     it('changing values should correctly update the queries', () => {
-      page.setInputValueById('ItemID1', '1');
-      page.expectDiffQueryToContain('UPDATE `creature_equip_template` SET `ItemID1` = 1 WHERE (`CreatureID` = 1234);');
+      page.setInputValueById('equipentry1', '1');
+      page.expectDiffQueryToContain('UPDATE `creature_equip_template` SET `equipentry1` = 1 WHERE (`entry` = 1234);');
       page.expectFullQueryToContain(
-        'DELETE FROM `creature_equip_template` WHERE (`CreatureID` = 1234);\n' +
-          'INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES\n' +
-          '(1234, 1, 1, 0, 0, 0);',
+        'DELETE FROM `creature_equip_template` WHERE (`entry` = 1234);\n' +
+          'INSERT INTO `creature_equip_template` (`entry`, `equipentry1`, `equipentry2`, `equipentry3`) VALUES\n' +
+          '(1234, 1, 0, 0);',
       );
 
-      page.setInputValueById('ItemID3', '3');
-      page.expectDiffQueryToContain('UPDATE `creature_equip_template` SET `ItemID1` = 1, `ItemID3` = 3 WHERE (`CreatureID` = 1234);');
+      page.setInputValueById('equipentry3', '3');
+      page.expectDiffQueryToContain('UPDATE `creature_equip_template` SET `equipentry1` = 1, `equipentry3` = 3 WHERE (`entry` = 1234);');
       page.expectFullQueryToContain(
-        'DELETE FROM `creature_equip_template` WHERE (`CreatureID` = 1234);\n' +
-          'INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES\n' +
-          '(1234, 1, 1, 0, 3, 0);',
+        'DELETE FROM `creature_equip_template` WHERE (`entry` = 1234);\n' +
+          'INSERT INTO `creature_equip_template` (`entry`, `equipentry1`, `equipentry2`, `equipentry3`) VALUES\n' +
+          '(1234, 1, 0, 3);',
       );
     });
 
@@ -135,7 +135,7 @@ describe('CreatureEquipTemplate integration tests', () => {
 
       const itemEntry = 1200;
       querySpy.and.returnValue(of([{ entry: itemEntry, name: 'Mock Item' }]));
-      const field = 'ItemID1';
+      const field = 'equipentry1';
       page.clickElement(page.getSelectorBtn(field));
       page.expectModalDisplayed();
       await page.whenReady();
@@ -147,11 +147,11 @@ describe('CreatureEquipTemplate integration tests', () => {
       page.clickModalSelect();
       await page.whenReady();
 
-      page.expectDiffQueryToContain('UPDATE `creature_equip_template` SET `ItemID1` = 1200 WHERE (`CreatureID` = 1234);');
+      page.expectDiffQueryToContain('UPDATE `creature_equip_template` SET `equipentry1` = 1200 WHERE (`entry` = 1234);');
       page.expectFullQueryToContain(
-        'DELETE FROM `creature_equip_template` WHERE (`CreatureID` = 1234);\n' +
-          'INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES\n' +
-          '(1234, 1, 1200, 0, 0, 0);',
+        'DELETE FROM `creature_equip_template` WHERE (`entry` = 1234);\n' +
+          'INSERT INTO `creature_equip_template` (`entry`, `ID`, `equipentry1`, `equipentry2`, `equipentry3`) VALUES\n' +
+          '(1234, 1200, 0, 0);',
       );
     }));
   });
