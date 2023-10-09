@@ -84,36 +84,36 @@ describe('SelectQuest integration tests', () => {
     page.expectEntityAlreadyInUse();
   }));
 
-  for (const { testId, id, name, limit, expectedQuery } of [
+  for (const { testId, entry, Title, limit, expectedQuery } of [
     {
       testId: 1,
-      id: 1200,
-      name: `The People's Militia`,
+      entry: 1200,
+      Title: `The People's Militia`,
       limit: '100',
       expectedQuery: "SELECT * FROM `quest_template` WHERE (`entry` LIKE '%1200%') AND (`Title` LIKE '%The People\\'s Militia%') LIMIT 100",
     },
     {
       testId: 2,
-      id: '',
-      name: `The People's Militia`,
+      entry: '',
+      Title: `The People's Militia`,
       limit: '100',
       expectedQuery: "SELECT * FROM `quest_template` WHERE (`Title` LIKE '%The People\\'s Militia%') LIMIT 100",
     },
     {
       testId: 3,
-      id: 1200,
-      name: '',
+      entry: 1200,
+      Title: '',
       limit: '',
       expectedQuery: "SELECT * FROM `quest_template` WHERE (`entry` LIKE '%1200%')",
     },
   ]) {
     it(`searching an existing entity should correctly work [${testId}]`, () => {
       querySpy.calls.reset();
-      if (id) {
-        page.setInputValue(page.searchIdInput, id);
+      if (entry) {
+        page.setInputValue(page.searchIdInput, entry);
       }
-      if (name) {
-        page.setInputValue(page.searchNameInput, name);
+      if (Title) {
+        page.setInputValue(page.searchNameInput, Title);
       }
       page.setInputValue(page.searchLimitInput, limit);
 
@@ -129,8 +129,8 @@ describe('SelectQuest integration tests', () => {
   it('searching and selecting an existing entity from the datatable should correctly work', () => {
     const results: Partial<QuestTemplate>[] = [
       { entry: 1, Title: 'An awesome Quest 1', Type: 0, QuestLevel: 1, MinLevel: 10, Details: '' },
-      { id: 2, Title: 'An awesome Quest 2', Type: 0, QuestLevel: 2, MinLevel: 20, Details: '' },
-      { id: 3, Title: 'An awesome Quest 3', Type: 0, QuestLevel: 3, MinLevel: 30, Details: '' },
+      { entry: 2, Title: 'An awesome Quest 2', Type: 0, QuestLevel: 2, MinLevel: 20, Details: '' },
+      { entry: 3, Title: 'An awesome Quest 3', Type: 0, QuestLevel: 3, MinLevel: 30, Details: '' },
     ];
     querySpy.calls.reset();
     querySpy.and.returnValue(of(results));

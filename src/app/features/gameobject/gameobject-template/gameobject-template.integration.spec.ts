@@ -28,14 +28,11 @@ describe('GameobjectTemplate integration tests', () => {
     'DELETE FROM `gameobject_template` WHERE (`entry` = ' +
     id +
     ');\n' +
-    'INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, ' +
-    '`unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, ' +
-    '`Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, ' +
-    '`Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES\n' +
+    'INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`, `size`, `data0`, `data1`, `data2`, `data3`, `data4` ' +
+    '`data5`, `data6`, `data7`, `data8`, `data9`, `mingold`, `maxgold`, `script_name`, ' +
     '(' +
     id +
-    ", 0, 0, '', '', '', '', 1, 0, 0, 0, 0, 0, 0, 0, " +
-    "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0);";
+    ", 38, 2, 10, 'Captain Sanders Chest', 0, 4, 1, 0, 2882, 0, 140, 0, 0, 0, 0, 0, 0, 0, 0, ''";
 
   const originalEntity = new GameobjectTemplate();
   originalEntity.entry = id;
@@ -93,14 +90,11 @@ describe('GameobjectTemplate integration tests', () => {
         'DELETE FROM `gameobject_template` WHERE (`entry` = ' +
         id +
         ');\n' +
-        'INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, ' +
-        '`unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, ' +
-        '`Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, ' +
-        '`Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES\n' +
+        'INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`, `size`, `data0`, `data1`, `data2`, `data3`, `data4` ' +
+        '`data5`, `data6`, `data7`, `data8`, `data9`, `mingold`, `maxgold`, `script_name`, ' +
         '(' +
         id +
-        ", 0, 0, 'Helias', '', '', '', 1, 0, 0, 0, 0, 0, 0, 0, " +
-        "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0);";
+        ", 38, 2, 10, 'Helias', 0, 4, 1, 0, 2882, 0, 140, 0, 0, 0, 0, 0, 0, 0, 0, ''";
 
       querySpy.calls.reset();
 
@@ -125,16 +119,11 @@ describe('GameobjectTemplate integration tests', () => {
 
     it('changing all properties and executing the query should correctly work', () => {
       const expectedQuery =
-        "UPDATE `gameobject_template` SET `displayId` = 1, `name` = '2', `IconName` = '3', " +
-        "`castBarCaption` = '4', `unk1` = '5', `size` = 6, `Data0` = 7, `Data1` = 8, `Data2` = 9, `Data3` = 10, " +
-        '`Data4` = 11, `Data5` = 12, `Data6` = 13, `Data7` = 14, `Data8` = 15, `Data9` = 16, `Data10` = 17, `Data11` = 18, ' +
-        '`Data12` = 19, `Data13` = 20, `Data14` = 21, `Data15` = 22, `Data16` = 23, `Data17` = 24, `Data18` = 25, ' +
-        "`Data19` = 26, `Data20` = 27, `Data21` = 28, `Data22` = 29, `Data23` = 30, `AIName` = '31', " +
-        "`ScriptName` = '32' WHERE (`entry` = 1234);";
+        "UPDATE `gameobject_template` SET `type` = 1, `displayId` = 110, `name` = 'Captain Sanders Chest1', `faction` = 1, `flags` = 41, `size` = 11, `data0` = 1, `data1` = 28821, `data2` = 1, `data3` = 1401, `data4` = 1, `data5` = 1, `data6` = 1, `data7` = 1, `data8` = 1, `data9` = 1, `mingold` = 1, `maxgold` = 1, `script_name` = '1' WHERE (`entry` = 1234);";
 
       querySpy.calls.reset();
 
-      page.changeAllFields(originalEntity, ['VerifiedBuild']);
+      page.changeAllFields(originalEntity);
       page.expectDiffQueryToContain(expectedQuery);
 
       page.clickExecuteQuery();
@@ -149,8 +138,8 @@ describe('GameobjectTemplate integration tests', () => {
       page.expectDiffQueryToContain("UPDATE `gameobject_template` SET `name` = 'Helias' WHERE (`entry` = " + id + ');');
       page.expectFullQueryToContain('Helias');
 
-      page.setInputValueById('Data0', '35');
-      page.expectDiffQueryToContain("UPDATE `gameobject_template` SET `name` = 'Helias', `Data0` = 35 WHERE (`entry` = " + id + ');');
+      page.setInputValueById('data0', '35');
+      page.expectDiffQueryToContain("UPDATE `gameobject_template` SET `name` = 'Helias', `data0` = 35 WHERE (`entry` = " + id + ');');
       page.expectFullQueryToContain('Helias');
       page.expectFullQueryToContain('35');
     });
@@ -172,14 +161,11 @@ describe('GameobjectTemplate integration tests', () => {
         'DELETE FROM `gameobject_template` WHERE (`entry` = ' +
           id +
           ');\n' +
-          'INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, ' +
-          '`unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, ' +
-          '`Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, ' +
-          '`Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES\n' +
+          'INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`, `size`, `data0`, `data1`, `data2`, `data3`, `data4` ' +
+          '`data5`, `data6`, `data7`, `data8`, `data9`, `mingold`, `maxgold`, `script_name`, ' +
           '(' +
           id +
-          ", 7, 0, '', '', '', '', 1, 0, 0, 0, 0, 0, 0, 0, " +
-          "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0);",
+          ", 38, 2, 10, 'Helias', 0, 4, 1, 0, 2882, 0, 140, 0, 0, 0, 0, 0, 0, 0, 0, ''",
       );
     }));
   });

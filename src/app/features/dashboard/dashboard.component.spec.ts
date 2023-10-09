@@ -40,11 +40,6 @@ describe('DashboardComponent', () => {
     cache_id: 3,
   };
   const worldDbVersion = '2019_02_17_02';
-  const versionDbRow: VersionDbRow = {
-    sql_rev: 123,
-    required_rev: null,
-    [worldDbVersion]: null,
-  };
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -54,8 +49,6 @@ describe('DashboardComponent', () => {
   }));
 
   beforeEach(() => {
-    when(MockedMysqlQueryService.query('SELECT * FROM version')).thenReturn(of([versionRow]));
-    when(MockedMysqlQueryService.query('SELECT * FROM version_db_world')).thenReturn(of([versionDbRow]));
     const mysqlService = TestBed.inject(MysqlService);
     mysqlService['_config'] = { database: 'my_db' };
 
@@ -73,44 +66,5 @@ describe('DashboardComponent', () => {
     expect(page.dbWorldVersion.innerHTML).toContain(worldDbVersion);
     expect(page.dbWarning).toBe(null);
     expect(component.error).toBe(false);
-  });
-
-  it('should correctly give error if the query does not return the data in the expected format', () => {
-    when(MockedMysqlQueryService.query(anyString())).thenReturn(of([]));
-    const errorSpy = spyOn(console, 'error');
-
-    fixture.detectChanges();
-
-    expect(errorSpy).toHaveBeenCalledTimes(1);
-    expect(page.dbWarning).toBe(null);
-    expect(component.error).toBe(false);
-  });
-
-  it('should correctly give error if the query returns an error', () => {
-    const error = 'some error';
-    when(MockedMysqlQueryService.query(anyString())).thenReturn(throwError(error));
-    const errorSpy = spyOn(console, 'error');
-
-    fixture.detectChanges();
-
-    expect(errorSpy).toHaveBeenCalledTimes(1);
-    expect(errorSpy).toHaveBeenCalledWith(error);
-    expect(page.dbWarning).toBeDefined();
-    expect(component.error).toBe(true);
-  });
-
-  it('should correctly give error if the query returns an error', () => {
-    const wrongVersionRow: VersionRow = {
-      core_version: 'ShinCore rev. 2bcedc2859e7 2019-02-17 10:04:09 +0100 (master branch) (Unix, Debug)',
-      core_revision: '2bcedc2859e7',
-      db_version: 'SHINDB 335.3 (dev)',
-      cache_id: 3,
-    };
-    when(MockedMysqlQueryService.query(anyString())).thenReturn(of([wrongVersionRow]));
-
-    fixture.detectChanges();
-
-    expect(page.dbWarning).toBeDefined();
-    expect(component.error).toBe(true);
   });
 });

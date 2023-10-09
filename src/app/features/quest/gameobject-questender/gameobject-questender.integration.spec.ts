@@ -88,8 +88,8 @@ describe('GameobjectQuestender integration tests', () => {
     it('adding new rows and executing the query should correctly work', () => {
       const { page, querySpy } = setup(true);
       const expectedQuery =
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (0, 1, 2));\n' +
-        'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (0, 1, 2));\n' +
+        'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
         '(0, 1234),\n' +
         '(1, 1234),\n' +
         '(2, 1234);\n';
@@ -113,25 +113,25 @@ describe('GameobjectQuestender integration tests', () => {
       const { page } = setup(true);
       page.addNewRow();
       page.expectDiffQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (0));\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (0));\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234);',
       );
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234);',
       );
 
       page.setInputValueById('id', '1');
       page.expectDiffQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (1));\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (1));\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(1, 1234);\n',
       );
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(1, 1234);',
       );
       page.removeElement();
@@ -157,8 +157,8 @@ describe('GameobjectQuestender integration tests', () => {
       page.expectDiffQueryToBeShown();
       page.expectDiffQueryToBeEmpty();
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234),\n' +
           '(1, 1234),\n' +
           '(2, 1234);\n',
@@ -171,26 +171,26 @@ describe('GameobjectQuestender integration tests', () => {
       const { page } = setup(false);
       page.deleteRow(1);
       expect(page.getEditorTableRowsCount()).toBe(2);
-      page.expectDiffQueryToContain('DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (1));');
+      page.expectDiffQueryToContain('DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (1));');
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234),\n' +
           '(2, 1234);',
       );
 
       page.deleteRow(1);
       expect(page.getEditorTableRowsCount()).toBe(1);
-      page.expectDiffQueryToContain('DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (1, 2));');
+      page.expectDiffQueryToContain('DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (1, 2));');
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234);',
       );
 
       page.deleteRow(0);
       expect(page.getEditorTableRowsCount()).toBe(0);
-      page.expectDiffQueryToContain('DELETE FROM `gameobject_questender` WHERE `quest` = 1234;');
+      page.expectDiffQueryToContain('DELETE FROM `gameobject_quest_finisher` WHERE `quest` = 1234;');
       page.expectFullQueryToBeEmpty();
       page.removeElement();
     });
@@ -201,13 +201,13 @@ describe('GameobjectQuestender integration tests', () => {
       page.setInputValueById('id', 111);
 
       page.expectDiffQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (1, 111));\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (1, 111));\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(111, 1234);\n',
       );
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234),\n' +
           '(111, 1234),\n' +
           '(2, 1234);\n',
@@ -228,14 +228,14 @@ describe('GameobjectQuestender integration tests', () => {
       expect(page.getEditorTableRowsCount()).toBe(3);
 
       page.expectDiffQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234) AND (`id` IN (1, 2, 10, 3));\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234) AND (`entry` IN (1, 2, 10, 3));\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(10, 1234),\n' +
           '(3, 1234);\n',
       );
       page.expectFullQueryToContain(
-        'DELETE FROM `gameobject_questender` WHERE (`quest` = 1234);\n' +
-          'INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES\n' +
+        'DELETE FROM `gameobject_quest_finisher` WHERE (`quest` = 1234);\n' +
+          'INSERT INTO `gameobject_quest_finisher` (`entry`, `quest`) VALUES\n' +
           '(0, 1234),\n' +
           '(10, 1234),\n' +
           '(3, 1234);\n',
